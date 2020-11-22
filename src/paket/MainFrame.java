@@ -2,7 +2,6 @@ package paket;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,8 +24,8 @@ public class MainFrame extends JFrame {
 		
 		JPanel statusBar = new JPanel();
 	    statusBar.setBorder(new CompoundBorder(new LineBorder(Color.DARK_GRAY),
-	        new EmptyBorder(-3, -2, -3, -2)));
-	    JLabel status = new JLabel("Studentska sluzba");
+	        new EmptyBorder(-1, 3, -1, 20)));
+	    JLabel status = new JLabel("Studentska služba");
 	    
 	    JLabel date = new JLabel("datum");
 	    CurrentTime ct = new CurrentTime(date);

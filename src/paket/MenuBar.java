@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -24,8 +23,8 @@ public class MenuBar extends JMenuBar {
 		JMenu file = new JMenu("File");
 		
 		JMenuItem miNew = new JMenuItem("New",'N');
-		ImageIcon plus_icon = new ImageIcon(new ImageIcon("images/plus_icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
-		miNew.setIcon(plus_icon);
+		ImageIcon plusIcon = new ImageIcon(new ImageIcon("images/plus_icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
+		miNew.setIcon(plusIcon);
 		miNew.setAccelerator(KeyStroke.getKeyStroke("control N"));
 		miNew.addActionListener(new ActionListener() {
 		      public void actionPerformed(ActionEvent e) {
@@ -34,8 +33,8 @@ public class MenuBar extends JMenuBar {
 		});
 
 		JMenuItem miClose = new JMenuItem("Close",'C');
-		ImageIcon x_icon = new ImageIcon(new ImageIcon("images/x_icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
-		miClose.setIcon(x_icon);
+		ImageIcon xIcon = new ImageIcon(new ImageIcon("images/x_Icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
+		miClose.setIcon(xIcon);
 		miClose.setAccelerator(KeyStroke.getKeyStroke("control C"));
 		miClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -50,8 +49,8 @@ public class MenuBar extends JMenuBar {
 		JMenu edit = new JMenu("Edit");
 		
 		JMenuItem miEdit = new JMenuItem("Edit", 'E');
-		ImageIcon edit_icon = new ImageIcon(new ImageIcon("images/edit_icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
-		miEdit.setIcon(edit_icon);
+		ImageIcon editIcon = new ImageIcon(new ImageIcon("images/edit_Icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
+		miEdit.setIcon(editIcon);
 		miEdit.setAccelerator(KeyStroke.getKeyStroke("control E"));
 		miEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -60,8 +59,8 @@ public class MenuBar extends JMenuBar {
 		});
 		
 		JMenuItem miDelete = new JMenuItem("Delete", 'D');
-		ImageIcon delete_icon = new ImageIcon(new ImageIcon("images/delete_icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
-		miDelete.setIcon(delete_icon);
+		ImageIcon deleteIcon = new ImageIcon(new ImageIcon("images/delete_Icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
+		miDelete.setIcon(deleteIcon);
 		miDelete.setAccelerator(KeyStroke.getKeyStroke("control D"));
 		edit.add(miEdit);
 		edit.addSeparator();
@@ -70,13 +69,13 @@ public class MenuBar extends JMenuBar {
 		JMenu help = new JMenu("Help");
 		
 		JMenuItem miHelp = new JMenuItem("Help", 'H');	
-		ImageIcon help_icon = new ImageIcon(new ImageIcon("images/help_icon.png").getImage().getScaledInstance(17, 17, Image.SCALE_DEFAULT));
-		miHelp.setIcon(help_icon);
+		ImageIcon helpIcon = new ImageIcon(new ImageIcon("images/help_Icon.png").getImage().getScaledInstance(17, 17, Image.SCALE_DEFAULT));
+		miHelp.setIcon(helpIcon);
 		miHelp.setAccelerator(KeyStroke.getKeyStroke("control H"));
 		
 		JMenuItem miAbout = new JMenuItem("About", 'A');
-		ImageIcon about_icon = new ImageIcon(new ImageIcon("images/about_icon.png").getImage().getScaledInstance(17, 17, Image.SCALE_DEFAULT));
-		miAbout.setIcon(about_icon);
+		ImageIcon aboutIcon = new ImageIcon(new ImageIcon("images/about_Icon.png").getImage().getScaledInstance(17, 17, Image.SCALE_DEFAULT));
+		miAbout.setIcon(aboutIcon);
 		miAbout.setAccelerator(KeyStroke.getKeyStroke("control A"));
 		help.add(miHelp);
 		help.addSeparator();

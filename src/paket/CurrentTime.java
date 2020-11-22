@@ -1,19 +1,19 @@
 package paket;
-import javax.swing.*;  
-import java.awt.*;  
-import java.text.*;  
-import java.util.*;  
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.swing.JLabel;  
 
 public class CurrentTime implements Runnable{
 	
-	Thread t=null;  
-	int hours=0, minutes=0, seconds=0;  
+	Thread thread = null;  
 	String timeString = "";
 	JLabel l;
 
 	public CurrentTime(JLabel l) {
-		 t = new Thread(this);  
-	     t.start(); 
+		 thread = new Thread(this);  
+	     thread.start(); 
 	     this.l = l;
 	};
 	
@@ -21,14 +21,14 @@ public class CurrentTime implements Runnable{
 	      try {  
 	         while (true) {  
 	  
-	            Calendar cal = Calendar.getInstance();  
-	            SimpleDateFormat formatter = new SimpleDateFormat("hh:mm dd.MM.YYYY.");  
-	            Date date = cal.getTime();  
+	            Calendar calendar = Calendar.getInstance();  
+	            SimpleDateFormat formatter = new SimpleDateFormat("hh:mm  dd.MM.YYYY.");  
+	            Date date = calendar.getTime();  
 	            timeString = formatter.format( date );  
 	  
 	            l.setText(timeString);  
 	  
-	            t.sleep( 1000 );  // interval given in milliseconds  
+	            thread.sleep(1000);  // interval given in milliseconds  
 	         }  
 	      }  
 	      catch (Exception e) { }  
