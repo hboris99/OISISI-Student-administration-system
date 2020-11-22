@@ -24,7 +24,7 @@ public class CurrentTime implements Runnable{
 	            Calendar calendar = Calendar.getInstance();  
 	            SimpleDateFormat formatter = new SimpleDateFormat("HH:mm  dd.MM.YYYY.");  
 	            Date date = calendar.getTime();  
-	            timeString = formatter.format( date );  
+	            timeString = formatter.format(date);  
 	  
 	            l.setText(timeString);  
 	  

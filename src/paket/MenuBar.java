@@ -59,6 +59,7 @@ public class MenuBar extends JMenuBar {
 				System.out.println("miEdit performed");
 			}
 		});
+
 		
 		JMenuItem miDelete = new JMenuItem("Delete", 'D');
 		ImageIcon deleteIcon = new ImageIcon(new ImageIcon("images/delete_Icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
