@@ -22,6 +22,7 @@ public class MenuBar extends JMenuBar {
 		
 		JMenu file = new JMenu("File");
 		
+		file.setMnemonic('F');
 		JMenuItem miNew = new JMenuItem("New",'N');
 		ImageIcon plusIcon = new ImageIcon(new ImageIcon("images/plus_icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
 		miNew.setIcon(plusIcon);
@@ -48,6 +49,7 @@ public class MenuBar extends JMenuBar {
 	
 		JMenu edit = new JMenu("Edit");
 		
+		edit.setMnemonic('E');	
 		JMenuItem miEdit = new JMenuItem("Edit", 'E');
 		ImageIcon editIcon = new ImageIcon(new ImageIcon("images/edit_Icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
 		miEdit.setIcon(editIcon);
@@ -68,6 +70,7 @@ public class MenuBar extends JMenuBar {
 		
 		JMenu help = new JMenu("Help");
 		
+		help.setMnemonic('H');
 		JMenuItem miHelp = new JMenuItem("Help", 'H');	
 		ImageIcon helpIcon = new ImageIcon(new ImageIcon("images/help_Icon.png").getImage().getScaledInstance(17, 17, Image.SCALE_DEFAULT));
 		miHelp.setIcon(helpIcon);
