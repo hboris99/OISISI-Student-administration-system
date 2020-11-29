@@ -38,7 +38,6 @@ public class Toolbar extends JToolBar{
 		addBT.setIcon(plusIcon);
 		
 		
-		addBT.setMnemonic('A');
 		addBT.setToolTipText("Dodajte novi entitet");
 		addBT.addActionListener(new ActionListener() {
 			
@@ -60,7 +59,7 @@ public class Toolbar extends JToolBar{
 		editBT.setBorder(emptyBorder);
 		ImageIcon editIcon = new ImageIcon(new ImageIcon("images/edit_icon.png").getImage().getScaledInstance(24, 24, Image.SCALE_DEFAULT));
 		editBT.setIcon(editIcon);
-		editBT.setMnemonic('h');
+		
 		editBT.setToolTipText("Izmenite postojeći entitet");
 		editBT.addActionListener(new ActionListener()  {
 			
@@ -76,7 +75,6 @@ public class Toolbar extends JToolBar{
 		
 		JButton deleteBT = new JButton();
 		deleteBT.setBorder(emptyBorder);
-		deleteBT.setMnemonic('g');
 		ImageIcon deleteIcon = new ImageIcon(new ImageIcon("images/delete_icon.png").getImage().getScaledInstance(24, 24, Image.SCALE_DEFAULT));
 		deleteBT.setIcon(deleteIcon);
 		deleteBT.setToolTipText("Obrisite postojeći entitet");
@@ -103,7 +101,6 @@ public class Toolbar extends JToolBar{
 		
 		JButton searchBT = new JButton();
 		searchBT.setBorder(emptyBorder);
-		searchBT.setMnemonic('s');
 		ImageIcon searchIcon = new ImageIcon(new ImageIcon("images/search_icon.png").getImage().getScaledInstance(26, 26,Image.SCALE_SMOOTH));
 		searchBT.setIcon(searchIcon);
 		searchBT.setToolTipText("Pretraži");
