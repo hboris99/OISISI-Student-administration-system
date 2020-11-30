@@ -32,5 +32,6 @@ public class MainFrame extends JFrame {
 	    int height = (int) ((3*screenSize.getHeight())/4);
 	    setSize(width,height);
 	    setTitle("Studentska služba");
+	    setResizable(true);
 	}
 }
