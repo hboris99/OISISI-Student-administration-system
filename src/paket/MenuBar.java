@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -18,7 +19,7 @@ public class MenuBar extends JMenuBar {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public MenuBar() {
+	public MenuBar(JFrame parent) {
 		
 		JMenu file = new JMenu("File");
 		
@@ -27,11 +28,7 @@ public class MenuBar extends JMenuBar {
 		ImageIcon plusIcon = new ImageIcon(new ImageIcon("images/plus_icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
 		miNew.setIcon(plusIcon);
 		miNew.setAccelerator(KeyStroke.getKeyStroke("control N"));
-		miNew.addActionListener(new ActionListener() {
-		      public void actionPerformed(ActionEvent e) {
-		        System.out.println("miNew performed");
-		      }
-		});
+		miNew.addActionListener(new AddStudentActionListener(parent));
 
 		JMenuItem miClose = new JMenuItem("Close",'C');
 		ImageIcon xIcon = new ImageIcon(new ImageIcon("images/x_Icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));

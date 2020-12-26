@@ -18,13 +18,13 @@ public class MainFrame extends JFrame {
 		this.setLayout(new BorderLayout());
 		
 		
-		MenuBar mb = new MenuBar();
+		MenuBar mb = new MenuBar(this);
 		this.setJMenuBar(mb);
 					
 		StatusBar sb = new StatusBar();
 	    this.add(sb, BorderLayout.SOUTH);
 	    
-	    Toolbar tb = new Toolbar();
+	    Toolbar tb = new Toolbar(this);
 	    add(tb,BorderLayout.NORTH);
 	    
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

@@ -7,22 +7,19 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
-import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
 public class Toolbar extends JToolBar{
 	
 	private static final long serialVersionUID = 3L;
-	public Toolbar() {
+	public Toolbar(JFrame parent) {
 		
 		super(SwingConstants.HORIZONTAL);
 		
@@ -38,13 +35,7 @@ public class Toolbar extends JToolBar{
 		ImageIcon plusIcon = new ImageIcon(new ImageIcon("images/plus_icon.png").getImage().getScaledInstance(24, 24, Image.SCALE_DEFAULT));
 		addBT.setIcon(plusIcon);
 		
-		addBT.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("addbt performed");
-			}
-		});
+		addBT.addActionListener(new AddStudentActionListener(parent));
 		addBT.setToolTipText("Dodajte novi entitet");
 		add(addBT);
 		
