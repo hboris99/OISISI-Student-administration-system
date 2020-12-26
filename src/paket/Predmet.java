@@ -23,5 +23,7 @@ public class Predmet {
 		this.espb = espb;
 		this.studentip = studentip;
 		this.studentip = studentinp;
+		
+		
 	}
 }
