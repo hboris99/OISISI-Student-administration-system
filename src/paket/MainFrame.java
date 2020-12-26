@@ -27,6 +27,9 @@ public class MainFrame extends JFrame {
 	    Toolbar tb = new Toolbar(this);
 	    add(tb,BorderLayout.NORTH);
 	    
+	    TabbedPane tab = new TabbedPane();
+	    this.add(tab, BorderLayout.CENTER);
+	    
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    int width = (int) ((3*screenSize.getWidth())/4);
 	    int height = (int) ((3*screenSize.getHeight())/4);
