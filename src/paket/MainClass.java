@@ -11,6 +11,7 @@ public class MainClass {
 		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
 	}
 
 }
