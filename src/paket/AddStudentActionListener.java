@@ -16,8 +16,24 @@ public class AddStudentActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		AddStudentDialog dialog = new AddStudentDialog(parent, "Dodavanje studenta", true);
-		dialog.setVisible(true);
+		TabbedPane tabbedPane = new TabbedPane();
+		
+		switch(tabbedPane.getTabIndex().getSelectedIndex()) {
+		case 0:
+			AddStudentDialog dialog = new AddStudentDialog(parent, "Dodavanje studenta", true);
+			dialog.setVisible(true);
+			break;
+		case 1:
+			AddProfesorDialog dialog2 = new AddProfesorDialog(parent, "Dodavanje prof", true);
+			dialog2.setVisible(true);
+			break;
+		default:
+			System.out.println("Tab koji ste izabrali ne postoji.");
+		}
+	
+	
+		//AddStudentDialog dialog = new AddStudentDialog(parent, "Dodavanje studenta", true);
+		//dialog.setVisible(true);
 	}
 
 }
