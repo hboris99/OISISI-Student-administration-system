@@ -28,6 +28,9 @@ public class Profesor {
 			this.titula = titula;
 			this.zvanje = zvanje;
 			this.predmeti_radi = predmeti_radi;
+			
+			
+			
 		}
 	
 }
