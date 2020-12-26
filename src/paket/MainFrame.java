@@ -3,7 +3,6 @@ package paket;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
 import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
@@ -18,6 +17,7 @@ public class MainFrame extends JFrame {
 		this.setLayout(new BorderLayout());
 		
 		
+		
 		MenuBar mb = new MenuBar(this);
 		this.setJMenuBar(mb);
 					
@@ -29,12 +29,19 @@ public class MainFrame extends JFrame {
 	    
 	    TabbedPane tab = new TabbedPane();
 	    this.add(tab, BorderLayout.CENTER);
-	    
+	    tab.getTabIndex().getModel().addChangeListener(eds ->{
+			tab.getTabIndex().getSelectedIndex();
+			
+		});
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    int width = (int) ((3*screenSize.getWidth())/4);
 	    int height = (int) ((3*screenSize.getHeight())/4);
 	    setSize(width,height);
 	    setTitle("Studentska služba");
 	    setResizable(true);
+	    
+	    
+	    
+	    
 	}
 }
