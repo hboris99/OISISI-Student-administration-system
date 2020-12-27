@@ -1,7 +1,4 @@
-package controller;
-
-import model.Profesor;
-import model.Student;
+package model;
 
 enum enumSemestar{ZIMSKI,LETNJI};
 public class Predmet {

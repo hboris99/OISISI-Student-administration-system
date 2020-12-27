@@ -1,4 +1,4 @@
-package controller;
+package view;
 
 import java.awt.GridLayout;
 
@@ -8,9 +8,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
-import view.AbstractTableModelProfesori;
-import view.AbstractTableModelStudenti;
 
 
 public class TabbedPane extends JPanel {

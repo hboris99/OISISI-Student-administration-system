@@ -1,4 +1,4 @@
-package controller;
+package view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
+
+import controller.AddStudentActionListener;
 
 public class Toolbar extends JToolBar {
 

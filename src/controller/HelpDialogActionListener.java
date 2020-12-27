@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import view.HelpDialog;
+
 public class HelpDialogActionListener implements ActionListener {
 
 	private JFrame parent;

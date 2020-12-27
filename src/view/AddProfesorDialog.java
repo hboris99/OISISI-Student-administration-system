@@ -1,4 +1,4 @@
-package controller;
+package view;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controller.ProfesorValidationFocusListener;
 import model.BazaProfesora;
 import model.Podaci;
 import model.Profesor;

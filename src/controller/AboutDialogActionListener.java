@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import view.AboutDialog;
+
 public class AboutDialogActionListener implements ActionListener {
 	
 	private JFrame parent;

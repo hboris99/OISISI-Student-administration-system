@@ -1,4 +1,4 @@
-package controller;
+package view;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -10,6 +10,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+
+import controller.AboutDialogActionListener;
+import controller.AddStudentActionListener;
+import controller.HelpDialogActionListener;
 
 
 public class MenuBar extends JMenuBar {

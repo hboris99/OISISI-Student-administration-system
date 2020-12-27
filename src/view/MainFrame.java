@@ -1,4 +1,4 @@
-package controller;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -7,10 +7,6 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
-import view.AbstractTableModelStudenti;
-import view.ProfesoriJTable;
-import view.StudentiJTable;
 
 public class MainFrame extends JFrame {
 

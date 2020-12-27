@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import view.AddProfesorDialog;
+import view.AddStudentDialog;
+import view.TabbedPane;
+
 public class AddStudentActionListener implements ActionListener {
 	
 	private JFrame parent;
