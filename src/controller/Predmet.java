@@ -1,4 +1,4 @@
-package paket;
+package controller;
 
 import model.Profesor;
 import model.Student;

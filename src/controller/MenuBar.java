@@ -1,4 +1,4 @@
-package paket;
+package controller;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;

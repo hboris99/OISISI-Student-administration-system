@@ -1,4 +1,4 @@
-package paket;
+package controller;
 
 import javax.swing.WindowConstants;
 

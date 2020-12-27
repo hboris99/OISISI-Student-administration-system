@@ -1,4 +1,4 @@
-package paket;
+package controller;
 
 import java.awt.Color;
 import java.awt.Font;
