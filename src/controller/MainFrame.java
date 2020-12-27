@@ -1,4 +1,4 @@
-package paket;
+package controller;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import view.AbstractTableModelStudenti;
+import view.ProfesoriJTable;
 import view.StudentiJTable;
 
 public class MainFrame extends JFrame {
@@ -58,7 +59,11 @@ public class MainFrame extends JFrame {
 		validate();
 	}
 
-
+	public void prikaziTabeluProfesora() {
+		tabelaProfesora = new ProfesoriJTable();
+		TabbedPane tab = TabbedPane.getInstance();
+		add(tab);
+	}
 	public void prikaziTabeluStudenata() {
 		tabelaStudenata = new StudentiJTable();
 
