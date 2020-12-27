@@ -11,9 +11,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import controller.AboutDialogActionListener;
-import controller.AddStudentActionListener;
-import controller.HelpDialogActionListener;
+import listeners.AboutDialogActionListener;
+import listeners.AddStudentActionListener;
+import listeners.HelpDialogActionListener;
 
 
 public class MenuBar extends JMenuBar {

@@ -17,7 +17,7 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import controller.AddStudentActionListener;
+import listeners.AddStudentActionListener;
 
 public class Toolbar extends JToolBar {
 

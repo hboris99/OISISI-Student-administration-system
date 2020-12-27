@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import controller.ProfesorValidationFocusListener;
+import listeners.ProfesorValidationFocusListener;
 import model.BazaProfesora;
 import model.Podaci;
 import model.Profesor;
