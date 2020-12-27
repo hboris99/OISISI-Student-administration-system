@@ -28,6 +28,8 @@ public class AddProfesorDialog extends JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private Profesor prof;
+	
 	public AddProfesorDialog(Frame parent, String title, boolean modal) {
 		super(parent, title, modal);
 		
@@ -268,7 +270,8 @@ public class AddProfesorDialog extends JDialog {
 				Podaci.getInsance().getProfesori().add(p);
 
 				for (Profesor temp : Podaci.getInsance().getProfesori()) {
-					System.out.println(temp);
+					prof = temp;
+					
 				}
 			}
 		});
@@ -276,7 +279,13 @@ public class AddProfesorDialog extends JDialog {
 		JButton btnOdustani = new JButton("Odustani");
 		panel.add(btnOdustani, new GridBagConstraints(1, 10, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, 0, 75), 0, 0));
-
+		btnOdustani.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					dispose();
+			}
+		});
 		for (int i = 0; i < 8; i++) {
 			listTxt.get(i).addFocusListener(new ProfesorValidationFocusListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 		}
@@ -288,4 +297,13 @@ public class AddProfesorDialog extends JDialog {
 		}
 		
 	}
+
+	public Profesor getProf() {
+		return prof;
+	}
+
+	public void setProf(Profesor prof) {
+		this.prof = prof;
+	}
+	
 }
