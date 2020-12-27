@@ -76,11 +76,13 @@ public class MenuBar extends JMenuBar {
 		ImageIcon helpIcon = new ImageIcon(new ImageIcon("images/help_Icon.png").getImage().getScaledInstance(17, 17, Image.SCALE_DEFAULT));
 		miHelp.setIcon(helpIcon);
 		miHelp.setAccelerator(KeyStroke.getKeyStroke("control H"));
+		miHelp.addActionListener(new HelpDialogActionListener(parent));
 		
 		JMenuItem miAbout = new JMenuItem("About", 'A');
 		ImageIcon aboutIcon = new ImageIcon(new ImageIcon("images/about_Icon.png").getImage().getScaledInstance(17, 17, Image.SCALE_DEFAULT));
 		miAbout.setIcon(aboutIcon);
 		miAbout.setAccelerator(KeyStroke.getKeyStroke("control A"));
+		miAbout.addActionListener(new AboutDialogActionListener(parent));
 		help.add(miHelp);
 		help.addSeparator();
 		help.add(miAbout);
