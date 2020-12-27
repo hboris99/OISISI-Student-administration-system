@@ -1,17 +1,24 @@
 package paket;
 
 import java.awt.GridLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import model.Podaci;
+import model.Profesor;
+
+
 public class TabbedPane extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTabbedPane tab;
+	private JTable tabela1; 
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -28,10 +35,10 @@ public class TabbedPane extends JPanel {
 			tabbedPane.addTab("Student",sp2);
 			String prof[] = {"Ime", "Prezime", "Titula", "Zvanje"};
 			DefaultTableModel model = new DefaultTableModel(prof, 0);
-			JTable tabela1 = new JTable(model);
+			 tabela1 = new JTable(model);
 			JScrollPane sp =new JScrollPane(tabela1);
 			tabbedPane.addTab("Profesor",sp);
-			
+		
 			
 			tab = tabbedPane;
 			add(tab);
@@ -48,6 +55,12 @@ public class TabbedPane extends JPanel {
 		}
 		public void setTab(JTabbedPane tab) {
 			this.tab = tab;
+		}
+		public JTable getTabela1() {
+			return tabela1;
+		}
+		public void setTabela1(JTable tabela1) {
+			this.tabela1 = tabela1;
 		}
 	
 		
