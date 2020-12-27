@@ -2,7 +2,7 @@ package model;
 
 import java.util.Arrays;
 
-import paket.Predmet;
+import controller.Predmet;
 
 public class Profesor {
 	public static enum Titula {BSC, MSC,MR,DR,PRDR}

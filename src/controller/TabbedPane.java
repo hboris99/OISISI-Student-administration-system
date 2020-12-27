@@ -1,4 +1,4 @@
-package paket;
+package controller;
 
 import java.awt.GridLayout;
 
@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import view.AbstractTableModelProfesori;
 import view.AbstractTableModelStudenti;
 
 
@@ -40,7 +41,7 @@ public class TabbedPane extends JPanel {
 			JScrollPane sp2=new JScrollPane(tabela2);
 			tabbedPane.addTab("Student",sp2);
 
-			AbstractTableModelStudenti modelProfesori = new AbstractTableModelStudenti(); // promeniti u profesore!!!
+			AbstractTableModelProfesori modelProfesori = new AbstractTableModelProfesori(); 
 			JTable tabela1 = new JTable(modelProfesori);
 			JScrollPane sp =new JScrollPane(tabela1);
 			tabbedPane.addTab("Profesor",sp);
