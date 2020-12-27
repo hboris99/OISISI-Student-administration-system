@@ -272,7 +272,7 @@ public class AddProfesorDialog extends JDialog {
 				Podaci.getInsance().getProfesori().add(p);
 
 				for (Profesor temp : Podaci.getInsance().getProfesori()) {
-					prof = temp;
+					
 					
 				}
 			}
