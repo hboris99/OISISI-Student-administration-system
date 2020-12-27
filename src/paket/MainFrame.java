@@ -27,10 +27,7 @@ public class MainFrame extends JFrame {
 	    
 	    TabbedPane tab = new TabbedPane();
 	    this.add(tab, BorderLayout.CENTER);
-	    tab.getTabIndex().getModel().addChangeListener(eds ->{
-			tab.getTabIndex().getSelectedIndex();
-			
-		});
+	   
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    int width = (int) ((3*screenSize.getWidth())/4);
 	    int height = (int) ((3*screenSize.getHeight())/4);

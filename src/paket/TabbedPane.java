@@ -50,10 +50,7 @@ public class TabbedPane extends JPanel {
 			this.tab = tab;
 		}
 	
-		public JTabbedPane getTabIndex() {
-			return tab;
-			
-		}
+		
 		
 	}
 
