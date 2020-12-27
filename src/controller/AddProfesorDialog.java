@@ -1,4 +1,4 @@
-package paket;
+package controller;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import model.BazaProfesora;
 import model.Podaci;
 import model.Profesor;
 
@@ -269,12 +270,13 @@ public class AddProfesorDialog extends JDialog {
 				p.setTitula((Profesor.Titula) comboTitula.getSelectedItem());
 				p.setZvanje((Profesor.Zvanje) comboZvanje.getSelectedItem());
 
-				Podaci.getInstance().getProfesori().add(p);
+				BazaProfesora.getInstance().getProfesori().add(p);
 
 				for (Profesor temp : Podaci.getInstance().getProfesori()) {
-					
+					System.out.println(temp);
 					
 				}
+				MainFrame.getInstance().prikaziTabeluProfesora();
 			}
 		});
 
