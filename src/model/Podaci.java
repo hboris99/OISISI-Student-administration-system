@@ -11,16 +11,13 @@ public final class Podaci {
 
 	public Podaci() {
 		this.kolone = new ArrayList<String>();
+		this.kolone.add("INDEX");
 		this.kolone.add("IME");
 		this.kolone.add("PREZIME");
-		this.kolone.add("DATUM RODJ.");
-		this.kolone.add("ADRESA");
-		this.kolone.add("BR TELEFONA");
-		this.kolone.add("EMAIL");
-		this.kolone.add("BR. INDEXA");
-		this.kolone.add("GOD. UPISA");
 		this.kolone.add("GOD. STUDIJA");
 		this.kolone.add("STATUS");
+		this.kolone.add("PROSEK");
+
 	}
 	
 	public static Podaci getInstance() {
@@ -38,7 +35,7 @@ public final class Podaci {
 	}
 
 	public int getColumnCount() {
-		return 10;
+		return 6;
 	}
 
 	public String getColumnName(int index) {
@@ -49,29 +46,22 @@ public final class Podaci {
 		Student student = this.studenti.get(row);
 		switch (column) {
 		case 0:
-			return student.getIme();
-		case 1:
-			return student.getPrezime();
-		case 2:
-			return student.getDatum_rodjenja();
-		case 3:
-			return student.getAdresa_stanovanja();
-		case 4:
-			return student.getTelefon();
-		case 5:
-			return student.getEmail();
-		case 6:
 			return student.getBroj_indeksa();
-		case 7:
-			return String.valueOf(student.getGodina_upisa());
-		case 8:
+		case 1:
+			return student.getIme();		
+		case 2:
+			return student.getPrezime();
+		case 3:
 			return String.valueOf(student.getGodina_studija());
-		case 9: 
+		case 4:
 			if(student.getStatus() == Student.enumStatus.B) { 
 				return "Budzet";
 			}else {
 				return "Samofinansiranje";
 			}
+		case 5:
+			return "0";
+
 		default:
 			return null;
 		}
