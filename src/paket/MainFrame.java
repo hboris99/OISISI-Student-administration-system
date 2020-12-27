@@ -34,7 +34,6 @@ public class MainFrame extends JFrame {
 	    setSize(width,height);
 	    setTitle("Studentska služba");
 	    setResizable(true);
-	    
 		MenuBar mb = new MenuBar(this,tab);
 		this.setJMenuBar(mb);
 	    Toolbar tb = new Toolbar(this,tab);
