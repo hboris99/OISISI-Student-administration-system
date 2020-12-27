@@ -1,10 +1,9 @@
-package paket;
+package model;
 
 import java.util.Arrays;
-
-enum enumStatus{B,S}
-
 public class Student {
+	
+	public static enum enumStatus{B,S}
 
 	private String prezime;
 	private String ime;

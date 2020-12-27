@@ -22,6 +22,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import model.Podaci;
+import model.Profesor;
+
 public class AddProfesorDialog extends JDialog {
 	/**
 	 * 
@@ -47,7 +50,6 @@ public class AddProfesorDialog extends JDialog {
 			
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
 		
 		add(panel);
 		
@@ -178,7 +180,7 @@ public class AddProfesorDialog extends JDialog {
 		labZvanje.setPreferredSize(new Dimension(170,18));
 		labZvanje.setHorizontalAlignment(SwingConstants.LEFT);
 		    
-		JComboBox<Zvanje> comboZvanje = new JComboBox<Zvanje>(Zvanje.values());
+		JComboBox<Profesor.Zvanje> comboZvanje = new JComboBox<Profesor.Zvanje>(Profesor.Zvanje.values());
 		
 		comboZvanje.setPreferredSize(new Dimension(158, 18));
 //		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
@@ -188,17 +190,17 @@ public class AddProfesorDialog extends JDialog {
 			@Override // https://tips4java.wordpress.com/2013/11/17/combo-box-with-custom-renderer/
 			public Component getListCellRendererComponent(JList<?> jList, Object o, int i, boolean b, boolean b1) {// https://stackoverflow.com/questions/42602405/jcombobox-fill-with-enum-variable-value
 				Component rendererComponent = super.getListCellRendererComponent(jList, o, i, b, b1);
-				if(o == Zvanje.SUN) {
+				if(o == Profesor.Zvanje.SUN) {
 				setText("Saradnik u nastavi");
-				}else if (o == Zvanje.AS) {
+				}else if (o == Profesor.Zvanje.AS) {
 					setText("Asistent");
-				}else if (o == Zvanje.ASD) {
+				}else if (o == Profesor.Zvanje.ASD) {
 					setText("Asistent sa doktoratom");
-				}else if (o == Zvanje.DOC) {
+				}else if (o == Profesor.Zvanje.DOC) {
 					setText("Docent");
-				}else if (o == Zvanje.VPROF) {
+				}else if (o == Profesor.Zvanje.VPROF) {
 					setText("Vandredni Profesor");
-				}else if (o == Zvanje.REDPROF) {
+				}else if (o == Profesor.Zvanje.REDPROF) {
 					setText("Redovni Profesor");
 				}
 				else {
@@ -215,7 +217,7 @@ public class AddProfesorDialog extends JDialog {
 		labTitula.setPreferredSize(new Dimension(170,18));
 		labTitula.setHorizontalAlignment(SwingConstants.LEFT);
 		    
-		JComboBox<Titula> comboTitula = new JComboBox<Titula>(Titula.values());
+		JComboBox<Profesor.Titula> comboTitula = new JComboBox<Profesor.Titula>(Profesor.Titula.values());
 
 		comboTitula.setPreferredSize(new Dimension(158, 18));
 //		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
@@ -225,15 +227,15 @@ public class AddProfesorDialog extends JDialog {
 			@Override // https://tips4java.wordpress.com/2013/11/17/combo-box-with-custom-renderer/
 			public Component getListCellRendererComponent(JList<?> jList, Object o, int i, boolean b, boolean b1) {// https://stackoverflow.com/questions/42602405/jcombobox-fill-with-enum-variable-value
 				Component rendererComponent = super.getListCellRendererComponent(jList, o, i, b, b1);
-				if(o == Titula.BSC) {
+				if(o == Profesor.Titula.BSC) {
 				setText("Bsc");
-				}else if (o == Titula.MR) {
+				}else if (o == Profesor.Titula.MR) {
 					setText("Mr");
 
-				}else if (o == Titula.DR) {
+				}else if (o == Profesor.Titula.DR) {
 					setText("Dr");
 
-				}else if (o == Titula.MSC) {
+				}else if (o == Profesor.Titula.MSC) {
 					setText("Msc");
 					
 				}else {
@@ -264,8 +266,8 @@ public class AddProfesorDialog extends JDialog {
 				p.setEmail(tfEmail.getText());
 				p.setAdresa_kancelarije(tfadrKanc.getText());
 				p.setBroj_lk(tfbrLK.getText());
-				p.setTitula((Titula) comboTitula.getSelectedItem());
-				p.setZvanje((Zvanje) comboZvanje.getSelectedItem());
+				p.setTitula((Profesor.Titula) comboTitula.getSelectedItem());
+				p.setZvanje((Profesor.Zvanje) comboZvanje.getSelectedItem());
 
 				Podaci.getInsance().getProfesori().add(p);
 

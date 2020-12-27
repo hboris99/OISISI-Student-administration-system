@@ -1,4 +1,5 @@
-package paket;
+package model;
+
 public class Ocena {
 
 	Student student;

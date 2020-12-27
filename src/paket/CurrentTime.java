@@ -27,8 +27,7 @@ public class CurrentTime implements Runnable{
 	            timeString = formatter.format(date);  
 	  
 	            l.setText(timeString);  
-	  
-	            thread.sleep(1000);  // interval given in milliseconds  
+	            Thread.sleep(1000); 
 	         }  
 	      }  
 	      catch (Exception e) { }  

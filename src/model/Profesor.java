@@ -1,11 +1,13 @@
-package paket;
+package model;
 
 import java.util.Arrays;
 
-enum Titula {BSC, MSC,MR,DR,PRDR}
-enum Zvanje {SUN, AS, ASD, DOC, VPROF, REDPROF, PROFEM }
+import paket.Predmet;
 
 public class Profesor {
+	public static enum Titula {BSC, MSC,MR,DR,PRDR}
+	public static enum Zvanje {SUN, AS, ASD, DOC, VPROF, REDPROF, PROFEM }
+	
 	String prezime;
 	String ime;
 	String datum_rodjenja;

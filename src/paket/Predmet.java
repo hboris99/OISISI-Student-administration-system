@@ -1,5 +1,8 @@
 package paket;
 
+import model.Profesor;
+import model.Student;
+
 enum enumSemestar{ZIMSKI,LETNJI};
 public class Predmet {
 	String sifra;

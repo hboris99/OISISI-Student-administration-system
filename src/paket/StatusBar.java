@@ -17,7 +17,7 @@ public class StatusBar extends JPanel {
 	        new EmptyBorder(-1, 3, -1, 20)));
 	    JLabel labelLeft = new JLabel("Studentska služba");
 	    JLabel labelRight = new JLabel("datum");
-	    CurrentTime ct = new CurrentTime(labelRight);
+	    new CurrentTime(labelRight);
 	      
 	    setLayout(new BorderLayout());
 	    add(labelLeft,BorderLayout.WEST);

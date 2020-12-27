@@ -22,6 +22,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import model.Podaci;
+import model.Student;
+
 public class AddStudentDialog extends JDialog {
 
 	/**
@@ -44,7 +47,6 @@ public class AddStudentDialog extends JDialog {
 
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
 
 		add(panel);
 
@@ -185,7 +187,7 @@ public class AddStudentDialog extends JDialog {
 		labNacinFin.setPreferredSize(new Dimension(170, 18));
 		labNacinFin.setHorizontalAlignment(SwingConstants.LEFT);
 
-		JComboBox<enumStatus> comboNacinFin = new JComboBox<enumStatus>(enumStatus.values());
+		JComboBox<Student.enumStatus> comboNacinFin = new JComboBox<Student.enumStatus>(Student.enumStatus.values());
 
 		comboNacinFin.setPreferredSize(new Dimension(158, 18));
 //		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
@@ -195,7 +197,7 @@ public class AddStudentDialog extends JDialog {
 			@Override // https://tips4java.wordpress.com/2013/11/17/combo-box-with-custom-renderer/
 			public Component getListCellRendererComponent(JList<?> jList, Object o, int i, boolean b, boolean b1) {// https://stackoverflow.com/questions/42602405/jcombobox-fill-with-enum-variable-value
 				Component rendererComponent = super.getListCellRendererComponent(jList, o, i, b, b1);
-				setText(o == enumStatus.B ? "Budzet" : "Samofinansiranje");
+				setText(o == Student.enumStatus.B ? "Budzet" : "Samofinansiranje");
 				return rendererComponent;
 			}
 		});
@@ -221,7 +223,7 @@ public class AddStudentDialog extends JDialog {
 				s.setBroj_indeksa(tfBrIndeks.getText());
 				s.setGodina_upisa(Integer.parseInt(tfGodUpisa.getText()));
 				s.setGodina_studija((int) comboGodStudija.getSelectedItem());
-				s.setStatus((enumStatus) comboNacinFin.getSelectedItem());
+				s.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
 
 				Podaci.getInsance().getStudenti().add(s);
 
@@ -236,7 +238,8 @@ public class AddStudentDialog extends JDialog {
 				GridBagConstraints.NONE, new Insets(0, 25, 0, 75), 0, 0));
 
 		for (int i = 0; i < 8; i++) {
-			listTxt.get(i).addFocusListener(new StudentValidationFocusListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
+			listTxt.get(i).addFocusListener(
+					new StudentValidationFocusListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 		}
 
 		for (int i = 0; i < 8; i++) {

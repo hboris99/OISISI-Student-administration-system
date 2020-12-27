@@ -3,6 +3,7 @@ package paket;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
@@ -27,7 +28,6 @@ public class MainFrame extends JFrame {
 	    
 	    TabbedPane tab = new TabbedPane();
 	    this.add(tab, BorderLayout.CENTER);
-	   
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    int width = (int) ((3*screenSize.getWidth())/4);
 	    int height = (int) ((3*screenSize.getHeight())/4);
