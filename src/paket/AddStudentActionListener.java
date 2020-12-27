@@ -4,28 +4,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
 
 public class AddStudentActionListener implements ActionListener {
 	
 	private JFrame parent;
+	private TabbedPane tab;
 
-	public AddStudentActionListener(JFrame parent) {
+	public AddStudentActionListener(JFrame parent, TabbedPane tab) {
 		super();
 		this.parent = parent;
+		this.tab = tab;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		TabbedPane tabbedPane = new TabbedPane();
 		
-		switch(tabbedPane.getTabIndex().getSelectedIndex()) {
+		switch(tab.getTab().getSelectedIndex()) {
 		case 0:
-			AddStudentDialog dialog = new AddStudentDialog(parent, "Dodavanje studenta", true);
-			dialog.setVisible(true);
+			AddStudentDialog dialogStudent = new AddStudentDialog(parent, "Dodavanje studenta", true);
+			dialogStudent.setVisible(true);
 			break;
 		case 1:
-			AddProfesorDialog dialog2 = new AddProfesorDialog(parent, "Dodavanje prof", true);
-			dialog2.setVisible(true);
+			AddProfesorDialog dialogProfesor = new AddProfesorDialog(parent, "Dodavanje prof", true);
+			dialogProfesor.setVisible(true);
 			break;
 		default:
 			System.out.println("Tab koji ste izabrali ne postoji.");

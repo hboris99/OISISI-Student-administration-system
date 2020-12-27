@@ -17,9 +17,12 @@ public class MenuBar extends JMenuBar {
 	/**
 	 * 
 	 */
+	private TabbedPane tab;
 	private static final long serialVersionUID = 1L;
 	
-	public MenuBar(JFrame parent) {
+	public MenuBar(JFrame parent, TabbedPane tab) {
+		
+		this.tab=tab;
 		
 		JMenu file = new JMenu("File");
 		
@@ -28,7 +31,7 @@ public class MenuBar extends JMenuBar {
 		ImageIcon plusIcon = new ImageIcon(new ImageIcon("images/plus_icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
 		miNew.setIcon(plusIcon);
 		miNew.setAccelerator(KeyStroke.getKeyStroke("control N"));
-		miNew.addActionListener(new AddStudentActionListener(parent));
+		miNew.addActionListener(new AddStudentActionListener(parent,tab));
 
 		JMenuItem miClose = new JMenuItem("Close",'C');
 		ImageIcon xIcon = new ImageIcon(new ImageIcon("images/x_Icon.png").getImage().getScaledInstance(16, 16, Image.SCALE_DEFAULT));
@@ -85,6 +88,14 @@ public class MenuBar extends JMenuBar {
 		add(file);
 		add(edit);
 		add(help);
+	}
+
+	public TabbedPane getTab() {
+		return tab;
+	}
+
+	public void setTab(TabbedPane tab) {
+		this.tab = tab;
 	}
 	
 }

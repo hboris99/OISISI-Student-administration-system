@@ -12,6 +12,10 @@ public class TabbedPane extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTabbedPane tab;
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public TabbedPane() {
 			super(new GridLayout(1,1));
 			
@@ -38,6 +42,14 @@ public class TabbedPane extends JPanel {
 			
 			
 		}
+	
+		public JTabbedPane getTab() {
+			return tab;
+		}
+		public void setTab(JTabbedPane tab) {
+			this.tab = tab;
+		}
+	
 		public JTabbedPane getTabIndex() {
 			return tab;
 			

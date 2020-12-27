@@ -18,14 +18,12 @@ public class MainFrame extends JFrame {
 		
 		
 		
-		MenuBar mb = new MenuBar(this);
-		this.setJMenuBar(mb);
+
 					
 		StatusBar sb = new StatusBar();
 	    this.add(sb, BorderLayout.SOUTH);
 	    
-	    Toolbar tb = new Toolbar(this);
-	    add(tb,BorderLayout.NORTH);
+
 	    
 	    TabbedPane tab = new TabbedPane();
 	    this.add(tab, BorderLayout.CENTER);
@@ -39,6 +37,11 @@ public class MainFrame extends JFrame {
 	    setSize(width,height);
 	    setTitle("Studentska služba");
 	    setResizable(true);
+	    
+		MenuBar mb = new MenuBar(this,tab);
+		this.setJMenuBar(mb);
+	    Toolbar tb = new Toolbar(this,tab);
+	    add(tb,BorderLayout.NORTH);
 	    
 	    
 	    

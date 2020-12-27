@@ -191,7 +191,7 @@ public class AddProfesorDialog extends JDialog {
 		    	  new Insets( 0, 25, 0, 75 ), 0, 0 ) );
 		
 		
-		tfIme.addFocusListener(new ImeFocusListener(btnPotvrdi, tfIme, nizBool));
+		//tfIme.addFocusListener(new ImeFocusListener(btnPotvrdi, listT, nizBool));
 		
 		
 		for(int i = 0; i<8; i++) {

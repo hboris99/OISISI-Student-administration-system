@@ -11,6 +11,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
@@ -18,10 +19,13 @@ import javax.swing.border.Border;
 
 public class Toolbar extends JToolBar{
 	
+	TabbedPane tab;
 	private static final long serialVersionUID = 3L;
-	public Toolbar(JFrame parent) {
+	public Toolbar(JFrame parent, TabbedPane tab) {
+		
 		
 		super(SwingConstants.HORIZONTAL);
+		this.tab = tab; 
 		
 		Border emptyBorder = BorderFactory.createEmptyBorder(); 
 
@@ -35,7 +39,7 @@ public class Toolbar extends JToolBar{
 		ImageIcon plusIcon = new ImageIcon(new ImageIcon("images/plus_icon.png").getImage().getScaledInstance(24, 24, Image.SCALE_DEFAULT));
 		addBT.setIcon(plusIcon);
 		
-		addBT.addActionListener(new AddStudentActionListener(parent));
+		addBT.addActionListener(new AddStudentActionListener(parent,tab));
 		addBT.setToolTipText("Dodajte novi entitet");
 		add(addBT);
 		
