@@ -1,4 +1,4 @@
-package paket;
+package controller;
 
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -49,9 +49,9 @@ public class AboutDialog extends JDialog {
 		add(darkoBio,gbc);
 		JTextArea darkoBioImpl = new JTextArea("Boris Horvat je rođen u Novom Sadu 23.08.1999 godine,\n"
 				+ "kao mali interesuje se za engleski jezik kao i za umetnost,\n upisuje OŠ Žarko Zrenanjin, i završava kao vukovac."
-				+ "Posle\n završene osnovne škole upisuje Gimnaziju Jovan Jovanović \nZmaj, gde kao član hora osvaja razne nagrade na međunarodnim \ntakmičenjima"
-				+ ", u četvrtom razredu paralelno upisuje i srednju\n muzičku školu, odsek za solo pevanje. Nakon završene srednje\n škole upisuje "
-				+ "FTN odsek Računarstvo i Automatika, koji i dan danas pohađa, u \nmeđuvremenu upisuje i srednju muzičku školu za solo pevanje. ");
+				+ "Posle\n završene osnovne škole upisuje Gimnaziju Jovan Jovanović \nZmaj, gde kao �?lan hora osvaja razne nagrade na međunarodnim \ntakmi�?enjima"
+				+ ", u �?etvrtom razredu paralelno upisuje i srednju\n muzi�?ku školu, odsek za solo pevanje. Nakon završene srednje\n škole upisuje "
+				+ "FTN odsek Ra�?unarstvo i Automatika, koji i dan danas pohađa, u \nmeđuvremenu upisuje i srednju muzi�?ku školu za solo pevanje. ");
 		
 		gbc.gridx=2;
 		gbc.gridy = 3;
@@ -85,9 +85,9 @@ public class AboutDialog extends JDialog {
 		add(borisBio,gbc);
 		JTextArea borisBioImpl = new JTextArea("Boris Horvat je rođen u Novom Sadu 23.08.1999 godine,\n"
 				+ "kao mali interesuje se za engleski jezik kao i za umetnost,\n upisuje OŠ Žarko Zrenanjin, i završava kao vukovac."
-				+ "Posle\n završene osnovne škole upisuje Gimnaziju Jovan Jovanović \nZmaj, gde kao član hora osvaja razne nagrade na međunarodnim \ntakmičenjima"
-				+ ", u četvrtom razredu paralelno upisuje i srednju\n muzičku školu, odsek za solo pevanje. Nakon završene srednje\n škole upisuje "
-				+ "FTN odsek Računarstvo i Automatika, koji i dan danas pohađa, u \nmeđuvremenu upisuje i srednju muzičku školu za solo pevanje. ");
+				+ "Posle\n završene osnovne škole upisuje Gimnaziju Jovan Jovanović \nZmaj, gde kao �?lan hora osvaja razne nagrade na međunarodnim \ntakmi�?enjima"
+				+ ", u �?etvrtom razredu paralelno upisuje i srednju\n muzi�?ku školu, odsek za solo pevanje. Nakon završene srednje\n škole upisuje "
+				+ "FTN odsek Ra�?unarstvo i Automatika, koji i dan danas pohađa, u \nmeđuvremenu upisuje i srednju muzi�?ku školu za solo pevanje. ");
 		
 		gbc.gridx=1;
 		gbc.gridy = 3;
