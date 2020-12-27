@@ -43,7 +43,6 @@ public class StudentValidationFocusListener implements FocusListener {
 				&& 
 				(Integer.parseInt(txt.get(7).getText()) >= 1900 ? true : false ));
 		//System.out.println((Integer.parseInt(txt.get(7).getText())+ " " + Calendar.getInstance().get(Calendar.YEAR) + " " + b[7]));
-		
 		System.out.println("\t\t"+"------");
 		for(int i = 0; i<8; i++) {
 			System.out.println("\t\t"+b[i]);
