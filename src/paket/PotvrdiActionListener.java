@@ -18,7 +18,7 @@ public class PotvrdiActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		boolean[] niz = new boolean[7];
+		boolean[] niz = new boolean[8];
 
 	}
 
