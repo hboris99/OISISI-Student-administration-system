@@ -8,7 +8,7 @@ public final class BazaProfesora {
 	private List<Profesor> profesori = new ArrayList<Profesor>();
 	private List<String> kolone;
 
-	public BazaProfesora() {
+	private BazaProfesora() {
 		this.kolone = new ArrayList<String>();
 		this.kolone.add("IME");
 		this.kolone.add("PREZIME");

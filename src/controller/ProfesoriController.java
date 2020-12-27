@@ -1,10 +1,20 @@
 package controller;
 
 public class ProfesoriController {
-	public void dodajProf() {
+	
+	private static ProfesoriController instance = null;
+	
+	private ProfesoriController() {} 
+	
+	public static ProfesoriController getInstance(){
 		
+        if (instance == null) 
+            instance = new ProfesoriController(); 
+  
+        return instance; 
 	}
-	public void obrisiProf(int rowSelectedIndex) {
-		
-	}
+	
+	public void dodajProf() {}
+	
+	public void obrisiProf(int rowSelectedIndex) {}
 }
