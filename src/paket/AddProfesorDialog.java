@@ -269,9 +269,9 @@ public class AddProfesorDialog extends JDialog {
 				p.setTitula((Profesor.Titula) comboTitula.getSelectedItem());
 				p.setZvanje((Profesor.Zvanje) comboZvanje.getSelectedItem());
 
-				Podaci.getInsance().getProfesori().add(p);
+				Podaci.getInstance().getProfesori().add(p);
 
-				for (Profesor temp : Podaci.getInsance().getProfesori()) {
+				for (Profesor temp : Podaci.getInstance().getProfesori()) {
 					
 					
 				}

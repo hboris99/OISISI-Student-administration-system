@@ -225,11 +225,13 @@ public class AddStudentDialog extends JDialog {
 				s.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				s.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
 
-				Podaci.getInsance().getStudenti().add(s);
+				Podaci.getInstance().getStudenti().add(s);
 
-				for (Student temp : Podaci.getInsance().getStudenti()) {
+				for (Student temp : Podaci.getInstance().getStudenti()) {
 					System.out.println(temp);
 				}
+				
+				MainFrame.getInstance().prikaziTabeluStudenata();
 			}
 		});
 
@@ -246,6 +248,15 @@ public class AddStudentDialog extends JDialog {
 			System.out.println("\t" + nizBool[i]);
 			System.out.println(tfIme.getWidth());
 		}
+		
+		btnOdustani.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dispose();
+			}
+		});
 
 	}
 

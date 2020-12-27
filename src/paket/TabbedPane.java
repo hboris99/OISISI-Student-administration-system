@@ -6,10 +6,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-import model.Podaci;
-import model.Profesor;
+import view.AbstractTableModelStudenti;
 
 
 public class TabbedPane extends JPanel {
@@ -17,35 +17,46 @@ public class TabbedPane extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private static TabbedPane instance = null;
+
+	public static TabbedPane getInstance() {
+		if (instance == null) {
+			instance = new TabbedPane();
+		}
+		return instance;
+	}
+	
 	private JTabbedPane tab;
 	private JTable tabela1; 
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	public TabbedPane() {
+	private TabbedPane() {
 			super(new GridLayout(1,1));
 			
 			JTabbedPane tabbedPane = new JTabbedPane();
 			
-			String stud[] = {"Indeks","Ime", "Prezime", "Godina Studija", "Status", "Prosek"};
-			DefaultTableModel model2 = new DefaultTableModel(stud, 0);
-			JTable tabela2 = new JTable(model2);
+			AbstractTableModelStudenti modelStudenti = new AbstractTableModelStudenti();
+			JTable tabela2 = new JTable(modelStudenti);
 			JScrollPane sp2=new JScrollPane(tabela2);
 			tabbedPane.addTab("Student",sp2);
-			String prof[] = {"Ime", "Prezime", "Titula", "Zvanje"};
-			DefaultTableModel model = new DefaultTableModel(prof, 0);
-			 tabela1 = new JTable(model);
+
+			AbstractTableModelStudenti modelProfesori = new AbstractTableModelStudenti(); // promeniti u profesore!!!
+			JTable tabela1 = new JTable(modelProfesori);
 			JScrollPane sp =new JScrollPane(tabela1);
 			tabbedPane.addTab("Profesor",sp);
 		
-			
 			tab = tabbedPane;
 			add(tab);
 			
 			//http://www.java2s.com/Tutorials/Java/Swing_How_to/JTabbedPane/Tell_if_the_tab_that_is_the_active_tab_in_JTabbedPane.htm
 			
 			
+			tabbedPane.addChangeListener(new ChangeListener() {
+				@Override
+				public void stateChanged(ChangeEvent e) {
+					//MainFrame.getInstance().prikaziTabeluStudenata();		
+				}
+			});
 			
 			
 		}
