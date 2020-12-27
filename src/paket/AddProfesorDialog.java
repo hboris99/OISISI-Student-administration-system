@@ -1,5 +1,6 @@
 package paket;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
@@ -7,11 +8,16 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -25,9 +31,12 @@ public class AddProfesorDialog extends JDialog {
 	public AddProfesorDialog(Frame parent, String title, boolean modal) {
 		super(parent, title, modal);
 		
-		boolean[] nizBool = new boolean[8];
-		Arrays.fill(nizBool, Boolean.TRUE);
-		for(int i = 0; i<8; i++) {
+		List<JTextField> listTxt = new ArrayList<JTextField>();
+
+		
+		boolean[] nizBool = new boolean[9];
+		Arrays.fill(nizBool, Boolean.FALSE);
+		for(int i = 0; i<9; i++) {
 			System.out.println(nizBool[i]);
 		}
 		
@@ -48,6 +57,7 @@ public class AddProfesorDialog extends JDialog {
 		labIme.setHorizontalAlignment(SwingConstants.LEFT);
 		    
 		JTextField tfIme = new JTextField(17);
+		listTxt.add(tfIme);
 		//tfIme.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfIme, new GridBagConstraints( 1, 0, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
@@ -61,6 +71,8 @@ public class AddProfesorDialog extends JDialog {
 		labPrezime.setHorizontalAlignment(SwingConstants.LEFT);
 		    
 		JTextField tfPrezime = new JTextField(17);
+		listTxt.add(tfPrezime);
+
 		//tfIme.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfPrezime, new GridBagConstraints( 1, 1, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
@@ -74,6 +86,8 @@ public class AddProfesorDialog extends JDialog {
 		labDatRodj.setHorizontalAlignment(SwingConstants.LEFT);
 		    
 		JTextField tfDatRodj = new JTextField(17);
+		listTxt.add(tfDatRodj);
+
 		//tfDatRodj.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfDatRodj, new GridBagConstraints( 1, 2, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
@@ -87,6 +101,8 @@ public class AddProfesorDialog extends JDialog {
 		labAdresa.setHorizontalAlignment(SwingConstants.LEFT);
 		    
 		JTextField tfAdresa = new JTextField(17);
+		listTxt.add(tfAdresa);
+
 		//tfAdresa.setPreferredSize(new Dimension(700, 20));
 		panel.add(tfAdresa, new GridBagConstraints( 1, 3, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
@@ -100,6 +116,8 @@ public class AddProfesorDialog extends JDialog {
 		labBrTel.setHorizontalAlignment(SwingConstants.LEFT);
 		    
 		JTextField tfBrTel = new JTextField(17);
+		listTxt.add(tfBrTel);
+
 		//tfBrTel.setPreferredSize(new Dimension(700, 20));
 		panel.add(tfBrTel, new GridBagConstraints( 1, 4, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
@@ -113,6 +131,8 @@ public class AddProfesorDialog extends JDialog {
 		labEmail.setHorizontalAlignment(SwingConstants.LEFT);
 		    
 		JTextField tfEmail = new JTextField(17);
+		listTxt.add(tfEmail);
+
 		//tfEmail.setPreferredSize(new Dimension(700, 20));
 		panel.add(tfEmail, new GridBagConstraints( 1, 5, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
@@ -127,12 +147,14 @@ public class AddProfesorDialog extends JDialog {
 		labadrKanc.setHorizontalAlignment(SwingConstants.LEFT);
 		    
 		JTextField tfadrKanc = new JTextField(17);
+		listTxt.add(tfadrKanc);
+
 		//tfBrIndeks.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfadrKanc, new GridBagConstraints( 1, 6, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
 		    	  new Insets( 0, 20, -25, 37 ), 0, 0 ) );
 		
-		JLabel labbrLK = new JLabel("Godina upisa*", JLabel.TRAILING);
+		JLabel labbrLK = new JLabel("Broj Licne Karte*", JLabel.TRAILING);
 		panel.add(labbrLK, new GridBagConstraints( 0, 7, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
 		    	  new Insets( 0, 25, -25, -30 ), 0, 0 ) );
@@ -140,6 +162,8 @@ public class AddProfesorDialog extends JDialog {
 		labbrLK.setHorizontalAlignment(SwingConstants.LEFT);
 		    
 		JTextField tfbrLK = new JTextField(17);
+		listTxt.add(tfbrLK);
+
 		//tfGodinaUpisa.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfbrLK, new GridBagConstraints( 1, 7, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
@@ -152,46 +176,111 @@ public class AddProfesorDialog extends JDialog {
 		labZvanje.setPreferredSize(new Dimension(170,18));
 		labZvanje.setHorizontalAlignment(SwingConstants.LEFT);
 		    
-		JTextField tfZvanje = new JTextField(17);
-		//tfGodinaUpisa.setPreferredSize(new Dimension(70, 20));
-		panel.add(tfZvanje, new GridBagConstraints( 1, 8, 1, 1, 1.0,
-		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
-		    	  new Insets( 0, 20, -25, 37 ), 0, 0 ) );
+		JComboBox<Zvanje> comboZvanje = new JComboBox<Zvanje>(Zvanje.values());
+		
+		comboZvanje.setPreferredSize(new Dimension(158, 18));
+//		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
+		panel.add(comboZvanje, new GridBagConstraints(1, 8, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 25, -25, 42), 0, 0));
+		comboZvanje.setRenderer(new DefaultListCellRenderer() { // https://docs.oracle.com/javase/7/docs/api/javax/swing/DefaultListCellRenderer.html
+			@Override // https://tips4java.wordpress.com/2013/11/17/combo-box-with-custom-renderer/
+			public Component getListCellRendererComponent(JList<?> jList, Object o, int i, boolean b, boolean b1) {// https://stackoverflow.com/questions/42602405/jcombobox-fill-with-enum-variable-value
+				Component rendererComponent = super.getListCellRendererComponent(jList, o, i, b, b1);
+				if(o == Zvanje.SUN) {
+				setText("Saradnik u nastavi");
+				}else if (o == Zvanje.AS) {
+					setText("Asistent");
+				}else if (o == Zvanje.ASD) {
+					setText("Asistent sa doktoratom");
+				}else if (o == Zvanje.DOC) {
+					setText("Docent");
+				}else if (o == Zvanje.VPROF) {
+					setText("Vandredni Profesor");
+				}else if (o == Zvanje.REDPROF) {
+					setText("Redovni Profesor");
+				}
+				else {
+					setText("Profesor Emeritius");
+				}
+				return rendererComponent;
+			}
+		});
 		
 		JLabel labTitula = new JLabel("Titula*", JLabel.TRAILING);
 		panel.add(labTitula, new GridBagConstraints( 0, 9, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
-		    	  new Insets( 0, 25, -25, -30 ), 0, 0 ) );
+		    	  new Insets( 0, 25, 0, -30 ), 0, 0 ) );
 		labTitula.setPreferredSize(new Dimension(170,18));
 		labTitula.setHorizontalAlignment(SwingConstants.LEFT);
 		    
-		JTextField tfTitula = new JTextField(17);
-		//tfGodinaUpisa.setPreferredSize(new Dimension(70, 20));
-		panel.add(tfTitula, new GridBagConstraints( 1, 9, 1, 1, 1.0,
-		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
-		    	  new Insets( 0, 20, -25, 37 ), 0, 0 ) );
+		JComboBox<Titula> comboTitula = new JComboBox<Titula>(Titula.values());
+
+		comboTitula.setPreferredSize(new Dimension(158, 18));
+//		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
+		panel.add(comboTitula, new GridBagConstraints(1, 9, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 25, 0, 42), 0, 0));
+		comboTitula.setRenderer(new DefaultListCellRenderer() { // https://docs.oracle.com/javase/7/docs/api/javax/swing/DefaultListCellRenderer.html
+			@Override // https://tips4java.wordpress.com/2013/11/17/combo-box-with-custom-renderer/
+			public Component getListCellRendererComponent(JList<?> jList, Object o, int i, boolean b, boolean b1) {// https://stackoverflow.com/questions/42602405/jcombobox-fill-with-enum-variable-value
+				Component rendererComponent = super.getListCellRendererComponent(jList, o, i, b, b1);
+				if(o == Titula.BSC) {
+				setText("Bsc");
+				}else if (o == Titula.MR) {
+					setText("Mr");
+
+				}else if (o == Titula.DR) {
+					setText("Dr");
+
+				}else if (o == Titula.MSC) {
+					setText("Msc");
+					
+				}else {
+					setText("Prof. dr");
+				}
+				return rendererComponent;
+			}
+		});
 	
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setEnabled(false);
 		panel.add(btnPotvrdi, new GridBagConstraints( 0, 10, 1, 1, 1.0,
 		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
 		    	  new Insets( 0, 75, 0, -7 ), 0, 0 ) );
-		btnPotvrdi.addActionListener(new ActionListener(){
+		btnPotvrdi.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
-			}	
+
+				System.out.println("Potvrdi btn pritisnut");
+				Profesor p = new Profesor();
+
+				p.setIme(tfIme.getText());
+				p.setPrezime(tfPrezime.getText());
+				p.setDatum_rodjenja(tfDatRodj.getText());
+				p.setAdresa_stanovanja(tfAdresa.getText());
+				p.setTelefon(tfBrTel.getText());
+				p.setEmail(tfEmail.getText());
+				p.setAdresa_kancelarije(tfadrKanc.getText());
+				p.setBroj_lk(tfbrLK.getText());
+				p.setTitula((Titula) comboTitula.getSelectedItem());
+				p.setZvanje((Zvanje) comboZvanje.getSelectedItem());
+
+				Podaci.getInsance().getProfesori().add(p);
+
+				for (Profesor temp : Podaci.getInsance().getProfesori()) {
+					System.out.println(temp);
+				}
+			}
 		});
-		
+
 		JButton btnOdustani = new JButton("Odustani");
-		panel.add(btnOdustani, new GridBagConstraints( 1, 10, 1, 1, 1.0,
-		    	  1.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
-		    	  new Insets( 0, 25, 0, 75 ), 0, 0 ) );
-		
-		
-		//tfIme.addFocusListener(new ImeFocusListener(btnPotvrdi, listT, nizBool));
+		panel.add(btnOdustani, new GridBagConstraints(1, 10, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 25, 0, 75), 0, 0));
+
+		for (int i = 0; i < 8; i++) {
+			listTxt.get(i).addFocusListener(new ProfesorValidationFocusListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
+		}
+
 		
 		
 		for(int i = 0; i<8; i++) {
