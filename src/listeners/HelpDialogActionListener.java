@@ -10,7 +10,7 @@ import view.HelpDialog;
 public class HelpDialogActionListener implements ActionListener {
 
 	private JFrame parent;
-
+	
 	public HelpDialogActionListener(JFrame parent) {
 		super();
 		this.parent = parent;

@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Profesor.Titula;
+import model.Profesor.Zvanje;
+
 public final class BazaProfesora {
 	private static BazaProfesora instance = null;
 	private List<Profesor> profesori = new ArrayList<Profesor>();
@@ -30,11 +33,28 @@ public final class BazaProfesora {
 	public int getColumnCount() {
 		return 4;
 	}
-
+	public boolean isValid(String brLK) {
+		boolean valid = true;
+		int i = 0;
+		for(Profesor p : profesori) {
+			
+			if(p.getBroj_lk().equals(brLK)) {
+				valid = false;
+				break;
+			}
+			else {
+				valid = true;
+			}
+		}
+		return valid;
+		
+	}
 	public String getColumnName(int index) {
 		return this.kolone.get(index);
 	}
-	
+	public Profesor getRow(int rowIndex) {
+		return this.profesori.get(rowIndex);
+	}
 	public String getValueAt(int row, int column) {
 		Profesor profesor = this.profesori.get(row);
 		switch (column) {
@@ -83,6 +103,21 @@ public final class BazaProfesora {
 		default:
 			return null;
 		}
+	}
+	
+	public void dodajProfesora(String prezime, String ime, String datum_rodjenja,	String adresa_stanovanja,String telefon,String email,String adresa_kancelarije,
+			String broj_lk,Titula titula,Zvanje zvanje,Predmet[] predmeti_radi) {
+		this.profesori.add(new Profesor(prezime, ime, datum_rodjenja,adresa_stanovanja, telefon,email,adresa_kancelarije,
+				broj_lk,titula, zvanje,predmeti_radi));
+	}
+	
+	public void izbrisiProfesora(String licna) {
+		//for (Profesor i : profesori) {
+			//if (i.getBroj_lk() == licna) {
+				//profesori.remove(i);
+			//	break;
+			//}
+		//}
 	}
 	
 }

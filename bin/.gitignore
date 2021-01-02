@@ -1,5 +1,4 @@
-/model/
-/paket/
 /view/
-/controller/
+/model/
 /listeners/
+/controller/

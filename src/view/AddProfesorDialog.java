@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controller.ProfesoriController;
 import listeners.ProfesorValidationFocusListener;
 import model.BazaProfesora;
 import model.Podaci;
@@ -257,27 +258,26 @@ public class AddProfesorDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				System.out.println("Potvrdi btn pritisnut");
-				Profesor p = new Profesor();
+				System.out.println(tfbrLK.getText());
+				//System.out.println(BazaProfesora.getInstance().isValid(tfbrLK.getText()));
+				if(BazaProfesora.getInstance().isValid(tfbrLK.getText())) {
+					ProfesoriController.getInstance().dodajProf(tfPrezime.getText(), tfIme.getText(), 
+							tfDatRodj.getText(), tfAdresa.getText(), tfBrTel.getText(), tfEmail.getText(),
+							tfadrKanc.getText(), tfbrLK.getText(), (Profesor.Titula) comboTitula.getSelectedItem(),
+							(Profesor.Zvanje) comboZvanje.getSelectedItem(), null);
+					//System.out.println("Potvrdi btn pritisnut");
 
-				p.setIme(tfIme.getText());
-				p.setPrezime(tfPrezime.getText());
-				p.setDatum_rodjenja(tfDatRodj.getText());
-				p.setAdresa_stanovanja(tfAdresa.getText());
-				p.setTelefon(tfBrTel.getText());
-				p.setEmail(tfEmail.getText());
-				p.setAdresa_kancelarije(tfadrKanc.getText());
-				p.setBroj_lk(tfbrLK.getText());
-				p.setTitula((Profesor.Titula) comboTitula.getSelectedItem());
-				p.setZvanje((Profesor.Zvanje) comboZvanje.getSelectedItem());
+					
+						dispose();
+						
+						MainFrame.getInstance().prikaziTabeluProfesora();
 
-				BazaProfesora.getInstance().getProfesori().add(p);
-
-				for (Profesor temp : Podaci.getInstance().getProfesori()) {
-					System.out.println(temp);
+				}else {
+					System.out.println("Vec Postoji taj prof sa licnom");
+					dispose();
+					MainFrame.getInstance().prikaziTabeluProfesora();
 					
 				}
-				MainFrame.getInstance().prikaziTabeluProfesora();
 			}
 		});
 

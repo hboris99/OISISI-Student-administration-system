@@ -17,7 +17,10 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import controller.PredmetiController;
+import controller.ProfesoriController;
 import listeners.AddStudentActionListener;
+import listeners.IzmeniDijalogActionListener;
 
 public class Toolbar extends JToolBar {
 
@@ -51,13 +54,7 @@ public class Toolbar extends JToolBar {
 				new ImageIcon("images"+File.separator+"edit_icon.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
 		editBT.setIcon(editIcon);
 
-		editBT.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("editBT performed");
-			}
-		});
+		editBT.addActionListener(new IzmeniDijalogActionListener(parent, tab));
 
 		editBT.setToolTipText("Izmenite postojeći entitet");
 		box.add(Box.createHorizontalStrut(10));
@@ -74,7 +71,9 @@ public class Toolbar extends JToolBar {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("deleteBT performed");
+				PredmetiController.getInstance().obrisiPredmet(tab.getPredmeti().getSelectedRow());
+				MainFrame.getInstance().prikaziTabeluProfesora();
+
 			}
 		});
 
