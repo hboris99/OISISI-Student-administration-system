@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class MainFrame extends JFrame {
@@ -16,6 +15,7 @@ public class MainFrame extends JFrame {
 	
 	private JTable tabelaStudenata;
 	private JTable tabelaProfesora;
+	private JTable tabelaPredmeta;
 
 	public static MainFrame getInstance() {
 		if (instance == null) {
@@ -54,11 +54,21 @@ public class MainFrame extends JFrame {
 		model.fireTableDataChanged();
 		validate();
 	}
+	
+	public void prikaziTabeluPredmeta() {
+		tabelaPredmeta = new PredmetiJTable();
+		TabbedPane tab = TabbedPane.getInstance();
+		add(tab);
+		this.azurirajPrikaz(null, -1);
 
+	}
+	
 	public void prikaziTabeluProfesora() {
 		tabelaProfesora = new ProfesoriJTable();
 		TabbedPane tab = TabbedPane.getInstance();
 		add(tab);
+		this.azurirajPrikaz(null, -1);
+
 	}
 	public void prikaziTabeluStudenata() {
 		tabelaStudenata = new StudentiJTable();

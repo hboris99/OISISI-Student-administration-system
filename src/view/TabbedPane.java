@@ -26,7 +26,10 @@ public class TabbedPane extends JPanel {
 	}
 	
 	private JTabbedPane tab;
-	private JTable tabela1; 
+	private JTable studenti; 
+	private JTable profesori; 
+	private JTable predmeti; 
+
 
 	private TabbedPane() {
 			super(new GridLayout(1,1));
@@ -34,15 +37,20 @@ public class TabbedPane extends JPanel {
 			JTabbedPane tabbedPane = new JTabbedPane();
 			
 			AbstractTableModelStudenti modelStudenti = new AbstractTableModelStudenti();
-			JTable tabela2 = new JTable(modelStudenti);
-			JScrollPane sp2=new JScrollPane(tabela2);
+			studenti = new JTable(modelStudenti);
+			JScrollPane sp2=new JScrollPane(studenti);
 			tabbedPane.addTab("Student",sp2);
 
 			AbstractTableModelProfesori modelProfesori = new AbstractTableModelProfesori(); 
-			JTable tabela1 = new JTable(modelProfesori);
-			JScrollPane sp =new JScrollPane(tabela1);
+			profesori = new JTable(modelProfesori);
+			JScrollPane sp =new JScrollPane(profesori);
 			tabbedPane.addTab("Profesor",sp);
 		
+			AbstractTableModelPredmeti modelPredmeti = new AbstractTableModelPredmeti();
+			predmeti = new JTable(modelPredmeti);
+			JScrollPane sp3 = new JScrollPane(predmeti);
+			tabbedPane.addTab("Predmeti", sp3);
+			
 			tab = tabbedPane;
 			add(tab);
 			
@@ -62,15 +70,31 @@ public class TabbedPane extends JPanel {
 		public JTabbedPane getTab() {
 			return tab;
 		}
-		public void setTab(JTabbedPane tab) {
-			this.tab = tab;
+
+		public JTable getStudenti() {
+			return studenti;
 		}
-		public JTable getTabela1() {
-			return tabela1;
+
+		public void setStudenti(JTable studenti) {
+			this.studenti = studenti;
 		}
-		public void setTabela1(JTable tabela1) {
-			this.tabela1 = tabela1;
+
+		public JTable getProfesori() {
+			return profesori;
 		}
+
+		public void setProfesori(JTable profesori) {
+			this.profesori = profesori;
+		}
+
+		public JTable getPredmeti() {
+			return predmeti;
+		}
+
+		public void setPredmeti(JTable predmeti) {
+			this.predmeti = predmeti;
+		}
+		
 	
 		
 		
