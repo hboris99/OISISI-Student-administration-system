@@ -35,7 +35,6 @@ public final class BazaProfesora {
 	}
 	public boolean isValid(String brLK) {
 		boolean valid = true;
-		int i = 0;
 		for(Profesor p : profesori) {
 			
 			if(p.getBroj_lk().equals(brLK)) {

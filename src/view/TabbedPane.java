@@ -8,6 +8,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 
 public class TabbedPane extends JPanel {
@@ -29,7 +31,7 @@ public class TabbedPane extends JPanel {
 	private JTable studenti; 
 	private JTable profesori; 
 	private JTable predmeti; 
-
+	
 
 	private TabbedPane() {
 			super(new GridLayout(1,1));
@@ -43,11 +45,15 @@ public class TabbedPane extends JPanel {
 
 			AbstractTableModelProfesori modelProfesori = new AbstractTableModelProfesori(); 
 			profesori = new JTable(modelProfesori);
+			//profesoriSorter = new TableRowSorter<TableModel>();
+			//profesori.setRowSorter(profesoriSorter);
 			JScrollPane sp =new JScrollPane(profesori);
 			tabbedPane.addTab("Profesor",sp);
 		
 			AbstractTableModelPredmeti modelPredmeti = new AbstractTableModelPredmeti();
 			predmeti = new JTable(modelPredmeti);
+			//predmetiSorter = new TableRowSorter<TableModel>();
+			//predmeti.setRowSorter(predmetiSorter);
 			JScrollPane sp3 = new JScrollPane(predmeti);
 			tabbedPane.addTab("Predmeti", sp3);
 			
@@ -94,6 +100,8 @@ public class TabbedPane extends JPanel {
 		public void setPredmeti(JTable predmeti) {
 			this.predmeti = predmeti;
 		}
+
+		
 		
 	
 		

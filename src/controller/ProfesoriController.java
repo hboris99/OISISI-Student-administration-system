@@ -29,4 +29,7 @@ public class ProfesoriController {
 		//Profesor prof = BazaProfesora.getInstance().getRow(rowSelectedIndex);
 		//BazaProfesora.getInstance().izbrisiProfesora(prof.getBroj_lk());
 	}
+	
+	
+	
 }

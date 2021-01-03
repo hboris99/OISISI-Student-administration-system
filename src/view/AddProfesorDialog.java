@@ -268,8 +268,6 @@ public class AddProfesorDialog extends JDialog {
 					//System.out.println("Potvrdi btn pritisnut");
 
 					
-						dispose();
-						
 						MainFrame.getInstance().prikaziTabeluProfesora();
 
 				}else {

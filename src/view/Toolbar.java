@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
@@ -21,6 +22,7 @@ import controller.PredmetiController;
 import controller.ProfesoriController;
 import listeners.AddStudentActionListener;
 import listeners.IzmeniDijalogActionListener;
+import listeners.SearchListener;
 
 public class Toolbar extends JToolBar {
 
@@ -96,14 +98,7 @@ public class Toolbar extends JToolBar {
 		searchBT.setIcon(searchIcon);
 
 		searchBT.setToolTipText("Pretraži");
-		searchBT.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				System.out.println("searchBT performed");
-			}
-		});
+		searchBT.addActionListener(new SearchListener(parent, tab, txt));
 		
 		box.add(Box.createHorizontalStrut(5));
 		box.add(searchBT);
