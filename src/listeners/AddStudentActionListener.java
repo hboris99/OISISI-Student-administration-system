@@ -10,7 +10,7 @@ import view.AddStudentDialog;
 import view.TabbedPane;
 
 public class AddStudentActionListener implements ActionListener {
-	
+
 	private JFrame parent;
 	private TabbedPane tab;
 
@@ -22,8 +22,8 @@ public class AddStudentActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		switch(tab.getTab().getSelectedIndex()) {
+
+		switch (tab.getTab().getSelectedIndex()) {
 		case 0:
 			AddStudentDialog dialogStudent = new AddStudentDialog(parent, "Dodavanje studenta", true);
 			dialogStudent.setVisible(true);
@@ -35,10 +35,10 @@ public class AddStudentActionListener implements ActionListener {
 		default:
 			System.out.println("Tab koji ste izabrali ne postoji.");
 		}
-	
-	
-		//AddStudentDialog dialog = new AddStudentDialog(parent, "Dodavanje studenta", true);
-		//dialog.setVisible(true);
+
+		// AddStudentDialog dialog = new AddStudentDialog(parent, "Dodavanje studenta",
+		// true);
+		// dialog.setVisible(true);
 	}
 
 }

@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import listeners.StudentValidationFocusListener;
+import listeners.StudentValidationKeyListener;
 import model.Podaci;
 import model.Student;
 
@@ -241,8 +241,8 @@ public class AddStudentDialog extends JDialog {
 				GridBagConstraints.NONE, new Insets(0, 25, 0, 75), 0, 0));
 
 		for (int i = 0; i < 8; i++) {
-			listTxt.get(i).addFocusListener(
-					new StudentValidationFocusListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
+			listTxt.get(i).addKeyListener(
+					new StudentValidationKeyListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 		}
 
 		for (int i = 0; i < 8; i++) {

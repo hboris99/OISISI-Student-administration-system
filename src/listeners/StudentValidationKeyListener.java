@@ -1,35 +1,30 @@
 package listeners;
 
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class StudentValidationFocusListener implements FocusListener {
+public class StudentValidationKeyListener implements KeyListener {
 
 	private JButton btn;
 	private ArrayList<JTextField> txt;
 	private boolean[] b;
 	
 
-	public StudentValidationFocusListener(JButton btn, ArrayList<JTextField> listTxt, boolean[] b) {
+	public StudentValidationKeyListener(JButton btn, ArrayList<JTextField> listTxt, boolean[] b) {
 		super();
 		this.btn = btn;
 		txt = listTxt;
 		this.b = b;
 	}
 
-	@Override
-	public void focusGained(FocusEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
-	public void focusLost(FocusEvent e) {
+	public void keyTyped(KeyEvent e) {
 		boolean validate = true;
 		
 		if(!txt.get(0).getText().equals("")) b[0] = txt.get(0).getText().matches("[A-Z][a-z]*");
@@ -39,6 +34,7 @@ public class StudentValidationFocusListener implements FocusListener {
 		if(!txt.get(4).getText().equals("")) b[4] = txt.get(4).getText().matches("06\\d{8}");
 		if(!txt.get(5).getText().equals("")) b[5] = txt.get(5).getText().matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
 		b[6] = true;
+		if(!txt.get(6).getText().equals("")) b[6] = true;
 		if(!txt.get(7).getText().equals("")) b[7] = ((Integer.parseInt(txt.get(7).getText()) <= Calendar.getInstance().get(Calendar.YEAR))
 				&& 
 				(Integer.parseInt(txt.get(7).getText()) >= 1900 ? true : false ));
@@ -55,6 +51,20 @@ public class StudentValidationFocusListener implements FocusListener {
 			btn.setEnabled(false);
 		}
 			
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
