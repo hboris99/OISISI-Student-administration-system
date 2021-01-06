@@ -49,6 +49,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	public void azurirajPrikaz(String akcija, int vrednost) {
+		
 		AbstractTableModelStudenti model = (AbstractTableModelStudenti) tabelaStudenata.getModel();
 		// azuriranje modela tabele, kao i njenog prikaza
 		model.fireTableDataChanged();

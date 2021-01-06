@@ -33,6 +33,7 @@ public class EditEntityActionListener implements ActionListener {
 			for (Student s : BazaStudenata.getInstance().getStudenti()) {
 				if (s.getBroj_indeksa().equals(tab.getStudenti().getValueAt(tab.getStudenti().getSelectedRow(), 0))) {
 					student = s;
+					break;
 				}
 			}
 

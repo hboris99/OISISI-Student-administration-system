@@ -30,7 +30,7 @@ public class EditStudentDialog extends JDialog{
 
 	private static final long serialVersionUID = 1L;
 	
-	Student student;
+	Student student = null;;
 	
 	public EditStudentDialog(Frame parent, String title, boolean modal, Student s) {
 		super(parent, title, modal);

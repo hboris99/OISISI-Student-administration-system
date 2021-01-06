@@ -3,8 +3,6 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.BorderFactory;
@@ -14,13 +12,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
-import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import controller.PredmetiController;
-import controller.ProfesoriController;
 import listeners.AddEntityActionListener;
+import listeners.DeleteEntityListener;
 import listeners.EditEntityActionListener;
 import listeners.SearchListener;
 
@@ -69,15 +65,16 @@ public class Toolbar extends JToolBar {
 				new ImageIcon("images"+File.separator+"delete_icon.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
 		deleteBT.setIcon(deleteIcon);
 
-		deleteBT.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				PredmetiController.getInstance().obrisiPredmet(tab.getPredmeti().getSelectedRow());
-				MainFrame.getInstance().prikaziTabeluProfesora();
-
-			}
-		});
+		deleteBT.addActionListener(new DeleteEntityListener(parent,tab));
+//		deleteBT.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				PredmetiController.getInstance().obrisiPredmet(tab.getPredmeti().getSelectedRow());
+//				MainFrame.getInstance().prikaziTabeluProfesora();
+//
+//			}
+//		});
 
 		deleteBT.setToolTipText("Obrisite postojeći entitet");
 		box.add(Box.createHorizontalStrut(10));
