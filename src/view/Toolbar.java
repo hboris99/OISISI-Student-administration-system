@@ -20,8 +20,8 @@ import javax.swing.border.Border;
 
 import controller.PredmetiController;
 import controller.ProfesoriController;
-import listeners.AddStudentActionListener;
-import listeners.IzmeniDijalogActionListener;
+import listeners.AddEntityActionListener;
+import listeners.EditEntityActionListener;
 import listeners.SearchListener;
 
 public class Toolbar extends JToolBar {
@@ -44,7 +44,7 @@ public class Toolbar extends JToolBar {
 				new ImageIcon("images"+ File.separator+ "plus_icon.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
 		addBT.setIcon(plusIcon);
 
-		addBT.addActionListener(new AddStudentActionListener(parent, tab));
+		addBT.addActionListener(new AddEntityActionListener(parent, tab));
 		addBT.setToolTipText("Dodajte novi entitet");
 		box.add(Box.createHorizontalStrut(10));
 		box.add(addBT);
@@ -56,7 +56,7 @@ public class Toolbar extends JToolBar {
 				new ImageIcon("images"+File.separator+"edit_icon.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
 		editBT.setIcon(editIcon);
 
-		editBT.addActionListener(new IzmeniDijalogActionListener(parent, tab));
+		editBT.addActionListener(new EditEntityActionListener(parent, tab));
 
 		editBT.setToolTipText("Izmenite postojeći entitet");
 		box.add(Box.createHorizontalStrut(10));

@@ -26,16 +26,17 @@ import listeners.StudentValidationKeyListener;
 import model.BazaStudenata;
 import model.Student;
 
-public class AddStudentDialog extends JDialog {
+public class EditStudentDialog extends JDialog{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
-	public AddStudentDialog(Frame parent, String title, boolean modal) {
+	
+	Student student;
+	
+	public EditStudentDialog(Frame parent, String title, boolean modal, Student s) {
 		super(parent, title, modal);
 
+		student = s;
+		
 		boolean[] nizBool = new boolean[8];
 		Arrays.fill(nizBool, Boolean.FALSE);
 		for (int i = 0; i < 8; i++) {
@@ -58,6 +59,7 @@ public class AddStudentDialog extends JDialog {
 		labIme.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JTextField tfIme = new JTextField(17);
+		tfIme.setText(student.getIme());
 		listTxt.add(tfIme);
 		// tfIme.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfIme, new GridBagConstraints(1, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -70,6 +72,7 @@ public class AddStudentDialog extends JDialog {
 		labPrezime.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JTextField tfPrezime = new JTextField(17);
+		tfPrezime.setText(student.getPrezime());
 		listTxt.add(tfPrezime);
 		// tfIme.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfPrezime, new GridBagConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -82,6 +85,7 @@ public class AddStudentDialog extends JDialog {
 		labDatRodj.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JTextField tfDatRodj = new JTextField(17);
+		tfDatRodj.setText(student.getDatum_rodjenja());
 		listTxt.add(tfDatRodj);
 		// tfDatRodj.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfDatRodj, new GridBagConstraints(1, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -94,6 +98,7 @@ public class AddStudentDialog extends JDialog {
 		labAdresa.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JTextField tfAdresa = new JTextField(17);
+		tfAdresa.setText(student.getAdresa_stanovanja());
 		listTxt.add(tfAdresa);
 		// tfAdresa.setPreferredSize(new Dimension(700, 20));
 		panel.add(tfAdresa, new GridBagConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -106,6 +111,7 @@ public class AddStudentDialog extends JDialog {
 		labBrTel.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JTextField tfBrTel = new JTextField(17);
+		tfBrTel.setText(student.getTelefon());
 		listTxt.add(tfBrTel);
 		// tfBrTel.setPreferredSize(new Dimension(700, 20));
 		panel.add(tfBrTel, new GridBagConstraints(1, 4, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -118,6 +124,7 @@ public class AddStudentDialog extends JDialog {
 		labEmail.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JTextField tfEmail = new JTextField(17);
+		tfEmail.setText(student.getEmail());
 		listTxt.add(tfEmail);
 		// tfEmail.setPreferredSize(new Dimension(700, 20));
 		panel.add(tfEmail, new GridBagConstraints(1, 5, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -130,6 +137,7 @@ public class AddStudentDialog extends JDialog {
 		labBrIndeks.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JTextField tfBrIndeks = new JTextField(17);
+		tfBrIndeks.setText(student.getBroj_indeksa());
 		listTxt.add(tfBrIndeks);
 		// tfBrIndeks.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfBrIndeks, new GridBagConstraints(1, 6, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -142,6 +150,7 @@ public class AddStudentDialog extends JDialog {
 		labGodUpisa.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JTextField tfGodUpisa = new JTextField(17);
+		tfGodUpisa.setText(String.valueOf(student.getGodina_upisa()));
 		listTxt.add(tfGodUpisa);
 		// tfGodinaUpisa.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfGodUpisa, new GridBagConstraints(1, 7, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -155,6 +164,7 @@ public class AddStudentDialog extends JDialog {
 
 		Integer niz[] = { 1, 2, 3, 4 };
 		JComboBox<Integer> comboGodStudija = new JComboBox<Integer>(niz);
+		comboGodStudija.setSelectedItem(student.getGodina_studija());
 		comboGodStudija.setPreferredSize(new Dimension(158, 18));
 		panel.add(comboGodStudija, new GridBagConstraints(1, 8, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, -25, 42), 0, 0));
@@ -189,7 +199,7 @@ public class AddStudentDialog extends JDialog {
 		labNacinFin.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JComboBox<Student.enumStatus> comboNacinFin = new JComboBox<Student.enumStatus>(Student.enumStatus.values());
-
+		comboNacinFin.setSelectedItem(student.getStatus());
 		comboNacinFin.setPreferredSize(new Dimension(158, 18));
 //		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
 		panel.add(comboNacinFin, new GridBagConstraints(1, 9, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -213,20 +223,18 @@ public class AddStudentDialog extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 
 				System.out.println("Potvrdi btn pritisnut");
-				Student s = new Student();
 
-				s.setIme(tfIme.getText());
-				s.setPrezime(tfPrezime.getText());
-				s.setDatum_rodjenja(tfDatRodj.getText());
-				s.setAdresa_stanovanja(tfAdresa.getText());
-				s.setTelefon(tfBrTel.getText());
-				s.setEmail(tfEmail.getText());
-				s.setBroj_indeksa(tfBrIndeks.getText());
-				s.setGodina_upisa(Integer.parseInt(tfGodUpisa.getText()));
-				s.setGodina_studija((int) comboGodStudija.getSelectedItem());
-				s.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
 
-				BazaStudenata.getInstance().getStudenti().add(s);
+				student.setIme(tfIme.getText());
+				student.setPrezime(tfPrezime.getText());
+				student.setDatum_rodjenja(tfDatRodj.getText());
+				student.setAdresa_stanovanja(tfAdresa.getText());
+				student.setTelefon(tfBrTel.getText());
+				student.setEmail(tfEmail.getText());
+				student.setBroj_indeksa(tfBrIndeks.getText());
+				student.setGodina_upisa(Integer.parseInt(tfGodUpisa.getText()));
+				student.setGodina_studija((int) comboGodStudija.getSelectedItem());
+				student.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
 
 				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
 					System.out.println(temp);
@@ -260,5 +268,5 @@ public class AddStudentDialog extends JDialog {
 		});
 
 	}
-
+	
 }

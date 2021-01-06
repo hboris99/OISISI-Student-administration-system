@@ -2,7 +2,7 @@ package view;
 
 import javax.swing.table.AbstractTableModel;
 
-import model.Podaci;
+import model.BazaStudenata;
 
 
 public class AbstractTableModelStudenti extends AbstractTableModel {
@@ -14,25 +14,25 @@ public class AbstractTableModelStudenti extends AbstractTableModel {
 	// broj redova
 	@Override
 	public int getRowCount() {
-		return Podaci.getInstance().getStudenti().size();
+		return BazaStudenata.getInstance().getStudenti().size();
 	}
 	
 	// broj kolona
 	@Override
 	public int getColumnCount() {
-		return Podaci.getInstance().getColumnCount();
+		return BazaStudenata.getInstance().getColumnCount();
 	}
 
 	// nazivi kolona u zaglavlju
 	@Override
 	public String getColumnName(int column) {
-		return Podaci.getInstance().getColumnName(column);
+		return BazaStudenata.getInstance().getColumnName(column);
 	}
 	
 	// sadrzaj celije
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		return Podaci.getInstance().getValueAt(rowIndex, columnIndex);
+		return BazaStudenata.getInstance().getValueAt(rowIndex, columnIndex);
 	}
 
 }

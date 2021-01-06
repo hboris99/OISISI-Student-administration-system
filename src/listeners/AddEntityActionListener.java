@@ -5,16 +5,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import model.BazaStudenata;
 import view.AddProfesorDialog;
 import view.AddStudentDialog;
 import view.TabbedPane;
 
-public class AddStudentActionListener implements ActionListener {
+public class AddEntityActionListener implements ActionListener {
 
 	private JFrame parent;
 	private TabbedPane tab;
 
-	public AddStudentActionListener(JFrame parent, TabbedPane tab) {
+	public AddEntityActionListener(JFrame parent, TabbedPane tab) {
 		super();
 		this.parent = parent;
 		this.tab = tab;

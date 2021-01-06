@@ -3,7 +3,7 @@ package view;
 import javax.swing.table.AbstractTableModel;
 
 import model.BazaProfesora;
-import model.Podaci;
+import model.BazaStudenata;
 
 public class AbstractTableModelProfesori extends AbstractTableModel {
 	public AbstractTableModelProfesori() {}

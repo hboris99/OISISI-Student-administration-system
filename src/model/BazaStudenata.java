@@ -3,13 +3,12 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Podaci {
-	private static Podaci instance = null;
+public final class BazaStudenata {
+	private static BazaStudenata instance = null;
 	private List<Student> studenti = new ArrayList<Student>();
-	private List<Profesor> profesori = new ArrayList<Profesor>();
 	private List<String> kolone;
 
-	public Podaci() {
+	public BazaStudenata() {
 		this.kolone = new ArrayList<String>();
 		this.kolone.add("INDEX");
 		this.kolone.add("IME");
@@ -20,18 +19,14 @@ public final class Podaci {
 
 	}
 	
-	public static Podaci getInstance() {
+	public static BazaStudenata getInstance() {
 		if(instance == null)
-			instance = new Podaci();
+			instance = new BazaStudenata();
 		return instance;
 	}
 
 	public List<Student> getStudenti() {
 		return studenti;
-	}
-
-	public List<Profesor> getProfesori() {
-		return profesori;
 	}
 
 	public int getColumnCount() {
@@ -41,7 +36,29 @@ public final class Podaci {
 	public String getColumnName(int index) {
 		return this.kolone.get(index);
 	}
-
+	
+	public Student getRow(int index) {
+		return this.studenti.get(index);
+	}
+	
+	public Student getStudentByIndex(String brIndexa) {
+		
+		for(Student s: studenti) {
+			if(s.getBroj_indeksa().equals(brIndexa.trim()))
+				return s;
+		}
+		
+		return null;
+	}
+	
+	
+//	public int izmeniStudenta(String index) {
+//		for(Student s: studenti) {
+//			if(s.getBroj_indeksa().equals(index.trim()))
+//			
+//		}
+//	}
+	
 	public String getValueAt(int row, int column) {
 		Student student = this.studenti.get(row);
 		switch (column) {
@@ -66,6 +83,6 @@ public final class Podaci {
 			return null;
 		}
 	}
-
+	
 
 }

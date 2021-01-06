@@ -25,7 +25,7 @@ import javax.swing.SwingConstants;
 import controller.ProfesoriController;
 import listeners.ProfesorValidationFocusListener;
 import model.BazaProfesora;
-import model.Podaci;
+import model.BazaStudenata;
 import model.Profesor;
 
 public class AddProfesorDialog extends JDialog {

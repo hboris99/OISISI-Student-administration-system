@@ -169,6 +169,7 @@ public class Student {
 	public void setNepolozeni(Ocena[] nepolozeni) {
 		this.nepolozeni = nepolozeni;
 	}
+	
 
 	@Override
 	public String toString() {

@@ -13,7 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 import listeners.AboutDialogActionListener;
-import listeners.AddStudentActionListener;
+import listeners.AddEntityActionListener;
 import listeners.HelpDialogActionListener;
 
 public class MenuBar extends JMenuBar {
@@ -36,7 +36,7 @@ public class MenuBar extends JMenuBar {
 				.getScaledInstance(16, 16, Image.SCALE_DEFAULT));
 		miNew.setIcon(plusIcon);
 		miNew.setAccelerator(KeyStroke.getKeyStroke("control N"));
-		miNew.addActionListener(new AddStudentActionListener(parent, tab));
+		miNew.addActionListener(new AddEntityActionListener(parent, tab));
 
 		JMenuItem miClose = new JMenuItem("Close", 'C');
 		ImageIcon xIcon = new ImageIcon(new ImageIcon("images" + File.separator + "x_Icon.png").getImage()
