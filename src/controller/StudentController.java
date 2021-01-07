@@ -24,12 +24,9 @@ public class StudentController {
 	}
 
 	public void obrisiStudenta(Student student) {
-		for (Student s : BazaStudenata.getInstance().getStudenti()) {
-			if (s == student) {
-				BazaStudenata.getInstance().getStudenti().remove(s);
-				break;
-			}
-		}
+
+		BazaStudenata.getInstance().getStudenti().remove(student);
+
 		MainFrame.getInstance().prikaziTabeluStudenata();
 	}
 }

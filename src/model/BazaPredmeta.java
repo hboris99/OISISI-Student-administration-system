@@ -63,9 +63,9 @@ public final class BazaPredmeta {
 			return null;
 		}
 	}
-	public void izbrisiPredmet(String naziv) {
+	public void izbrisiPredmet(String sifra) {
 		for (Predmet i : predmeti) {
-			if (i.getNaziv() == naziv) {
+			if (i.getSifra() == sifra) {
 				predmeti.remove(i);
 				break;
 			}

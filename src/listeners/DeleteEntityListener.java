@@ -4,11 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
+import controller.PredmetiController;
 import controller.StudentController;
+import model.BazaPredmeta;
 import model.BazaStudenata;
+import model.Predmet;
 import model.Student;
-import view.AddProfesorDialog;
+import view.MainFrame;
 import view.TabbedPane;
 
 public class DeleteEntityListener implements ActionListener {
@@ -25,13 +29,19 @@ public class DeleteEntityListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
+		int reply;
 		switch (tab.getTab().getSelectedIndex()) {
 		case 0:
-			
-			for (Student s : BazaStudenata.getInstance().getStudenti()) {
-				if (s.getBroj_indeksa().equals(tab.getStudenti().getValueAt(tab.getStudenti().getSelectedRow(), 0))) {
-					StudentController.getInstance().obrisiStudenta(s);
-					break;
+			reply = -1;
+			if (!MainFrame.isEmpty(tab.getStudenti())) {
+				reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete studenta?", "Potvrda", JOptionPane.YES_NO_OPTION);
+			}
+			if(reply == JOptionPane.YES_OPTION) {
+				for (Student s : BazaStudenata.getInstance().getStudenti()) {
+					if (s.getBroj_indeksa().equals(tab.getStudenti().getValueAt(tab.getStudenti().getSelectedRow(), 0))) {
+						StudentController.getInstance().obrisiStudenta(s);
+						break;
+					}
 				}
 			}
 			
@@ -39,6 +49,24 @@ public class DeleteEntityListener implements ActionListener {
 		case 1:
 
 			break;
+			
+		case 2:
+			reply = -1;
+			if (!MainFrame.isEmpty(tab.getPredmeti())) {
+				reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete predmet?", "Potvrda", JOptionPane.YES_NO_OPTION);
+			}
+			if(reply == JOptionPane.YES_OPTION) {
+				for (Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+					if (p.getSifra().equals(tab.getPredmeti().getValueAt(tab.getPredmeti().getSelectedRow(), 0))) {
+						PredmetiController.getInstance().obrisiPredmet(p);
+						break;
+					}
+				}
+			}
+			
+			break;
+			
+			
 		default:
 			System.out.println("Tab koji ste izabrali ne postoji.");
 		}
