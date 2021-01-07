@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import controller.ProfesoriController;
-import listeners.ProfesorValidationFocusListener;
+import listeners.ProfesorValidationKeyListener;
 import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Profesor;
@@ -290,7 +290,7 @@ public class AddProfesorDialog extends JDialog {
 			}
 		});
 		for (int i = 0; i < 8; i++) {
-			listTxt.get(i).addFocusListener(new ProfesorValidationFocusListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
+			listTxt.get(i).addKeyListener(new ProfesorValidationKeyListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 		}
 
 		

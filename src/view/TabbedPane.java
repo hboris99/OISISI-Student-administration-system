@@ -8,6 +8,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -45,6 +47,8 @@ public class TabbedPane extends JPanel {
 
 			AbstractTableModelProfesori modelProfesori = new AbstractTableModelProfesori(); 
 			profesori = new JTable(modelProfesori);
+			TableColumnModel idTcm = profesori.getColumnModel();
+			idTcm.removeColumn(idTcm.getColumn(4));
 			//profesoriSorter = new TableRowSorter<TableModel>();
 			//profesori.setRowSorter(profesoriSorter);
 			JScrollPane sp =new JScrollPane(profesori);

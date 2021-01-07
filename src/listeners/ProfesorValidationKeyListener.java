@@ -2,33 +2,31 @@ package listeners;
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class ProfesorValidationFocusListener implements FocusListener {
+public class ProfesorValidationKeyListener implements KeyListener {
 	private JButton btn;
 	private ArrayList<JTextField> txt;
 	private boolean[] b;
+	boolean validate = true;
 
-	public ProfesorValidationFocusListener(JButton btn, ArrayList<JTextField> listTxt, boolean[] b) {
+	public ProfesorValidationKeyListener(JButton btn, ArrayList<JTextField> listTxt, boolean[] b) {
 		super();
 		this.btn = btn;
 		txt = listTxt;
 		this.b = b;
 	}
 
-	@Override
-	public void focusGained(FocusEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	@Override
-	public void focusLost(FocusEvent e) {
-		boolean validate = true;
-
+	public void keyReleased(KeyEvent e) {
+		validate = true;
 		if (!txt.get(0).getText().equals(""))
 			b[0] = txt.get(0).getText().matches("[A-Z][a-z]*");
 		if (!txt.get(1).getText().equals(""))
@@ -48,13 +46,11 @@ public class ProfesorValidationFocusListener implements FocusListener {
 
 		if (!txt.get(7).getText().equals(""))
 			b[7] = txt.get(7).getText().matches("^[0-9]{9}$");
-		b[8] = true;
+		System.out.println("\t\t"+"------");
 
-		System.out.println("\t\t" + "------");
-		for (int i = 0; i < 9; i++) {
-			System.out.println("\t\t" + b[i]);
-			if (b[i] == false)
-				validate = false;
+		for(int i = 0; i<8; i++) {
+			System.out.println("\t\t"+b[i] + " " + txt.get(i).getText());
+			if(b[i] == false) validate = false;
 		}
 
 		if (validate == true) {
@@ -63,5 +59,21 @@ public class ProfesorValidationFocusListener implements FocusListener {
 			btn.setEnabled(false);
 		}
 
+	}
+
+
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

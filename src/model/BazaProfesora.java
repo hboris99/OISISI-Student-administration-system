@@ -17,6 +17,7 @@ public final class BazaProfesora {
 		this.kolone.add("PREZIME");
 		this.kolone.add(" TITULA");
 		this.kolone.add("ZVANJE");
+		this.kolone.add("BROJ_LICNE");
 	}
 	
 	public static BazaProfesora getInstance() {
@@ -31,7 +32,7 @@ public final class BazaProfesora {
 	}
 
 	public int getColumnCount() {
-		return 4;
+		return 5;
 	}
 	public boolean isValid(String brLK) {
 		boolean valid = true;
@@ -98,7 +99,8 @@ public final class BazaProfesora {
 			}else {
 				return "Vandredni profesor";
 			}
-		
+		case 4:
+			return profesor.getBroj_lk();
 		default:
 			return null;
 		}
@@ -117,6 +119,29 @@ public final class BazaProfesora {
 			//	break;
 			//}
 		//}
+	}
+
+	public void updateProfesra(String prezime, String ime, String datum_rodjenja, String adresa_stanovanja,
+			String telefon, String email, String adresa_kancelarije, String broj_lk, Titula titula, Zvanje zvanje,
+			Predmet[] predmeti_radi) {
+		for(Profesor p : profesori) {
+			if(p.getBroj_lk().equals(broj_lk)) {
+				int change = profesori.indexOf(p);
+			
+				p.setIme(ime);
+				p.setPrezime(prezime);
+				p.setDatum_rodjenja(datum_rodjenja);
+				p.setAdresa_kancelarije(adresa_kancelarije);
+				p.setAdresa_stanovanja(adresa_stanovanja);
+				p.setPredmeti_radi(predmeti_radi);
+				p.setZvanje(zvanje);
+				p.setTitula(titula);
+				p.setEmail(email);
+				p.setTelefon(telefon);
+				profesori.set(change, p);
+				
+			}
+		}
 	}
 	
 }
