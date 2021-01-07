@@ -28,9 +28,6 @@ import model.Student;
 
 public class AddStudentDialog extends JDialog {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public AddStudentDialog(Frame parent, String title, boolean modal) {
@@ -59,7 +56,6 @@ public class AddStudentDialog extends JDialog {
 
 		JTextField tfIme = new JTextField(17);
 		listTxt.add(tfIme);
-		// tfIme.setPreferredSize(new Dimension(70, 20));
 		panel.add(tfIme, new GridBagConstraints(1, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 20, -25, 37), 0, 0));
 
@@ -155,7 +151,7 @@ public class AddStudentDialog extends JDialog {
 
 		Integer niz[] = { 1, 2, 3, 4 };
 		JComboBox<Integer> comboGodStudija = new JComboBox<Integer>(niz);
-		comboGodStudija.setPreferredSize(new Dimension(158, 18));
+		comboGodStudija.setPreferredSize(tfIme.getPreferredSize());
 		panel.add(comboGodStudija, new GridBagConstraints(1, 8, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, -25, 42), 0, 0));
 		comboGodStudija.setRenderer(new DefaultListCellRenderer() { // https://docs.oracle.com/javase/7/docs/api/javax/swing/DefaultListCellRenderer.html
@@ -190,7 +186,7 @@ public class AddStudentDialog extends JDialog {
 
 		JComboBox<Student.enumStatus> comboNacinFin = new JComboBox<Student.enumStatus>(Student.enumStatus.values());
 
-		comboNacinFin.setPreferredSize(new Dimension(158, 18));
+		comboNacinFin.setPreferredSize(tfIme.getPreferredSize());
 //		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
 		panel.add(comboNacinFin, new GridBagConstraints(1, 9, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, 0, 42), 0, 0));
@@ -258,7 +254,6 @@ public class AddStudentDialog extends JDialog {
 				dispose();
 			}
 		});
-
 	}
 
 }

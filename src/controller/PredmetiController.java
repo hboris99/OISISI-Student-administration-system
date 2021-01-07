@@ -5,6 +5,7 @@ import model.BazaProfesora;
 import model.Predmet;
 import model.Profesor.Titula;
 import model.Profesor.Zvanje;
+import view.MainFrame;
 
 public class PredmetiController {
 	
@@ -23,8 +24,8 @@ public class PredmetiController {
 	public void dodajPredmet() {
 	}
 	
-	public void obrisiPredmet(int rowSelectedIndex) {
-		Predmet pred = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
-		BazaPredmeta.getInstance().izbrisiPredmet(pred.getNaziv());
+	public void obrisiPredmet(Predmet predmet) {
+		BazaPredmeta.getInstance().getPredmeti().remove(predmet);
+		MainFrame.getInstance().prikaziTabeluPredmeta();
 	}
 }

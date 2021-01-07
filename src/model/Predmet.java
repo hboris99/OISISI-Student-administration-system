@@ -12,6 +12,10 @@ public class Predmet {
 	Student[] studentip;
 	Student[] studentinp;
 	
+	
+
+	public Predmet() {}
+
 	Predmet(String sifra, String naziv, enumSemestar semestar, int godina_studija, Profesor profesor,
 			int espb, Student[] studentip, Student[] studentin[])
 	{

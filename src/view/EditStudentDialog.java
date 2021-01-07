@@ -165,7 +165,7 @@ public class EditStudentDialog extends JDialog{
 		Integer niz[] = { 1, 2, 3, 4 };
 		JComboBox<Integer> comboGodStudija = new JComboBox<Integer>(niz);
 		comboGodStudija.setSelectedItem(student.getGodina_studija());
-		comboGodStudija.setPreferredSize(new Dimension(158, 18));
+		comboGodStudija.setPreferredSize(tfIme.getPreferredSize());
 		panel.add(comboGodStudija, new GridBagConstraints(1, 8, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, -25, 42), 0, 0));
 		comboGodStudija.setRenderer(new DefaultListCellRenderer() { // https://docs.oracle.com/javase/7/docs/api/javax/swing/DefaultListCellRenderer.html
@@ -200,11 +200,13 @@ public class EditStudentDialog extends JDialog{
 
 		JComboBox<Student.enumStatus> comboNacinFin = new JComboBox<Student.enumStatus>(Student.enumStatus.values());
 		comboNacinFin.setSelectedItem(student.getStatus());
-		comboNacinFin.setPreferredSize(new Dimension(158, 18));
+		comboNacinFin.setPreferredSize(tfIme.getPreferredSize());
 //		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
 		panel.add(comboNacinFin, new GridBagConstraints(1, 9, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, 0, 42), 0, 0));
 		comboNacinFin.setRenderer(new DefaultListCellRenderer() { // https://docs.oracle.com/javase/7/docs/api/javax/swing/DefaultListCellRenderer.html
+			private static final long serialVersionUID = 1L;
+
 			@Override // https://tips4java.wordpress.com/2013/11/17/combo-box-with-custom-renderer/
 			public Component getListCellRendererComponent(JList<?> jList, Object o, int i, boolean b, boolean b1) {// https://stackoverflow.com/questions/42602405/jcombobox-fill-with-enum-variable-value
 				Component rendererComponent = super.getListCellRendererComponent(jList, o, i, b, b1);

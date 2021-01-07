@@ -80,4 +80,11 @@ public class MainFrame extends JFrame {
 
 		this.azurirajPrikaz(null, -1);
 	}
+	
+	public static boolean isEmpty(JTable table) {
+		if (table != null && table.getModel() != null) {
+			return table.getModel().getRowCount() <= 0 ? true : false;
+		}
+		return false;
+	}
 }
