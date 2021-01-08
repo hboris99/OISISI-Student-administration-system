@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Arrays;
 public class Student implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
+
 	public static enum enumStatus{B,S}
 
 	private String prezime;

@@ -31,6 +31,10 @@ public final class BazaProfesora {
 		return profesori;
 	}
 
+	public void setProfesori(List<Profesor> profesori) {
+		this.profesori = profesori;
+	}
+
 	public int getColumnCount() {
 		return 5;
 	}
@@ -40,8 +44,7 @@ public final class BazaProfesora {
 			
 			if(p.getBroj_lk().equals(brLK)) {
 				valid = false;
-				break;
-			}
+				break;			}
 			else {
 				valid = true;
 			}

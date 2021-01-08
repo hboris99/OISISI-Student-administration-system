@@ -29,6 +29,10 @@ public final class BazaStudenata {
 		return studenti;
 	}
 
+	public void setStudenti(List<Student> studenti) {
+		this.studenti = studenti;
+	}
+
 	public int getColumnCount() {
 		return 6;
 	}

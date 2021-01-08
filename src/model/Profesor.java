@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class Profesor implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 	public static enum Titula {BSC, MSC,MR,DR,PRDR}
 	public static enum Zvanje {SUN, AS, ASD, DOC, VPROF, REDPROF, PROFEM }
 	

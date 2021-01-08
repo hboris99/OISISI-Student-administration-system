@@ -5,10 +5,11 @@ import java.util.List;
 
 public final class BazaPredmeta {
 	private static BazaPredmeta instance = null;
-	private List<Predmet> predmeti = new ArrayList<Predmet>();
+	private List<Predmet> predmeti;
 	private List<String> kolone;
 
 	private BazaPredmeta() {
+		predmeti = new ArrayList<Predmet>();
 		this.kolone = new ArrayList<String>();
 		this.kolone.add("SIFRA PREDMETA");
 		this.kolone.add("NAZIV PREDMETA");
@@ -26,6 +27,10 @@ public final class BazaPredmeta {
 	
 	public List<Predmet> getPredmeti() {
 		return predmeti;
+	}
+
+	public void setPredmeti(List<Predmet> predmeti) {
+		this.predmeti = predmeti;
 	}
 
 	public int getColumnCount() {

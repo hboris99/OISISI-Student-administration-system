@@ -18,9 +18,6 @@ import listeners.HelpDialogActionListener;
 
 public class MenuBar extends JMenuBar {
 
-	/**
-	 * 
-	 */
 	private TabbedPane tab;
 	private static final long serialVersionUID = 1L;
 
@@ -48,6 +45,7 @@ public class MenuBar extends JMenuBar {
 				System.out.println("miClose performed");
 			}
 		});
+
 
 		file.add(miNew);
 		file.addSeparator();

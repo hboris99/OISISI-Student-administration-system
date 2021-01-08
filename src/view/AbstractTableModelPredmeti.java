@@ -10,7 +10,12 @@ public class AbstractTableModelPredmeti extends AbstractTableModel {
 	// broj redova
 	@Override
 	public int getRowCount() {
-		return BazaPredmeta.getInstance().getPredmeti().size();
+		if(BazaPredmeta.getInstance().getPredmeti() == null) {
+			return 0;
+		}else {
+			return BazaPredmeta.getInstance().getPredmeti().size();
+		}
+		
 	}
 	
 	// broj kolona
