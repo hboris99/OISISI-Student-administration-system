@@ -1,7 +1,8 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Arrays;
-public class Student {
+public class Student implements Serializable {
 	
 	public static enum enumStatus{B,S}
 

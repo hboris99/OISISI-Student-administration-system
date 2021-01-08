@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Profesor {
+public class Profesor implements Serializable{
 	public static enum Titula {BSC, MSC,MR,DR,PRDR}
 	public static enum Zvanje {SUN, AS, ASD, DOC, VPROF, REDPROF, PROFEM }
 	

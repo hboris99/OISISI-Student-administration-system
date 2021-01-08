@@ -1,6 +1,13 @@
 package model;
 
-public class Predmet {
+import java.io.Serializable;
+
+public class Predmet implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static enum enumSemestar{ZIMSKI,LETNJI};
 	
 	String sifra;

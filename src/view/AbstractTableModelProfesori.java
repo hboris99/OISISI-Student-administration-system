@@ -6,6 +6,11 @@ import model.BazaProfesora;
 import model.BazaStudenata;
 
 public class AbstractTableModelProfesori extends AbstractTableModel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public AbstractTableModelProfesori() {}
 
 	// broj redova
