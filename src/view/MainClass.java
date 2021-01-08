@@ -2,8 +2,6 @@ package view;
 
 import javax.swing.WindowConstants;
 
-import controller.ProfesoriController;
-
 public class MainClass {
 
 	public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class MainClass {
 		MainFrame.getInstance().setLocationRelativeTo(null);
 		MainFrame.getInstance().setVisible(true);
 		MainFrame.getInstance().setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		
+
 	}
 
 }
