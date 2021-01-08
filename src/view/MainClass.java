@@ -21,6 +21,7 @@ import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Profesor;
 
+
 public class MainClass {
 
 	@SuppressWarnings("unchecked")
@@ -69,6 +70,7 @@ public class MainClass {
 		} catch (IOException i) {
 			i.printStackTrace();
 		}
+
 	}
 
 }

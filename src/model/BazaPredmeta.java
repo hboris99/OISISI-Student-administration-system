@@ -10,10 +10,10 @@ public final class BazaPredmeta {
 
 	private BazaPredmeta() {
 		this.kolone = new ArrayList<String>();
-		this.kolone.add("SIFRA");
-		this.kolone.add("NAZIV");
-		this.kolone.add("BROJ ESPB BODOVA");
-		this.kolone.add("GODINA NA KOJOJ SE IZVODI");
+		this.kolone.add("SIFRA PREDMETA");
+		this.kolone.add("NAZIV PREDMETA");
+		this.kolone.add("ESPB");
+		this.kolone.add("GODINA STUDIJA");
 		this.kolone.add("SEMESTAR");
 	}
 	
