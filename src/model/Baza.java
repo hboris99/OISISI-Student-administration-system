@@ -13,6 +13,9 @@ public class Baza implements Serializable{
 	
 	private Baza() {
 		super();
+		studenti = new ArrayList<Student>();
+		profesori = new ArrayList<Profesor>();
+		predmeti = new ArrayList<Predmet>();
 	}
 	
 	public static Baza getInstance() {

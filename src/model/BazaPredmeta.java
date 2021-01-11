@@ -37,7 +37,7 @@ public final class BazaPredmeta {
     }
 	
 	public List<Predmet> getPredmeti() {
-		return predmeti;
+		return this.predmeti;
 	}
 
 	public void setPredmeti(ArrayList<Predmet> predmeti) {
