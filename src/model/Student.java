@@ -21,8 +21,8 @@ public class Student implements Serializable {
 	private	int godina_studija;
 	private	enumStatus status;
 	private	float prosecna_ocena;
-	private	ArrayList<Ocena> polozeni;
-	private	ArrayList<Ocena> nepolozeni;
+	private	ArrayList<Ocena> polozeni = new ArrayList<Ocena>();
+	private	ArrayList<Ocena> nepolozeni = new ArrayList<Ocena>();
 	
 	public Student() {}
 

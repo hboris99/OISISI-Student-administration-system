@@ -24,9 +24,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import abstractTableModel.AbstractTableModelPolozeni;
 import model.BazaStudenata;
 import model.Student;
+import tables.PolozeniJTable;
 import validationListeners.StudentValidationActionListener;
 import validationListeners.StudentValidationKeyListener;
 
@@ -303,11 +303,10 @@ public class EditStudentDialog extends JDialog {
 		});
 		panelButton.add(btnPonisti);
 		
-		PredmetiJTable tablePolozeni = new PredmetiJTable();
-		tablePolozeni.setModel(new AbstractTableModelPolozeni(student));
+		//PolozeniJTable tablePolozeni = new PolozeniJTable(student);
 		
 		panelPolozeni.add(panelButton);
-		panelPolozeni.add(tablePolozeni);
+		//panelPolozeni.add(tablePolozeni);
 		
 		tabbedPane.addTab("Položeni", panelPolozeni);
 		
