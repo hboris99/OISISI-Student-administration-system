@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class BazaStudenata {
 	private static BazaStudenata instance = null;
-	private List<Student> studenti = new ArrayList<Student>();
+	private List<Student> studenti;
 	private List<String> kolone;
 
 	public BazaStudenata() {
@@ -19,18 +19,18 @@ public final class BazaStudenata {
 
 	}
 	
+	public static BazaStudenata getInstance() {
+		if(instance == null)
+			instance = new BazaStudenata();
+		return instance;
+	}
+	
 	public static boolean exists(Student s) {
 		for(Student stud: BazaStudenata.getInstance().getStudenti()) {
 			if(stud.getBroj_indeksa().trim().equals(s.getBroj_indeksa().trim()))
 				return true;	
 		}
 		return false;
-	}
-	
-	public static BazaStudenata getInstance() {
-		if(instance == null)
-			instance = new BazaStudenata();
-		return instance;
 	}
 
 	public List<Student> getStudenti() {

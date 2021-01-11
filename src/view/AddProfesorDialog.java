@@ -24,14 +24,11 @@ import javax.swing.SwingConstants;
 
 import controller.ProfesoriController;
 import model.BazaProfesora;
-import model.BazaStudenata;
 import model.Profesor;
 import validationListeners.ProfesorValidationKeyListener;
 
 public class AddProfesorDialog extends JDialog {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private Profesor prof;

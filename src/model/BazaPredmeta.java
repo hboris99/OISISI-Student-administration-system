@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class BazaPredmeta {
 	private static BazaPredmeta instance = null;
-	private ArrayList<Predmet> predmeti;
+	private List<Predmet> predmeti;
 	private List<String> kolone;
 
 	private BazaPredmeta() {
@@ -22,6 +22,14 @@ public final class BazaPredmeta {
 		if(instance == null)
 			instance = new BazaPredmeta();
 		return instance;
+	}
+	
+	public static boolean exists(Predmet p) {
+		for(Predmet pred: BazaPredmeta.getInstance().getPredmeti()) {
+			if(pred.getSifra().trim().equals(p.getSifra().trim()))
+				return true;	
+		}
+		return false;
 	}
 
     public void addPredmet(Predmet p) {

@@ -18,6 +18,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -25,15 +26,10 @@ import javax.swing.SwingConstants;
 import model.BazaPredmeta;
 import model.BazaStudenata;
 import model.Predmet;
-import model.Student;
 import validationListeners.PredmetValidationKeyListener;
-import validationListeners.StudentValidationKeyListener;
 
 public class AddPredmetDialog extends JDialog {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public AddPredmetDialog(Frame parent, String title, boolean modal) {
@@ -157,8 +153,11 @@ public class AddPredmetDialog extends JDialog {
 		btnPotvrdi.setEnabled(false);
 		panel.add(btnPotvrdi, new GridBagConstraints(0, 6, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 75, 0, -7), 0, 0));
+		
+		AddPredmetDialog thisDialog = this;
+		
 		btnPotvrdi.addActionListener(new ActionListener() {
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
@@ -171,7 +170,17 @@ public class AddPredmetDialog extends JDialog {
 				p.setSemestar((Predmet.enumSemestar)comboSemestar.getSelectedItem());
 				p.setEspb(Integer.parseInt(tfESPB.getText()));
 
-				BazaPredmeta.getInstance().addPredmet(p);
+				
+				if(!BazaPredmeta.exists(p)){
+					BazaPredmeta.getInstance().getPredmeti().add(p);
+				}else {
+					JOptionPane.showMessageDialog(thisDialog,
+						    "Student sa tim indeksom vec postoji.",
+						    "Greska",
+						    JOptionPane.ERROR_MESSAGE);
+				}
+				
+				//BazaPredmeta.getInstance().addPredmet(p);
 
 				MainFrame.getInstance().prikaziTabeluPredmeta();
 			}

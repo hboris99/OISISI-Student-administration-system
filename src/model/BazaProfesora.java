@@ -8,7 +8,7 @@ import model.Profesor.Zvanje;
 
 public final class BazaProfesora {
 	private static BazaProfesora instance = null;
-	private List<Profesor> profesori = new ArrayList<Profesor>();
+	private List<Profesor> profesori;
 	private List<String> kolone;
 
 	private BazaProfesora() {

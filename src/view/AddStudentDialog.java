@@ -199,7 +199,8 @@ public class AddStudentDialog extends JDialog {
 			}
 		});
 		
-		AddStudentDialog temp = this;
+		AddStudentDialog thisDialog = this;
+		
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setEnabled(false);
 		panel.add(btnPotvrdi, new GridBagConstraints(0, 10, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -226,7 +227,7 @@ public class AddStudentDialog extends JDialog {
 				if(!BazaStudenata.exists(s)){
 					BazaStudenata.getInstance().getStudenti().add(s);
 				}else {
-					JOptionPane.showMessageDialog(temp,
+					JOptionPane.showMessageDialog(thisDialog,
 						    "Student sa tim indeksom vec postoji.",
 						    "Greska",
 						    JOptionPane.ERROR_MESSAGE);

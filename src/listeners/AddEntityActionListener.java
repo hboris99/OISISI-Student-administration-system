@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import model.BazaStudenata;
 import view.AddPredmetDialog;
 import view.AddProfesorDialog;
 import view.AddStudentDialog;
@@ -33,6 +32,7 @@ public class AddEntityActionListener implements ActionListener {
 			break;
 		case 1:
 			AddProfesorDialog dialogProfesor = new AddProfesorDialog(parent, "Dodavanje profesora", true);
+			dialogProfesor.setResizable(false);
 			dialogProfesor.setVisible(true);
 			break;
 		case 2:
@@ -40,13 +40,11 @@ public class AddEntityActionListener implements ActionListener {
 			dialogPredmet.setSize(450, 370);
 			dialogPredmet.setResizable(false);
 			dialogPredmet.setVisible(true);
+			break;
 		default:
 			System.out.println("Tab koji ste izabrali ne postoji.");
 		}
 
-		// AddStudentDialog dialog = new AddStudentDialog(parent, "Dodavanje studenta",
-		// true);
-		// dialog.setVisible(true);
 	}
 
 }
