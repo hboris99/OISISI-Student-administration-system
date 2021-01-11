@@ -13,6 +13,10 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import abstractTableModel.AbstractTableModelPredmeti;
+import abstractTableModel.AbstractTableModelProfesori;
+import abstractTableModel.AbstractTableModelStudenti;
+
 
 public class TabbedPane extends JPanel {
 	/**

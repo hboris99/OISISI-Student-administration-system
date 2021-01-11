@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 public class Student implements Serializable {
 	
@@ -20,14 +21,14 @@ public class Student implements Serializable {
 	private	int godina_studija;
 	private	enumStatus status;
 	private	float prosecna_ocena;
-	private	Ocena[] polozeni;
-	private	Ocena[] nepolozeni;
+	private	ArrayList<Ocena> polozeni;
+	private	ArrayList<Ocena> nepolozeni;
 	
 	public Student() {}
-	
+
 	public Student(String prezime, String ime, String datum_rodjenja, String adresa_stanovanja, String telefon,
 			String email, String broj_indeksa, int godina_upisa, int godina_studija, enumStatus status,
-			float prosecna_ocena, Ocena[] polozeni, Ocena[] nepolozeni) {
+			float prosecna_ocena, ArrayList<Ocena> polozeni, ArrayList<Ocena> nepolozeni) {
 		super();
 		this.prezime = prezime;
 		this.ime = ime;
@@ -43,7 +44,6 @@ public class Student implements Serializable {
 		this.polozeni = polozeni;
 		this.nepolozeni = nepolozeni;
 	}
-
 
 	public String getPrezime() {
 		return prezime;
@@ -154,26 +154,21 @@ public class Student implements Serializable {
 		this.prosecna_ocena = prosecna_ocena;
 	}
 
-
-	public Ocena[] getPolozeni() {
+	public ArrayList<Ocena> getPolozeni() {
 		return polozeni;
 	}
 
-
-	public void setPolozeni(Ocena[] polozeni) {
+	public void setPolozeni(ArrayList<Ocena> polozeni) {
 		this.polozeni = polozeni;
 	}
 
-
-	public Ocena[] getNepolozeni() {
+	public ArrayList<Ocena> getNepolozeni() {
 		return nepolozeni;
 	}
 
-
-	public void setNepolozeni(Ocena[] nepolozeni) {
+	public void setNepolozeni(ArrayList<Ocena> nepolozeni) {
 		this.nepolozeni = nepolozeni;
 	}
-	
 
 	@Override
 	public String toString() {
@@ -181,7 +176,7 @@ public class Student implements Serializable {
 				+ ", adresa_stanovanja=" + adresa_stanovanja + ", telefon=" + telefon + ", email=" + email
 				+ ", broj_indeksa=" + broj_indeksa + ", godina_upisa=" + godina_upisa + ", godina_studija="
 				+ godina_studija + ", status=" + status + ", prosecna_ocena=" + prosecna_ocena + ", polozeni="
-				+ Arrays.toString(polozeni) + ", nepolozeni=" + Arrays.toString(nepolozeni) + "]";
+				+ polozeni + ", nepolozeni=" + nepolozeni + "]";
 	}
 	
 	

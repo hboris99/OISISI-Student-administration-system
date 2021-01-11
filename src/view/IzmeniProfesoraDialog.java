@@ -24,9 +24,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import controller.ProfesoriController;
-import listeners.ProfesorValidationKeyListener;
 import model.BazaProfesora;
 import model.Profesor;
+import validationListeners.ProfesorValidationKeyListener;
 
 public class IzmeniProfesoraDialog extends JDialog{
 	

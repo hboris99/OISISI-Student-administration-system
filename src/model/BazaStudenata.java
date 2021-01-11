@@ -19,6 +19,14 @@ public final class BazaStudenata {
 
 	}
 	
+	public static boolean exists(Student s) {
+		for(Student stud: BazaStudenata.getInstance().getStudenti()) {
+			if(stud.getBroj_indeksa().trim().equals(s.getBroj_indeksa().trim()))
+				return true;	
+		}
+		return false;
+	}
+	
 	public static BazaStudenata getInstance() {
 		if(instance == null)
 			instance = new BazaStudenata();
@@ -54,6 +62,7 @@ public final class BazaStudenata {
 		
 		return null;
 	}
+	
 	
 	
 //	public int izmeniStudenta(String index) {

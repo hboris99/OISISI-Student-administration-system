@@ -7,6 +7,8 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
+import abstractTableModel.AbstractTableModelStudenti;
+
 
 public class StudentiJTable extends JTable{
 

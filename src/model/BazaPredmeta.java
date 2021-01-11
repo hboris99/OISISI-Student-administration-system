@@ -5,11 +5,11 @@ import java.util.List;
 
 public final class BazaPredmeta {
 	private static BazaPredmeta instance = null;
-	private List<Predmet> predmeti;
+	private ArrayList<Predmet> predmeti;
 	private List<String> kolone;
 
 	private BazaPredmeta() {
-		predmeti = new ArrayList<Predmet>();
+		this.predmeti = new ArrayList<Predmet>();
 		this.kolone = new ArrayList<String>();
 		this.kolone.add("SIFRA PREDMETA");
 		this.kolone.add("NAZIV PREDMETA");
@@ -24,12 +24,15 @@ public final class BazaPredmeta {
 		return instance;
 	}
 
+    public void addPredmet(Predmet p) {
+     predmeti.add(p);
+    }
 	
 	public List<Predmet> getPredmeti() {
 		return predmeti;
 	}
 
-	public void setPredmeti(List<Predmet> predmeti) {
+	public void setPredmeti(ArrayList<Predmet> predmeti) {
 		this.predmeti = predmeti;
 	}
 

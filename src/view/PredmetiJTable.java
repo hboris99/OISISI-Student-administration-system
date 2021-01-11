@@ -7,13 +7,11 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
+import abstractTableModel.AbstractTableModelPredmeti;
+
 public class PredmetiJTable extends JTable {
 
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 3058486598894713122L;
 
 	public PredmetiJTable() {
 		this.setRowSelectionAllowed(true);

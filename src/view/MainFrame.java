@@ -7,6 +7,8 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
+import abstractTableModel.AbstractTableModelStudenti;
+
 public class MainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;

@@ -4,11 +4,12 @@ import javax.swing.WindowConstants;
 
 import controller.Serijalizacija;
 import listeners.CloseAppWindowListener;
+import model.BazaPredmeta;
+import model.BazaStudenata;
 
 
 public class MainClass {
 
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws ClassNotFoundException {
 		
 		Serijalizacija.deserijalizuj();

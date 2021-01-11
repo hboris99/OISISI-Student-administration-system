@@ -21,13 +21,14 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import listeners.StudentValidationKeyListener;
+import abstractTableModel.AbstractTableModelPolozeni;
 import model.BazaStudenata;
 import model.Student;
+import validationListeners.StudentValidationActionListener;
+import validationListeners.StudentValidationKeyListener;
 
 public class EditStudentDialog extends JDialog {
 
@@ -220,13 +221,14 @@ public class EditStudentDialog extends JDialog {
 				return rendererComponent;
 			}
 		});
-
+		
+		EditStudentDialog thisDialog = this;
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setEnabled(false);
 		panelInfo.add(btnPotvrdi, new GridBagConstraints(0, 10, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 75, 0, -7), 0, 0));
 		btnPotvrdi.addActionListener(new ActionListener() {
-
+		
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
@@ -238,14 +240,22 @@ public class EditStudentDialog extends JDialog {
 				student.setAdresa_stanovanja(tfAdresa.getText());
 				student.setTelefon(tfBrTel.getText());
 				student.setEmail(tfEmail.getText());
-				student.setBroj_indeksa(tfBrIndeks.getText());
+				if(!BazaStudenata.exists(s) || student.getBroj_indeksa().equals(tfBrIndeks.getText()) ){
+					student.setBroj_indeksa(tfBrIndeks.getText());
+				}else {
+					JOptionPane.showMessageDialog(thisDialog,
+						    "Student sa tim indeksom vec postoji.",
+						    "Greska",
+						    JOptionPane.ERROR_MESSAGE);
+				}
+				System.out.println("IDE GAS");
 				student.setGodina_upisa(Integer.parseInt(tfGodUpisa.getText()));
 				student.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				student.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
 
-				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
-					System.out.println(temp);
-				}
+//				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
+//					System.out.println(temp);
+//				}
 
 				MainFrame.getInstance().prikaziTabeluStudenata();
 			}
@@ -259,6 +269,8 @@ public class EditStudentDialog extends JDialog {
 			listTxt.get(i).addKeyListener(
 					new StudentValidationKeyListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 		}
+		comboGodStudija.addActionListener(new StudentValidationActionListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
+		comboNacinFin.addActionListener(new StudentValidationActionListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 
 		for (int i = 0; i < 8; i++) {
 			System.out.println("\t" + nizBool[i]);
@@ -291,7 +303,8 @@ public class EditStudentDialog extends JDialog {
 		});
 		panelButton.add(btnPonisti);
 		
-		JTable tablePolozeni = new JTable();
+		PredmetiJTable tablePolozeni = new PredmetiJTable();
+		tablePolozeni.setModel(new AbstractTableModelPolozeni(student));
 		
 		panelPolozeni.add(panelButton);
 		panelPolozeni.add(tablePolozeni);
@@ -303,12 +316,23 @@ public class EditStudentDialog extends JDialog {
 		
 		JPanel panelButtons = new JPanel();
 		JButton btnDodaj = new JButton("Dodaj");
+		btnDodaj.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DodavanjePredmetaStudentuDialog dialog = new DodavanjePredmetaStudentuDialog(thisDialog, "Dodavanje predmeta", true, student);
+				dialog.setVisible(true);
+			}
+			
+		});
 		JButton btnObrisi = new JButton("Ukloni");
 		JButton btnPolaganje = new JButton("Polaganje");
+		
 		panelButtons.add(btnDodaj);
 		panelButtons.add(btnObrisi);
 		panelButtons.add(btnPolaganje);
-		JTable tableNepolozeni = new JTable();	
+		PredmetiJTable tableNepolozeni = new PredmetiJTable();	
+		//tableNepolozeni.setModel(new AbstractTableModelNepolozeni(student));
 		
 		tabbedPane.addTab("Nepoloženi", panelNepolozeni);
 		panelNepolozeni.add(panelButtons);

@@ -22,12 +22,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import listener.PredmetValidationKeyListener;
-import listeners.StudentValidationKeyListener;
 import model.BazaPredmeta;
 import model.BazaStudenata;
 import model.Predmet;
 import model.Student;
+import validationListeners.PredmetValidationKeyListener;
+import validationListeners.StudentValidationKeyListener;
 
 public class EditPredmetDialog extends JDialog {
 

@@ -22,12 +22,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import listener.PredmetValidationKeyListener;
-import listeners.StudentValidationKeyListener;
 import model.BazaPredmeta;
 import model.BazaStudenata;
 import model.Predmet;
 import model.Student;
+import validationListeners.PredmetValidationKeyListener;
+import validationListeners.StudentValidationKeyListener;
 
 public class AddPredmetDialog extends JDialog {
 
@@ -171,12 +171,8 @@ public class AddPredmetDialog extends JDialog {
 				p.setSemestar((Predmet.enumSemestar)comboSemestar.getSelectedItem());
 				p.setEspb(Integer.parseInt(tfESPB.getText()));
 
-				BazaPredmeta.getInstance().getPredmeti().add(p);
+				BazaPredmeta.getInstance().addPredmet(p);
 
-				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
-					System.out.println(temp);
-				}
-				
 				MainFrame.getInstance().prikaziTabeluPredmeta();
 			}
 		});

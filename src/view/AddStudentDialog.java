@@ -18,13 +18,14 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import listeners.StudentValidationKeyListener;
 import model.BazaStudenata;
 import model.Student;
+import validationListeners.StudentValidationKeyListener;
 
 public class AddStudentDialog extends JDialog {
 
@@ -187,7 +188,6 @@ public class AddStudentDialog extends JDialog {
 		JComboBox<Student.enumStatus> comboNacinFin = new JComboBox<Student.enumStatus>(Student.enumStatus.values());
 
 		comboNacinFin.setPreferredSize(tfIme.getPreferredSize());
-//		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
 		panel.add(comboNacinFin, new GridBagConstraints(1, 9, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, 0, 42), 0, 0));
 		comboNacinFin.setRenderer(new DefaultListCellRenderer() { // https://docs.oracle.com/javase/7/docs/api/javax/swing/DefaultListCellRenderer.html
@@ -198,7 +198,8 @@ public class AddStudentDialog extends JDialog {
 				return rendererComponent;
 			}
 		});
-
+		
+		AddStudentDialog temp = this;
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setEnabled(false);
 		panel.add(btnPotvrdi, new GridBagConstraints(0, 10, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -222,10 +223,17 @@ public class AddStudentDialog extends JDialog {
 				s.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				s.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
 
-				BazaStudenata.getInstance().getStudenti().add(s);
+				if(!BazaStudenata.exists(s)){
+					BazaStudenata.getInstance().getStudenti().add(s);
+				}else {
+					JOptionPane.showMessageDialog(temp,
+						    "Student sa tim indeksom vec postoji.",
+						    "Greska",
+						    JOptionPane.ERROR_MESSAGE);
+				}
 
-				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
-					System.out.println(temp);
+				for (Student stud : BazaStudenata.getInstance().getStudenti()) {
+					System.out.println(stud);
 				}
 				
 				MainFrame.getInstance().prikaziTabeluStudenata();
