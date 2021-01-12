@@ -15,6 +15,7 @@ import model.Baza;
 import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
+import model.Ocena;
 import model.Predmet;
 import model.Profesor;
 import model.Student;
@@ -44,6 +45,7 @@ public class Serijalizacija {
 	}
 
 	public static void serijalizuj() {
+		
 		
 		Baza.getInstance().setProfesori((ArrayList<Profesor>)BazaProfesora.getInstance().getProfesori());
 		Baza.getInstance().setStudenti((ArrayList<Student>)BazaStudenata.getInstance().getStudenti());

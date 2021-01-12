@@ -9,6 +9,7 @@ import tables.DodavanjePredmetaJList;
 
 public class DodavanjePredmetaStudentuDialog extends JDialog{
 	
+	private static final long serialVersionUID = -1205380604984917479L;
 	JDialog parent;
 	String title;
 	boolean modal;

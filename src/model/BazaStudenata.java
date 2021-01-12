@@ -10,6 +10,7 @@ public final class BazaStudenata {
 
 	public BazaStudenata() {
 		this.kolone = new ArrayList<String>();
+		studenti = new ArrayList<Student>();
 		this.kolone.add("INDEX");
 		this.kolone.add("IME");
 		this.kolone.add("PREZIME");

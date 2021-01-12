@@ -13,6 +13,7 @@ public final class BazaProfesora {
 
 	private BazaProfesora() {
 		this.kolone = new ArrayList<String>();
+		profesori = new ArrayList<Profesor>();
 		this.kolone.add("IME");
 		this.kolone.add("PREZIME");
 		this.kolone.add(" TITULA");

@@ -24,7 +24,10 @@ public class Student implements Serializable {
 	private	ArrayList<Ocena> polozeni = new ArrayList<Ocena>();
 	private	ArrayList<Ocena> nepolozeni = new ArrayList<Ocena>();
 	
-	public Student() {}
+	public Student() {
+		polozeni = new ArrayList<Ocena>();
+		nepolozeni = new ArrayList<Ocena>();
+	}
 
 	public Student(String prezime, String ime, String datum_rodjenja, String adresa_stanovanja, String telefon,
 			String email, String broj_indeksa, int godina_upisa, int godina_studija, enumStatus status,

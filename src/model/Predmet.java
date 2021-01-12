@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Predmet implements Serializable {
 
@@ -14,16 +15,15 @@ public class Predmet implements Serializable {
 	int godina_studija;
 	Profesor profesor;
 	int espb;
-	Student[] studentip;
-	Student[] studentinp;
+	ArrayList<Student> studentip;
+	ArrayList<Student> studentinp;
 	
 	
 
 	public Predmet() {}
 
-	Predmet(String sifra, String naziv, enumSemestar semestar, int godina_studija, Profesor profesor,
-			int espb, Student[] studentip, Student[] studentin[])
-	{
+	public Predmet(String sifra, String naziv, enumSemestar semestar, int godina_studija, Profesor profesor, int espb,
+			ArrayList<Student> studentip, ArrayList<Student> studentinp) {
 		super();
 		this.sifra = sifra;
 		this.naziv = naziv;
@@ -32,9 +32,7 @@ public class Predmet implements Serializable {
 		this.profesor = profesor;
 		this.espb = espb;
 		this.studentip = studentip;
-		this.studentip = studentinp;
-		
-		
+		this.studentinp = studentinp;
 	}
 
 	public String getSifra() {
@@ -85,21 +83,21 @@ public class Predmet implements Serializable {
 		this.espb = espb;
 	}
 
-	public Student[] getStudentip() {
+	public ArrayList<Student> getStudentip() {
 		return studentip;
 	}
 
-	public void setStudentip(Student[] studentip) {
+	public void setStudentip(ArrayList<Student> studentip) {
 		this.studentip = studentip;
 	}
 
-	public Student[] getStudentinp() {
+	public ArrayList<Student> getStudentinp() {
 		return studentinp;
 	}
 
-	public void setStudentinp(Student[] studentinp) {
+	public void setStudentinp(ArrayList<Student> studentinp) {
 		this.studentinp = studentinp;
 	}
-	
+
 	
 }
