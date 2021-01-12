@@ -171,7 +171,7 @@ public class AddPredmetDialog extends JDialog {
 				p.setEspb(Integer.parseInt(tfESPB.getText()));
 
 				
-				if(!BazaPredmeta.exists(p)){
+				if(!BazaPredmeta.exists(p.getSifra())){
 					BazaPredmeta.getInstance().getPredmeti().add(p);
 				}else {
 					JOptionPane.showMessageDialog(thisDialog,

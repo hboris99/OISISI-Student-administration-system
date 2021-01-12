@@ -224,7 +224,7 @@ public class AddStudentDialog extends JDialog {
 				s.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				s.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
 
-				if(!BazaStudenata.exists(s)){
+				if(!BazaStudenata.exists(s.getBroj_indeksa())){
 					BazaStudenata.getInstance().getStudenti().add(s);
 				}else {
 					JOptionPane.showMessageDialog(thisDialog,

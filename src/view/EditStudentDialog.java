@@ -240,15 +240,15 @@ public class EditStudentDialog extends JDialog {
 				student.setAdresa_stanovanja(tfAdresa.getText());
 				student.setTelefon(tfBrTel.getText());
 				student.setEmail(tfEmail.getText());
-				if(!BazaStudenata.exists(s) || student.getBroj_indeksa().equals(tfBrIndeks.getText()) ){
-					student.setBroj_indeksa(tfBrIndeks.getText());
+				if(!BazaStudenata.exists(tfBrIndeks.getText()) || student.getBroj_indeksa().equals(tfBrIndeks.getText()) ){
+					
+					student.setBroj_indeksa(tfBrIndeks.getText());		
 				}else {
 					JOptionPane.showMessageDialog(thisDialog,
 						    "Student sa tim indeksom vec postoji.",
 						    "Greska",
 						    JOptionPane.ERROR_MESSAGE);
 				}
-				System.out.println("IDE GAS");
 				student.setGodina_upisa(Integer.parseInt(tfGodUpisa.getText()));
 				student.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				student.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());

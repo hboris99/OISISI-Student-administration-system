@@ -24,9 +24,9 @@ public final class BazaPredmeta {
 		return instance;
 	}
 	
-	public static boolean exists(Predmet p) {
+	public static boolean exists(String sifra) {
 		for(Predmet pred: BazaPredmeta.getInstance().getPredmeti()) {
-			if(pred.getSifra().trim().equals(p.getSifra().trim()))
+			if(pred.getSifra().trim().equals(sifra.trim()))
 				return true;	
 		}
 		return false;

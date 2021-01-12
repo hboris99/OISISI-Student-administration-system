@@ -18,16 +18,14 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import model.BazaPredmeta;
-import model.BazaStudenata;
 import model.Predmet;
-import model.Student;
 import validationListeners.PredmetValidationKeyListener;
-import validationListeners.StudentValidationKeyListener;
 
 public class EditPredmetDialog extends JDialog {
 
@@ -157,7 +155,7 @@ public class EditPredmetDialog extends JDialog {
 		panel.add(tfProfesor, new GridBagConstraints(1, 5, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, -15, -25, 37), 0, 0));
 
-
+		Component thisDialog = this;
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setEnabled(false);
 		panel.add(btnPotvrdi, new GridBagConstraints(0, 6, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -169,17 +167,18 @@ public class EditPredmetDialog extends JDialog {
 
 				System.out.println("Potvrdi btn pritisnut");
 
-				predmet.setSifra(tfSifra.getText());
+				if(!BazaPredmeta.exists(tfSifra.getText()) || predmet.getSifra().equals(tfSifra.getText().trim()) ){
+					predmet.setSifra(tfSifra.getText());
+				}else {
+					JOptionPane.showMessageDialog(thisDialog,
+						    "Predmet sa tom sifrom vec postoji.",
+						    "Greska",
+						    JOptionPane.ERROR_MESSAGE);
+				}
 				predmet.setNaziv(tfNaziv.getText());
 				predmet.setGodina_studija((int)comboGodStudija.getSelectedItem());
 				predmet.setSemestar((Predmet.enumSemestar)comboSemestar.getSelectedItem());
 				predmet.setEspb(Integer.parseInt(tfESPB.getText()));
-
-				BazaPredmeta.getInstance().getPredmeti().add(p);
-
-				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
-					System.out.println(temp);
-				}
 				
 				MainFrame.getInstance().prikaziTabeluPredmeta();
 			}

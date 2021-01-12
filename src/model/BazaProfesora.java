@@ -38,6 +38,7 @@ public final class BazaProfesora {
 	public int getColumnCount() {
 		return 5;
 	}
+	
 	public boolean isValid(String brLK) {
 		boolean valid = true;
 		for(Profesor p : profesori) {

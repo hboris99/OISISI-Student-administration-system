@@ -25,9 +25,9 @@ public final class BazaStudenata {
 		return instance;
 	}
 	
-	public static boolean exists(Student s) {
+	public static boolean exists(String indeks) {
 		for(Student stud: BazaStudenata.getInstance().getStudenti()) {
-			if(stud.getBroj_indeksa().trim().equals(s.getBroj_indeksa().trim()))
+			if(stud.getBroj_indeksa().trim().equals(indeks.trim()))
 				return true;	
 		}
 		return false;
