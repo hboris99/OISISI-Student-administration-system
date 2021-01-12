@@ -24,9 +24,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import abstractTableModel.AbstractTableModelNepolozeni;
 import model.BazaStudenata;
 import model.Student;
-import tables.PolozeniJTable;
 import validationListeners.StudentValidationActionListener;
 import validationListeners.StudentValidationKeyListener;
 
@@ -331,7 +331,7 @@ public class EditStudentDialog extends JDialog {
 		panelButtons.add(btnObrisi);
 		panelButtons.add(btnPolaganje);
 		PredmetiJTable tableNepolozeni = new PredmetiJTable();	
-		//tableNepolozeni.setModel(new AbstractTableModelNepolozeni(student));
+		tableNepolozeni.setModel(new AbstractTableModelNepolozeni(student));
 		
 		tabbedPane.addTab("Nepoloženi", panelNepolozeni);
 		panelNepolozeni.add(panelButtons);

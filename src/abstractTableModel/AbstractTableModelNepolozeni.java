@@ -6,7 +6,7 @@ import model.Student;
 
 public class AbstractTableModelNepolozeni extends AbstractTableModel{
 
-Student student;
+	Student student;
 	
 	public AbstractTableModelNepolozeni(Student s) {
 		super();
