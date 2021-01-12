@@ -7,10 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controller.PredmetiController;
+import controller.ProfesoriController;
 import controller.StudentController;
 import model.BazaPredmeta;
+import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Predmet;
+import model.Profesor;
 import model.Student;
 import view.MainFrame;
 import view.TabbedPane;
@@ -47,7 +50,7 @@ public class DeleteEntityListener implements ActionListener {
 			
 			break;
 		case 1:
-
+			
 			break;
 			
 		case 2:

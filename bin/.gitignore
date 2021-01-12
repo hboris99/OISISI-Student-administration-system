@@ -1,9 +1,6 @@
-/listeners/
-/listener/
-/view/
-/validationListeners/
-/model/
-/controller/
 /tables/
-/tableModel/
+/view/
+/listeners/
+/model/
 /abstractTableModel/
+/controller/

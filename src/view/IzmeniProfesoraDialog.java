@@ -26,6 +26,7 @@ import javax.swing.SwingConstants;
 import controller.ProfesoriController;
 import model.BazaProfesora;
 import model.Profesor;
+import tables.PredajeJTable;
 import validationListeners.ProfesorValidationKeyListener;
 
 public class IzmeniProfesoraDialog extends JDialog{
@@ -275,7 +276,18 @@ public class IzmeniProfesoraDialog extends JDialog{
 				dispose();
 			}
 		});
-
+			
+		JPanel panelButton = new JPanel();
+		JPanel panelPredmeti = new JPanel();
+		JButton btnDodaj = new JButton("Dodaj predmet");
+		JButton btnUkloni = new JButton("Ukloni predmet");
+		panelButton.add(btnDodaj);
+		panelButton.add(btnUkloni);
+		
+		PredajeJTable predajeNaPredmetima = new PredajeJTable(p);
+		tp.addTab("Predmeti", panelPredmeti);
+		panelPredmeti.add(panelButton);
+		panelPredmeti.add(predajeNaPredmetima);
 
 		}
 	

@@ -110,7 +110,7 @@ public final class BazaProfesora {
 	}
 	
 	public void dodajProfesora(String prezime, String ime, String datum_rodjenja,	String adresa_stanovanja,String telefon,String email,String adresa_kancelarije,
-			String broj_lk,Titula titula,Zvanje zvanje,Predmet[] predmeti_radi) {
+			String broj_lk,Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti_radi) {
 		this.profesori.add(new Profesor(prezime, ime, datum_rodjenja,adresa_stanovanja, telefon,email,adresa_kancelarije,
 				broj_lk,titula, zvanje,predmeti_radi));
 	}
@@ -126,7 +126,7 @@ public final class BazaProfesora {
 
 	public void updateProfesra(String prezime, String ime, String datum_rodjenja, String adresa_stanovanja,
 			String telefon, String email, String adresa_kancelarije, String broj_lk, Titula titula, Zvanje zvanje,
-			Predmet[] predmeti_radi) {
+			ArrayList<Predmet> predmeti_radi) {
 		for(Profesor p : profesori) {
 			if(p.getBroj_lk().equals(broj_lk)) {
 				int change = profesori.indexOf(p);

@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Profesor implements Serializable{
@@ -20,10 +21,10 @@ public class Profesor implements Serializable{
 	String broj_lk;
 	Titula titula;
 	Zvanje zvanje;
-	Predmet[] predmeti_radi;
+	ArrayList<Predmet> predmeti_radi = new ArrayList<Predmet>();
 	 
 	Profesor(String prezime, String ime, String datum_rodjenja,	String adresa_stanovanja,String telefon,String email,String adresa_kancelarije,
-				String broj_lk,Titula titula,Zvanje zvanje,Predmet[] predmeti_radi)
+				String broj_lk,Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti_radi)
 		{
 			super();
 			this.prezime = prezime;
@@ -122,21 +123,24 @@ public class Profesor implements Serializable{
 		this.zvanje = zvanje;
 	}
 
-	public Predmet[] getPredmeti_radi() {
+		
+
+	
+
+	public ArrayList<Predmet> getPredmeti_radi() {
 		return predmeti_radi;
 	}
 
-	public void setPredmeti_radi(Predmet[] predmeti_radi) {
+	public void setPredmeti_radi(ArrayList<Predmet> predmeti_radi) {
 		this.predmeti_radi = predmeti_radi;
 	}
-	
 
 	@Override
 	public String toString() {
 		return "Profesor [prezime=" + prezime + ", ime=" + ime + ", datum_rodjenja=" + datum_rodjenja
 				+ ", adresa_stanovanja=" + adresa_stanovanja + ", telefon=" + telefon + ", email=" + email
 				+ ", adresa_kancelarije=" + adresa_kancelarije + ", broj_lk=" + broj_lk + ", titula=" + titula
-				+ ", zvanje=" + zvanje + ", predmeti_radi=" + Arrays.toString(predmeti_radi) + "]";
+				+ ", zvanje=" + zvanje + ", predmeti_radi=" + predmeti_radi + "]";
 	}
 
 	public Profesor() {

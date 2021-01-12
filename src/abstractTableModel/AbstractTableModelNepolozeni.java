@@ -2,29 +2,48 @@ package abstractTableModel;
 
 import javax.swing.table.AbstractTableModel;
 
+import model.Student;
+
 public class AbstractTableModelNepolozeni extends AbstractTableModel{
 
-	public AbstractTableModelNepolozeni() {
+Student student;
+	
+	public AbstractTableModelNepolozeni(Student s) {
 		super();
-		// TODO Auto-generated constructor stub
+		student = s;
 	}
 
 	@Override
 	public int getRowCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return student.getNepolozeni().size();
 	}
 
 	@Override
 	public int getColumnCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 5;
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		// TODO Auto-generated method stub
-		return null;
+		switch(columnIndex) {
+		
+		case 0:
+			return student.getNepolozeni().get(rowIndex).getPredmet().getSifra();
+		case 1:
+			return student.getNepolozeni().get(rowIndex).getPredmet().getNaziv();
+		case 2: 
+			return student.getNepolozeni().get(rowIndex).getPredmet().getEspb();
+		case 3: 
+			return student.getNepolozeni().get(rowIndex).getOcena();
+		case 4:
+			return student.getNepolozeni().get(rowIndex).getDatum_polaganja();
+			
+		default: 
+			return null;
+		}
+		
+
 	}
 
 }
+
