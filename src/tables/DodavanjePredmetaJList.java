@@ -30,19 +30,21 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 			if(student.getGodina_studija() < p.getGodina_studija()) 
 				continue;
 			found = false;
-			for(Predmet p2: student.getNepolozeni()) {
-				if(p2 == p) {
-					found = true;
-					break;
+			if(student.getNepolozeni() != null) {
+				for(Predmet p2: student.getNepolozeni()) {
+					if(p2 == p) {
+						found = true;
+						break;
+					}
 				}
 			}
 			for(Predmet p2: student.getPolozeni()) {
 				if(p2 == p) {
 					found = true;
 					break;
-				}
-			}
 			
+			
+			}
 			
 			if(found == false) predmeti.add(p);
 		}
@@ -55,5 +57,5 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 		setVisible(true);
 		
 	}
-	
+	}
 }
