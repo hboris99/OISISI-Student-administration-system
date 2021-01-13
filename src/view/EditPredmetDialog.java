@@ -50,7 +50,7 @@ public class EditPredmetDialog extends JDialog {
 		}
 		List<JTextField> listTxt = new ArrayList<JTextField>();
 
-		setSize(450, 500);
+		setSize(525, 500);
 		setLocationRelativeTo(parent);
 
 		JPanel panel = new JPanel();
@@ -194,10 +194,13 @@ public class EditPredmetDialog extends JDialog {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				predmet.setProfesor(null);
+
 				plus.setEnabled(true);
 				minus.setEnabled(false);
 				tfProfesor.setText("");
+				
 			}
 		});
 		
