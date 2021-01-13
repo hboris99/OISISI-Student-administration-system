@@ -40,7 +40,19 @@ public class ProfesoriController {
 
 		MainFrame.getInstance().prikaziTabeluProfesora();
 	}
-
+	
+	public void ukloniPredmet(Profesor p, Predmet tmp) {
+		for(Profesor prof: BazaProfesora.getInstance().getProfesori()) {
+			if(prof == p) {
+				for(Predmet pr: prof.getPredmeti_radi()) {
+					if(pr == tmp) {
+						p.getPredmeti_radi().remove(pr);
+						break;
+					}
+				}
+			}
+		}		
+	}
 	
 	
 	
