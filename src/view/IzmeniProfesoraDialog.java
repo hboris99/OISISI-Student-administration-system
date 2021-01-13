@@ -32,6 +32,7 @@ import model.BazaProfesora;
 import model.Predmet;
 import model.Profesor;
 import tables.PredajeJTable;
+import validationListeners.ProfesorValidatioActionListener;
 import validationListeners.ProfesorValidationKeyListener;
 
 public class IzmeniProfesoraDialog extends JDialog{
@@ -247,7 +248,8 @@ public class IzmeniProfesoraDialog extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				if(BazaProfesora.getInstance().isValid(tfBrLK.getText())) {
+
 					ProfesoriController.getInstance().updateProf(tfPrezime.getText(), tfIme.getText(), 
 							tfDatRodj.getText(), tfAdresa.getText(), tfBrTel.getText(), tfEmail.getText(),
 							tfAdresaKanc.getText(), tfBrLK.getText(), (Profesor.Titula) comboTitula.getSelectedItem(),
@@ -255,7 +257,12 @@ public class IzmeniProfesoraDialog extends JDialog{
 
 					
 						MainFrame.getInstance().prikaziTabeluProfesora();
-
+				}else {
+				JOptionPane.showMessageDialog(thisDialog,
+					    "Profesor sa tim brojem licne karte vec postoji.",
+					    "Greska",
+					    JOptionPane.ERROR_MESSAGE);
+			}
 				
 				}
 		});
@@ -268,6 +275,8 @@ public class IzmeniProfesoraDialog extends JDialog{
 			listTxt.get(i).addKeyListener(
 					new ProfesorValidationKeyListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 		}
+		comboTitula.addActionListener(new ProfesorValidatioActionListener(btnPotvrdi, (ArrayList<JTextField>)listTxt, nizBool));
+		comboZvanje.addActionListener(new ProfesorValidatioActionListener(btnPotvrdi, (ArrayList<JTextField>)listTxt, nizBool));
 
 		for (int i = 0; i < 8; i++) {
 			System.out.println("\t" + nizBool[i]);

@@ -370,7 +370,13 @@ public class EditStudentDialog extends JDialog {
 				}
 			}
 		});
-		
+		btnPolaganje.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//UnosOceneDijalog oceni = new UnosOceneDijalog(thisDialog, "Upis ocene", true, student);
+			}
+		});
 		add(tabbedPane);
 
 	}
