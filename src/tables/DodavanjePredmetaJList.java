@@ -38,13 +38,7 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 					}
 				}
 			}
-			for(Predmet p2: student.getPolozeni()) {
-				if(p2 == p) {
-					found = true;
-					break;
 			
-			
-			}
 			
 			if(found == false) predmeti.add(p);
 		}
@@ -58,4 +52,4 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 		
 	}
 	}
-}
+

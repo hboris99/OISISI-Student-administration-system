@@ -32,7 +32,6 @@ public class DodavanjePredmetaStudentuDialog extends JDialog{
 		this.title = title;
 		this.modal = modal;
 		this.table = table;
-		
 		inicijalizuj();
 	}
 

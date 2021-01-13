@@ -331,7 +331,7 @@ public class EditStudentDialog extends JDialog {
 		panelButtons.add(btnObrisi);
 		panelButtons.add(btnPolaganje);
 		PredmetiJTable tableNepolozeni = new PredmetiJTable();	
-		tableNepolozeni.setModel(new AbstractTableModelNepolozeni(student));
+		tableNepolozeni.setModel(new AbstractTableModelNepolozeni(s));
 		
 		tabbedPane.addTab("Nepoloženi", panelNepolozeni);
 		panelNepolozeni.add(panelButtons);
@@ -343,7 +343,7 @@ public class EditStudentDialog extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DodavanjePredmetaStudentuDialog dialog = new DodavanjePredmetaStudentuDialog(thisDialog, "Dodavanje predmeta", true, student, tableNepolozeni);
+				DodavanjePredmetaStudentuDialog dialog = new DodavanjePredmetaStudentuDialog(thisDialog, "Dodavanje predmeta", true, s, tableNepolozeni);
 				dialog.setVisible(true);
 			}
 			
@@ -374,7 +374,19 @@ public class EditStudentDialog extends JDialog {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//UnosOceneDijalog oceni = new UnosOceneDijalog(thisDialog, "Upis ocene", true, student);
+				Predmet tmp = new Predmet();
+				for (Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+					if (p.getSifra().equals(tableNepolozeni.getValueAt(tableNepolozeni.getSelectedRow(), 0))) {
+						tmp = p;
+						break;
+					}
+						
+				}
+				
+				
+				
+				UnosOceneDijalog oceni = new UnosOceneDijalog(thisDialog, "Upis ocene", true,tableNepolozeni ,tmp, student);
+				oceni.setVisible(true);
 			}
 		});
 		add(tabbedPane);
