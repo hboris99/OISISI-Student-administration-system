@@ -29,6 +29,7 @@ import javax.swing.border.LineBorder;
 
 import model.BazaPredmeta;
 import model.Predmet;
+import validationListeners.PredmetValidationActionListener;
 import validationListeners.PredmetValidationKeyListener;
 
 public class EditPredmetDialog extends JDialog {
@@ -126,6 +127,7 @@ public class EditPredmetDialog extends JDialog {
 		labSemestar.setHorizontalAlignment(SwingConstants.LEFT);
 
 		JComboBox<Predmet.enumSemestar> comboSemestar = new JComboBox<Predmet.enumSemestar>(Predmet.enumSemestar.values());
+		
 		comboSemestar.setSelectedItem(predmet.getSemestar());
 		comboSemestar.setPreferredSize(tfSifra.getPreferredSize());
 		panel.add(comboSemestar, new GridBagConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -245,7 +247,10 @@ public class EditPredmetDialog extends JDialog {
 			listTxt.get(i).addKeyListener(
 					new PredmetValidationKeyListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 		}
-	
+		
+		comboSemestar.addActionListener(new PredmetValidationActionListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
+		comboGodStudija.addActionListener(new PredmetValidationActionListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
+		
 		btnOdustani.addActionListener(new ActionListener() {
 			
 			@Override
