@@ -37,46 +37,52 @@ public class EditEntityActionListener implements ActionListener {
 
 		switch (tab.getTab().getSelectedIndex()) {
 		case 0:
+			if(tab.getStudenti().getSelectedRow() >= 0) {
 			
-			for (Student s : BazaStudenata.getInstance().getStudenti()) {
-				if (s.getBroj_indeksa().equals(tab.getStudenti().getValueAt(tab.getStudenti().getSelectedRow(), 0))) {
-					student = s;
-					break;
+				for (Student s : BazaStudenata.getInstance().getStudenti()) {
+					if (s.getBroj_indeksa().equals(tab.getStudenti().getValueAt(tab.getStudenti().getSelectedRow(), 0))) {
+						student = s;
+						break;
+					}
 				}
-			}
-
-			if (!MainFrame.isEmpty(tab.getStudenti())) {
-				EditStudentDialog dialogStudent = new EditStudentDialog(parent, "Izmena studenta", true, student);
-				dialogStudent.setVisible(true);
+	
+				if (!MainFrame.isEmpty(tab.getStudenti())) {
+					EditStudentDialog dialogStudent = new EditStudentDialog(parent, "Izmena studenta", true, student);
+					dialogStudent.setVisible(true);
+				}
 			}
 			break;
 
 		case 1:
 			
-			for(Profesor p: BazaProfesora.getInstance().getProfesori()) {
-				if(p.getBroj_lk().equals(tab.getProfesori().getModel().getValueAt(tab.getProfesori().getSelectedRow(),4))) {
-				profesor = p;
-				break;
+			if(tab.getProfesori().getSelectedRow() >= 0) {
+				for(Profesor p: BazaProfesora.getInstance().getProfesori()) {
+					if(p.getBroj_lk().equals(tab.getProfesori().getModel().getValueAt(tab.getProfesori().getSelectedRow(),4))) {
+					profesor = p;
+					break;
+					}
 				}
-			}
-			System.out.println(tab.getProfesori().getValueAt(tab.getProfesori().getSelectedRow(),0));
-			if(!MainFrame.isEmpty(tab.getProfesori())) {
-			IzmeniProfesoraDialog dialogProfesor = new IzmeniProfesoraDialog(parent, "Izmena profesora", true, profesor);
-			dialogProfesor.setVisible(true);
+				System.out.println(tab.getProfesori().getValueAt(tab.getProfesori().getSelectedRow(),0));
+				if(!MainFrame.isEmpty(tab.getProfesori())) {
+				IzmeniProfesoraDialog dialogProfesor = new IzmeniProfesoraDialog(parent, "Izmena profesora", true, profesor);
+				dialogProfesor.setVisible(true);
+				}
 			}
 			break;
 			
 		case 2:
-			for (Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
-				if (p.getSifra().equals(tab.getPredmeti().getValueAt(tab.getPredmeti().getSelectedRow(), 0))) {
-					predmet = p;
-					break;
+			if(tab.getPredmeti().getSelectedRow() >= 0) {
+				for (Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+					if (p.getSifra().equals(tab.getPredmeti().getValueAt(tab.getPredmeti().getSelectedRow(), 0))) {
+						predmet = p;
+						break;
+					}
 				}
-			}
-
-			if (!MainFrame.isEmpty(tab.getPredmeti())) {
-				EditPredmetDialog dialogPredmet = new EditPredmetDialog(parent, "Izmena predmeta", true, predmet);
-				dialogPredmet.setVisible(true);
+	
+				if (!MainFrame.isEmpty(tab.getPredmeti())) {
+					EditPredmetDialog dialogPredmet = new EditPredmetDialog(parent, "Izmena predmeta", true, predmet);
+					dialogPredmet.setVisible(true);
+				}
 			}
 			break;
 			

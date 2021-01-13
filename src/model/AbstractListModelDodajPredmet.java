@@ -17,7 +17,10 @@ public class AbstractListModelDodajPredmet extends AbstractListModel <Predmet>{
 
 	@Override
 	public int getSize() {
-		return predmeti.size();
+		if(predmeti == null)
+			return 0;
+		else
+			return predmeti.size();
 	}
 
 	@Override

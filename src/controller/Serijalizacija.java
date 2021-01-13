@@ -42,6 +42,24 @@ public class Serijalizacija {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		
+//		for(Student s: BazaStudenata.getInstance().getStudenti()) {
+//			s.setNepolozeni(new ArrayList<Predmet>());
+//		}
+//		for(Student s: BazaStudenata.getInstance().getStudenti()) {
+//			s.setPolozeni(new ArrayList<Ocena>());
+//		}
+//		
+//		for(Profesor prof: BazaProfesora.getInstance().getProfesori()) {
+//			prof.setPredmeti_radi(new ArrayList<Predmet>());
+//		}
+//		
+//		for(Predmet pred: BazaPredmeta.getInstance().getPredmeti()) {
+//			pred.setStudentip(new ArrayList<Student>());
+//			pred.setStudentinp(new ArrayList<Student>());
+//		}
+
 	}
 
 	public static void serijalizuj() {

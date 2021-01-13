@@ -10,10 +10,15 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+import javax.swing.WindowConstants;
 
+import controller.Serijalizacija;
 import listeners.AboutDialogActionListener;
 import listeners.AddEntityActionListener;
+import listeners.CloseAppWindowListener;
+import listeners.DeleteEntityListener;
 import listeners.HelpDialogActionListener;
 
 public class MenuBar extends JMenuBar {
@@ -41,8 +46,21 @@ public class MenuBar extends JMenuBar {
 		miClose.setIcon(xIcon);
 		miClose.setAccelerator(KeyStroke.getKeyStroke("control C"));
 		miClose.addActionListener(new ActionListener() {
+			
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("miClose performed");
+				JFrame frame = MainFrame.getInstance();
+				
+				int reply = JOptionPane.showConfirmDialog(frame,"Zatvori?", "Potvrda", JOptionPane.YES_NO_OPTION );
+				if(reply == JOptionPane.NO_OPTION) {
+					frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+				}else{
+					Serijalizacija.serijalizuj();
+					frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);	
+					frame.dispose();
+					System.exit(0);
+				}
+				
 			}
 		});
 
@@ -66,6 +84,7 @@ public class MenuBar extends JMenuBar {
 		});
 
 		JMenuItem miDelete = new JMenuItem("Delete", 'D');
+		miDelete.addActionListener(new DeleteEntityListener(parent, tab));
 		ImageIcon deleteIcon = new ImageIcon(new ImageIcon("images" + File.separator + "delete_Icon.png").getImage()
 				.getScaledInstance(16, 16, Image.SCALE_DEFAULT));
 		miDelete.setIcon(deleteIcon);

@@ -35,50 +35,54 @@ public class DeleteEntityListener implements ActionListener {
 		int reply;
 		switch (tab.getTab().getSelectedIndex()) {
 		case 0:
-			reply = -1;
-			if (!MainFrame.isEmpty(tab.getStudenti())) {
-				reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete studenta?", "Potvrda", JOptionPane.YES_NO_OPTION);
-			}
-			if(reply == JOptionPane.YES_OPTION) {
-				for (Student s : BazaStudenata.getInstance().getStudenti()) {
-					if (s.getBroj_indeksa().equals(tab.getStudenti().getValueAt(tab.getStudenti().getSelectedRow(), 0))) {
-						StudentController.getInstance().obrisiStudenta(s);
-						break;
+			if(tab.getStudenti().getSelectedRow() >= 0) {
+				reply = -1;
+				if (!MainFrame.isEmpty(tab.getStudenti())) {
+					reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete studenta?", "Potvrda", JOptionPane.YES_NO_OPTION);
+				}
+				if(reply == JOptionPane.YES_OPTION) {
+					for (Student s : BazaStudenata.getInstance().getStudenti()) {
+						if (s.getBroj_indeksa().equals(tab.getStudenti().getValueAt(tab.getStudenti().getSelectedRow(), 0))) {
+							StudentController.getInstance().obrisiStudenta(s);
+							break;
+						}
 					}
 				}
 			}
 			
 			break;
 		case 1:
-			reply = -1;
-			if (!MainFrame.isEmpty(tab.getProfesori())) {
-				reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete profesora?", "Potvrda", JOptionPane.YES_NO_OPTION);
-			}
-			if(reply == JOptionPane.YES_OPTION) {
-				for (Profesor p : BazaProfesora.getInstance().getProfesori()) {
-					if (p.getBroj_lk().equals(tab.getProfesori().getModel().getValueAt(tab.getProfesori().getSelectedRow(), 4))) {
-						ProfesoriController.getInstance().obrisiProf(p);
-						break;
+			if(tab.getProfesori().getSelectedRow() >= 0 ) {
+				reply = -1;
+				if (!MainFrame.isEmpty(tab.getProfesori())) {
+					reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete profesora?", "Potvrda", JOptionPane.YES_NO_OPTION);
+				}
+				if(reply == JOptionPane.YES_OPTION) {
+					for (Profesor p : BazaProfesora.getInstance().getProfesori()) {
+						if (p.getBroj_lk().equals(tab.getProfesori().getModel().getValueAt(tab.getProfesori().getSelectedRow(), 4))) {
+							ProfesoriController.getInstance().obrisiProf(p);
+							break;
+						}
 					}
 				}
 			}
-			
 			break;
 			
 		case 2:
-			reply = -1;
-			if (!MainFrame.isEmpty(tab.getPredmeti())) {
-				reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete predmet?", "Potvrda", JOptionPane.YES_NO_OPTION);
-			}
-			if(reply == JOptionPane.YES_OPTION) {
-				for (Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
-					if (p.getSifra().equals(tab.getPredmeti().getValueAt(tab.getPredmeti().getSelectedRow(), 0))) {
-						PredmetiController.getInstance().obrisiPredmet(p);
-						break;
+			if(tab.getPredmeti().getSelectedRow() >= 0 ) {
+				reply = -1;
+				if (!MainFrame.isEmpty(tab.getPredmeti())) {
+					reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete predmet?", "Potvrda", JOptionPane.YES_NO_OPTION);
+				}
+				if(reply == JOptionPane.YES_OPTION) {
+					for (Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+						if (p.getSifra().equals(tab.getPredmeti().getValueAt(tab.getPredmeti().getSelectedRow(), 0))) {
+							PredmetiController.getInstance().obrisiPredmet(p);
+							break;
+						}
 					}
 				}
 			}
-			
 			break;
 			
 			
