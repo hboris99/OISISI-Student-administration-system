@@ -37,9 +37,7 @@ public class AddPredmetDialog extends JDialog {
 
 		boolean[] nizBool = new boolean[3];
 		Arrays.fill(nizBool, Boolean.FALSE);
-		for (int i = 0; i < 3; i++) {
-			System.out.println(nizBool[i]);
-		}
+		
 		List<JTextField> listTxt = new ArrayList<JTextField>();
 
 		setSize(450, 500);
@@ -161,7 +159,6 @@ public class AddPredmetDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				System.out.println("Potvrdi btn pritisnut");
 				Predmet p = new Predmet();
 
 				p.setSifra(tfSifra.getText());
@@ -175,12 +172,11 @@ public class AddPredmetDialog extends JDialog {
 					BazaPredmeta.getInstance().getPredmeti().add(p);
 				}else {
 					JOptionPane.showMessageDialog(thisDialog,
-						    "Student sa tim indeksom vec postoji.",
+						    "Predmet sa tim IDom postoji.",
 						    "Greska",
 						    JOptionPane.ERROR_MESSAGE);
 				}
 				
-				//BazaPredmeta.getInstance().addPredmet(p);
 
 				MainFrame.getInstance().prikaziTabeluPredmeta();
 			}

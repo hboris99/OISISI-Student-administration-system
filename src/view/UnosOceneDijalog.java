@@ -61,9 +61,7 @@ public class UnosOceneDijalog extends JDialog {
 	void inicijalizuj() {
 		boolean[] nizBool = new boolean[4];
 		Arrays.fill(nizBool, Boolean.FALSE);
-		for (int i = 0; i < 3; i++) {
-			System.out.println(nizBool[i]);
-		}
+		
 		List<JTextField> listTxt = new ArrayList<JTextField>();
 
 		setSize(450, 500);
@@ -158,7 +156,6 @@ public class UnosOceneDijalog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				System.out.println("Potvrdi btn pritisnut");
 				Ocena o = new Ocena(s, p,(int) comboOcena.getSelectedItem() , txtDatum.getText());
 				s.getPolozeni().add(o);
 				s.getNepolozeni().remove(p);
@@ -171,7 +168,7 @@ public class UnosOceneDijalog extends JDialog {
 		});
 			for(int i = 0; i<3;i++) {
 				listTxt.get(i).addKeyListener(new UnosOceneKeyListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
-
+				
 			}
 		JButton btnOdustani = new JButton("Odustani");
 		panel.add(btnOdustani, new GridBagConstraints(1, 10, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,

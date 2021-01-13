@@ -58,23 +58,19 @@ public class TabbedPane extends JPanel {
 			
 			idTcm.removeColumn(idTcm.getColumn(4));
 			
-			//profesoriSorter = new TableRowSorter<TableModel>();
-			//profesori.setRowSorter(profesoriSorter);
 			JScrollPane sp =new JScrollPane(profesori);
 			tabbedPane.addTab("Profesor",sp);
 		
 			AbstractTableModelPredmeti modelPredmeti = new AbstractTableModelPredmeti();
 			predmeti = new JTable(modelPredmeti);
 			predmeti.setAutoCreateRowSorter(true);
-			//predmetiSorter = new TableRowSorter<TableModel>();
-			//predmeti.setRowSorter(predmetiSorter);
+			
 			JScrollPane sp3 = new JScrollPane(predmeti);
 			tabbedPane.addTab("Predmeti", sp3);
 			
 			tab = tabbedPane;
 			add(tab);
 			
-			//http://www.java2s.com/Tutorials/Java/Swing_How_to/JTabbedPane/Tell_if_the_tab_that_is_the_active_tab_in_JTabbedPane.htm
 			
 			
 			tabbedPane.addChangeListener(new ChangeListener() {

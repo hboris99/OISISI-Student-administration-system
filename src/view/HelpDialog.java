@@ -32,7 +32,8 @@ public class HelpDialog extends JDialog{
 				+ " ALT + E - otvaranje edit menija, nakon otvaranja edit menija ALT + E - edit ALT + D - delete, \ndijalozi nisu implementirani ali mnemonici su tu\n"
 				+ " ALT + H - otvaranje help menija, nakon otvaranja help menija ALT + H otvara help dijalog, \nALT + A otvara about dijalog\n"
 				+ "AKCELERATORI:\n"
-				+ "Dodavanje entiteta - CTRL + N, Zatvaranje - CTRL + C, Editovanje entiteta - CTRL + E,\n Brisanje entiteta - CTRL + D, Otvaranje help-a CTRL + H, Otvaranje about-a CTRL+A");
+				+ "Dodavanje entiteta - CTRL + N, Zatvaranje - CTRL + C, Editovanje entiteta - CTRL + E,\n Brisanje entiteta - CTRL + D, Otvaranje help-a CTRL + H, Otvaranje about-a CTRL+A\n"
+				+ "Sve funkcionalnosti potupno implementirane, Dodavanje/Izmena/Brisanje svih entiteta sistema, dodavanje\n predmeta ocenivanje prikaz polozenih tj ne polozenih ispita nakon sto se student doda na isti \ndodavanje predmeta profesoru..");
 		info.setFont(info.getFont().deriveFont((float) 25.0));
 
 		info.setBackground(this.getBackground());

@@ -18,6 +18,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -41,9 +42,7 @@ public class AddProfesorDialog extends JDialog {
 		
 		boolean[] nizBool = new boolean[9];
 		Arrays.fill(nizBool, Boolean.FALSE);
-		for(int i = 0; i<9; i++) {
-			System.out.println(nizBool[i]);
-		}
+		
 		
 		setSize(450, 500);
 		setLocationRelativeTo(parent);
@@ -244,7 +243,7 @@ public class AddProfesorDialog extends JDialog {
 				return rendererComponent;
 			}
 		});
-	
+		AddProfesorDialog thisDialog = this;
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setEnabled(false);
 		panel.add(btnPotvrdi, new GridBagConstraints( 0, 10, 1, 1, 1.0,
@@ -255,21 +254,20 @@ public class AddProfesorDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				System.out.println(tfbrLK.getText());
-				//System.out.println(BazaProfesora.getInstance().isValid(tfbrLK.getText()));
 				if(BazaProfesora.getInstance().isValid(tfbrLK.getText())) {
 					ProfesoriController.getInstance().dodajProf(tfPrezime.getText(), tfIme.getText(), 
 							tfDatRodj.getText(), tfAdresa.getText(), tfBrTel.getText(), tfEmail.getText(),
 							tfadrKanc.getText(), tfbrLK.getText(), (Profesor.Titula) comboTitula.getSelectedItem(),
 							(Profesor.Zvanje) comboZvanje.getSelectedItem(), null);
-					//System.out.println("Potvrdi btn pritisnut");
 
 					
 						MainFrame.getInstance().prikaziTabeluProfesora();
 
 				}else {
-					System.out.println("Vec Postoji taj prof sa licnom");
-					dispose();
+					JOptionPane.showMessageDialog(thisDialog,
+						    "Profesor sa tim brojem licne karte postoji.",
+						    "Greska",
+						    JOptionPane.ERROR_MESSAGE);
 					MainFrame.getInstance().prikaziTabeluProfesora();
 					
 				}
@@ -292,9 +290,7 @@ public class AddProfesorDialog extends JDialog {
 
 		
 		
-		for(int i = 0; i<8; i++) {
-			System.out.println("\t"+nizBool[i]);
-		}
+		
 		
 	}
 

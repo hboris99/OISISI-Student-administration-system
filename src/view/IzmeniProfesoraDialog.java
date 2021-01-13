@@ -51,9 +51,7 @@ public class IzmeniProfesoraDialog extends JDialog{
 		
 		boolean[] nizBool = new boolean[8];
 		Arrays.fill(nizBool, Boolean.FALSE);
-		for (int i = 0; i < 8; i++) {
-			System.out.println(nizBool[i]);
-		}
+		
 		List<JTextField> listTxt = new ArrayList<JTextField>();
 
 		setSize(450, 500);
@@ -265,17 +263,13 @@ public class IzmeniProfesoraDialog extends JDialog{
 					p.setBroj_lk(tfBrLK.getText());		
 				}else {
 					JOptionPane.showMessageDialog(thisDialog,
-						    "Student sa tim indeksom vec postoji.",
+						    "Profesor sa tim brojem licne karte vec postoji.",
 						    "Greska",
 						    JOptionPane.ERROR_MESSAGE);
 				}
 				p.setZvanje((Profesor.Zvanje) comboZvanje.getSelectedItem());
 				p.setTitula((Profesor.Titula) comboTitula.getSelectedItem());
-
-//				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
-//					System.out.println(temp);
-//				}
-
+			
 				MainFrame.getInstance().prikaziTabeluStudenata();
 				
 				
@@ -293,10 +287,6 @@ public class IzmeniProfesoraDialog extends JDialog{
 		comboTitula.addActionListener(new ProfesorValidatioActionListener(btnPotvrdi, (ArrayList<JTextField>)listTxt, nizBool));
 		comboZvanje.addActionListener(new ProfesorValidatioActionListener(btnPotvrdi, (ArrayList<JTextField>)listTxt, nizBool));
 
-		for (int i = 0; i < 8; i++) {
-			System.out.println("\t" + nizBool[i]);
-			System.out.println(tfIme.getWidth());
-		}
 		
 		btnOdustani.addActionListener(new ActionListener() {
 			

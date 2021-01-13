@@ -50,9 +50,7 @@ public class EditStudentDialog extends JDialog {
 /////////////////////I	N	F	O	R	M	A	C	I	J	E///////////////////////////
 		boolean[] nizBool = new boolean[8];
 		Arrays.fill(nizBool, Boolean.FALSE);
-		for (int i = 0; i < 8; i++) {
-			System.out.println(nizBool[i]);
-		}
+		
 		List<JTextField> listTxt = new ArrayList<JTextField>();
 
 		setSize(525, 500);
@@ -236,7 +234,6 @@ public class EditStudentDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				System.out.println("Potvrdi btn pritisnut");
 
 				student.setIme(tfIme.getText());
 				student.setPrezime(tfPrezime.getText());
@@ -257,10 +254,6 @@ public class EditStudentDialog extends JDialog {
 				student.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				student.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
 
-//				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
-//					System.out.println(temp);
-//				}
-
 				MainFrame.getInstance().prikaziTabeluStudenata();
 			}
 		});
@@ -276,10 +269,7 @@ public class EditStudentDialog extends JDialog {
 		comboGodStudija.addActionListener(new StudentValidationActionListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 		comboNacinFin.addActionListener(new StudentValidationActionListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 
-		for (int i = 0; i < 8; i++) {
-			System.out.println("\t" + nizBool[i]);
-			System.out.println(tfIme.getWidth());
-		}
+		
 
 		btnOdustani.addActionListener(new ActionListener() {
 
