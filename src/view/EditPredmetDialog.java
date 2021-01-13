@@ -1,7 +1,10 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -22,6 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import model.BazaPredmeta;
 import model.Predmet;
@@ -149,13 +153,62 @@ public class EditPredmetDialog extends JDialog {
 		labPredmetniProfesor.setPreferredSize(new Dimension(170, 18));
 		labPredmetniProfesor.setHorizontalAlignment(SwingConstants.LEFT);
 
-		JTextField tfProfesor = new JTextField(20);
+		JPanel panelProfesor = new JPanel(new FlowLayout(FlowLayout.LEFT, 7, 0));
+		JButton plus = new JButton("+");
+		
+		JButton minus = new JButton("-");
+		
+		if(predmet.getProfesor() == null)
+			minus.setEnabled(false);
+		else
+			plus.setEnabled(false);
+		
+		plus.setFont(new Font("Arial",Font.PLAIN,15));
+		minus.setFont(new Font("Arial",Font.PLAIN,15));
+		plus.setBorder( new LineBorder(Color.BLACK, 1) );
+		minus.setBorder( new LineBorder(Color.BLACK, 1) );
+		plus.setPreferredSize(new Dimension(20,20));
+		minus.setPreferredSize(new Dimension(20,20));
+		
+		JDialog thisDialog = this;
+		
+		JTextField tfProfesor = new JTextField(15);
+		if(predmet.getProfesor() != null)
+			tfProfesor.setText(predmet.getProfesor().getIme() + " " + predmet.getProfesor().getPrezime());
+		tfProfesor.setEditable(false);
+		
+		plus.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DodajProfesoraNaPredmetDialog dialog = new DodajProfesoraNaPredmetDialog(thisDialog, "Odaberi profesora", true, predmet, plus, minus, tfProfesor);
+				dialog.setSize(250,400);
+				dialog.setLocationRelativeTo(thisDialog);
+				dialog.setVisible(true);	
+			}
+		});
+		
+		minus.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				predmet.setProfesor(null);
+				plus.setEnabled(true);
+				minus.setEnabled(false);
+				tfProfesor.setText("");
+			}
+		});
+		
+		
+
 		listTxt.add(tfProfesor);
-		// tfBrTel.setPreferredSize(new Dimension(700, 20));
-		panel.add(tfProfesor, new GridBagConstraints(1, 5, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+		
+		panelProfesor.add(tfProfesor);
+		panelProfesor.add(plus);
+		panelProfesor.add(minus);
+		panel.add(panelProfesor, new GridBagConstraints(1, 5, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, -15, -25, 37), 0, 0));
 
-		Component thisDialog = this;
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setEnabled(false);
 		panel.add(btnPotvrdi, new GridBagConstraints(0, 6, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -201,7 +254,7 @@ public class EditPredmetDialog extends JDialog {
 				dispose();
 			}
 		});
-
+		setResizable(false);
 	}
 
 }

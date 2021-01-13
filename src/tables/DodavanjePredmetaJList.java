@@ -1,6 +1,5 @@
 package tables;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListSelectionModel;
@@ -50,7 +49,6 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 		
 		AbstractListModelDodajPredmet listModel = new AbstractListModelDodajPredmet(predmeti);
 		setModel(listModel);
-	
 		
 		setCellRenderer(new PredmetRenderer());
 		

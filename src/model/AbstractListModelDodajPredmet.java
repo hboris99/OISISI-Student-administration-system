@@ -3,7 +3,6 @@ package model;
 import java.util.ArrayList;
 
 import javax.swing.AbstractListModel;
-import javax.swing.DefaultListCellRenderer;
 
 public class AbstractListModelDodajPredmet extends AbstractListModel <Predmet>{
 
