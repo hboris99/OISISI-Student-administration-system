@@ -53,6 +53,7 @@ public class TabbedPane extends JPanel {
 
 			AbstractTableModelProfesori modelProfesori = new AbstractTableModelProfesori(); 
 			profesori = new JTable(modelProfesori);
+			profesori.setAutoCreateRowSorter(true);
 			TableColumnModel idTcm = profesori.getColumnModel();
 			
 			idTcm.removeColumn(idTcm.getColumn(4));
@@ -64,6 +65,7 @@ public class TabbedPane extends JPanel {
 		
 			AbstractTableModelPredmeti modelPredmeti = new AbstractTableModelPredmeti();
 			predmeti = new JTable(modelPredmeti);
+			predmeti.setAutoCreateRowSorter(true);
 			//predmetiSorter = new TableRowSorter<TableModel>();
 			//predmeti.setRowSorter(predmetiSorter);
 			JScrollPane sp3 = new JScrollPane(predmeti);

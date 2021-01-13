@@ -85,6 +85,6 @@ public class MainFrame extends JFrame {
 		if (table != null && table.getModel() != null) {
 			return table.getModel().getRowCount() <= 0 ? true : false;
 		}
-		return false;
+		return true;
 	}
 }

@@ -32,6 +32,7 @@ public class SearchListener implements ActionListener {
 		case 0:  
 			  TableRowSorter<TableModel> studentSorter = new TableRowSorter<>(tab.getStudenti().getModel());
 			  tab.getStudenti().setRowSorter(studentSorter);
+			  tab.getStudenti().getRowSorter().convertRowIndexToView(0);
 			  if(query.getText().trim().length() == 0 || delovi.length > 3) {
 				  studentSorter.setRowFilter(null); // ('a^')
 			  }else {

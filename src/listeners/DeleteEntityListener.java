@@ -90,9 +90,6 @@ public class DeleteEntityListener implements ActionListener {
 			System.out.println("Tab koji ste izabrali ne postoji.");
 		}
 
-		// AddStudentDialog dialog = new AddStudentDialog(parent, "Dodavanje studenta",
-		// true);
-		// dialog.setVisible(true);
 	}
 
 }
