@@ -29,8 +29,11 @@ import abstractTableModel.AbstractTableModelPredaje;
 import controller.ProfesoriController;
 import model.BazaPredmeta;
 import model.BazaProfesora;
+import model.BazaStudenata;
 import model.Predmet;
 import model.Profesor;
+import model.Profesor.Zvanje;
+import model.Student;
 import tables.PredajeJTable;
 import validationListeners.ProfesorValidatioActionListener;
 import validationListeners.ProfesorValidationKeyListener;
@@ -176,6 +179,8 @@ public class IzmeniProfesoraDialog extends JDialog{
 		JComboBox<Profesor.Titula> comboTitula = new JComboBox<Profesor.Titula>(Profesor.Titula.values());
 
 		comboTitula.setPreferredSize(new Dimension(158, 18));
+		comboTitula.setSelectedItem(p.getTitula());
+
 //		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
 		panel.add(comboTitula, new GridBagConstraints(1, 9, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, 0, 42), 0, 0));
@@ -211,7 +216,8 @@ public class IzmeniProfesoraDialog extends JDialog{
 		JComboBox<Profesor.Zvanje> comboZvanje = new JComboBox<Profesor.Zvanje>(Profesor.Zvanje.values());
 		
 		comboZvanje.setPreferredSize(new Dimension(158, 18));
-//		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
+		comboZvanje.setSelectedItem(p.getZvanje());
+		//		comboNacinFin.setPreferredSize(new Dimension(tfIme.getWidth(), tfIme.getHeight()));
 		panel.add(comboZvanje, new GridBagConstraints(1, 8, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, -25, 42), 0, 0));
 		comboZvanje.setRenderer(new DefaultListCellRenderer() { // https://docs.oracle.com/javase/7/docs/api/javax/swing/DefaultListCellRenderer.html
@@ -247,22 +253,31 @@ public class IzmeniProfesoraDialog extends JDialog{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				if(BazaProfesora.getInstance().isValid(tfBrLK.getText())) {
-
-					ProfesoriController.getInstance().updateProf(tfPrezime.getText(), tfIme.getText(), 
-							tfDatRodj.getText(), tfAdresa.getText(), tfBrTel.getText(), tfEmail.getText(),
-							tfAdresaKanc.getText(), tfBrLK.getText(), (Profesor.Titula) comboTitula.getSelectedItem(),
-							(Profesor.Zvanje) comboZvanje.getSelectedItem(), null);
-
+				p.setIme(tfIme.getText());
+				p.setPrezime(tfPrezime.getText());
+				p.setDatum_rodjenja(tfDatRodj.getText());
+				p.setAdresa_stanovanja(tfAdresa.getText());
+				p.setTelefon(tfBrTel.getText());
+				p.setEmail(tfEmail.getText());
+				p.setAdresa_kancelarije(tfAdresaKanc.getText());
+				if(!BazaProfesora.exists(tfBrLK.getText()) || p.getBroj_lk().equals(tfBrLK.getText())){
 					
-						MainFrame.getInstance().prikaziTabeluProfesora();
+					p.setBroj_lk(tfBrLK.getText());		
 				}else {
-				JOptionPane.showMessageDialog(thisDialog,
-					    "Profesor sa tim brojem licne karte vec postoji.",
-					    "Greska",
-					    JOptionPane.ERROR_MESSAGE);
-			}
+					JOptionPane.showMessageDialog(thisDialog,
+						    "Student sa tim indeksom vec postoji.",
+						    "Greska",
+						    JOptionPane.ERROR_MESSAGE);
+				}
+				p.setZvanje((Profesor.Zvanje) comboZvanje.getSelectedItem());
+				p.setTitula((Profesor.Titula) comboTitula.getSelectedItem());
+
+//				for (Student temp : BazaStudenata.getInstance().getStudenti()) {
+//					System.out.println(temp);
+//				}
+
+				MainFrame.getInstance().prikaziTabeluStudenata();
+				
 				
 				}
 		});

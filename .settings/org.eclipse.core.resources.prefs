@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/validationListeners/ProfesorValidatioActionListener.java=UTF-8
+encoding//src/validationListeners/ProfesorValidationKeyListener.java=UTF-8
 encoding//src/view/AboutDialog.java=UTF-8
 encoding//src/view/HelpDialog.java=UTF-8
 encoding//src/view/Toolbar.java=UTF-8

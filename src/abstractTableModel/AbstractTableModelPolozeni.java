@@ -18,8 +18,8 @@ public class AbstractTableModelPolozeni extends AbstractTableModel {
 		kolone.add("Sifra");
 		kolone.add("Naziv");
 		kolone.add("ESPB");
-		kolone.add("Godina");
-		kolone.add("Semestar");
+		kolone.add("Ocena");
+		kolone.add("Datum");
 	}
 
 	@Override
@@ -47,9 +47,9 @@ public class AbstractTableModelPolozeni extends AbstractTableModel {
 		case 2: 
 			return student.getPolozeni().get(rowIndex).getPredmet().getEspb();
 		case 3: 
-			return student.getPolozeni().get(rowIndex).getPredmet().getGodina_studija();
+			return student.getPolozeni().get(rowIndex).getOcena();
 		case 4:
-			return student.getPolozeni().get(rowIndex).getPredmet().getSemestar();
+			return student.getPolozeni().get(rowIndex).getDatum_polaganja();
 			
 		default: 
 			return null;

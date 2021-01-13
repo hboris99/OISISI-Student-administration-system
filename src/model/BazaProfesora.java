@@ -148,6 +148,14 @@ public final class BazaProfesora {
 			}
 		}
 	}
+
+	public static boolean exists(String text) {
+		for(Profesor p: BazaProfesora.getInstance().getProfesori()) {
+			if(p.getBroj_lk().trim().equals(text.trim()))
+				return true;	
+		}
+		return false;
+	}
 	
 }
 
