@@ -20,12 +20,16 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import abstractTableModel.AbstractTableModelNepolozeni;
+import controller.StudentController;
+import model.BazaPredmeta;
 import model.BazaStudenata;
+import model.Predmet;
 import model.Student;
 import validationListeners.StudentValidationActionListener;
 import validationListeners.StudentValidationKeyListener;
@@ -38,9 +42,8 @@ public class EditStudentDialog extends JDialog {
 
 	public EditStudentDialog(Frame parent, String title, boolean modal, Student s) {
 		super(parent, title, modal);
-
+		setResizable(false);
 		student = s;
-
 		JTabbedPane tabbedPane = new JTabbedPane();
 
 /////////////////////I	N	F	O	R	M	A	C	I	J	E///////////////////////////
@@ -51,7 +54,7 @@ public class EditStudentDialog extends JDialog {
 		}
 		List<JTextField> listTxt = new ArrayList<JTextField>();
 
-		setSize(450, 500);
+		setSize(525, 500);
 		setLocationRelativeTo(parent);
 
 		JPanel panelInfo = new JPanel();
@@ -315,15 +318,7 @@ public class EditStudentDialog extends JDialog {
 		
 		JPanel panelButtons = new JPanel();
 		JButton btnDodaj = new JButton("Dodaj");
-		btnDodaj.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				DodavanjePredmetaStudentuDialog dialog = new DodavanjePredmetaStudentuDialog(thisDialog, "Dodavanje predmeta", true, student);
-				dialog.setVisible(true);
-			}
-			
-		});
 		JButton btnObrisi = new JButton("Ukloni");
 		JButton btnPolaganje = new JButton("Polaganje");
 		
@@ -335,10 +330,41 @@ public class EditStudentDialog extends JDialog {
 		
 		tabbedPane.addTab("Nepoloženi", panelNepolozeni);
 		panelNepolozeni.add(panelButtons);
-		panelNepolozeni.add(tableNepolozeni);
+		JScrollPane scp = new JScrollPane(tableNepolozeni);
+		scp.setPreferredSize(new Dimension(425,360));
+		panelNepolozeni.add(scp);
 		
+		btnDodaj.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DodavanjePredmetaStudentuDialog dialog = new DodavanjePredmetaStudentuDialog(thisDialog, "Dodavanje predmeta", true, student, tableNepolozeni);
+				dialog.setVisible(true);
+			}
+			
+		});
 		
-		
+		btnObrisi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int reply = JOptionPane.showConfirmDialog(panelPolozeni, "Da li ste sigurni da zelite da uklinite predmet", "Potvrda", JOptionPane.YES_NO_OPTION);
+				Predmet pTemp = null;
+				if(reply == JOptionPane.YES_OPTION) {
+					for (Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+						if (p.getSifra().equals(tableNepolozeni.getValueAt(tableNepolozeni.getSelectedRow(), 0))) {
+							pTemp = p;
+							break;
+						}
+					}
+					StudentController.getInstance().ukloniPredmet(student, pTemp);
+					tableNepolozeni.setModel(new AbstractTableModelNepolozeni(student));
+				}
+				else {
+					dispose();
+				}
+			}
+		});
 		
 		add(tabbedPane);
 

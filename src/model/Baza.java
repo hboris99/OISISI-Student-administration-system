@@ -18,7 +18,7 @@ public class Baza implements Serializable{
 		predmeti = new ArrayList<Predmet>();
 		
 		for(Student s: studenti) {
-			s.setNepolozeni(new ArrayList<Ocena>());
+			s.setNepolozeni(new ArrayList<Predmet>());
 			s.setPolozeni(new ArrayList<Ocena>());
 		}
 		

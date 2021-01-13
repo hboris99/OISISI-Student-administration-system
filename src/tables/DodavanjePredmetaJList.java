@@ -1,13 +1,17 @@
 package tables;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JList;
 
+import model.AbstractListModelDodajPredmet;
 import model.BazaPredmeta;
 import model.Ocena;
 import model.Predmet;
 import model.Student;
+import renderers.PredmetRenderer;
 
 public class DodavanjePredmetaJList extends JList<Predmet>{
 
@@ -18,7 +22,7 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 	public DodavanjePredmetaJList(Student s) {
 		student = s;
 		inicijalizujListu();
-	
+		setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
 	}
 	
 	public void inicijalizujListu() {
@@ -27,8 +31,8 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 			if(student.getGodina_studija() < p.getGodina_studija()) 
 				continue;
 			found = false;
-			for(Ocena o: student.getNepolozeni()) {
-				if(o.getPredmet() == p) {
+			for(Predmet p2: student.getNepolozeni()) {
+				if(p2 == p) {
 					found = true;
 					break;
 				}
@@ -41,11 +45,17 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 			}
 			
 			
-		if(found == false) predmeti.add(p);
+			if(found == false) predmeti.add(p);
 		}
+		
+		AbstractListModelDodajPredmet listModel = new AbstractListModelDodajPredmet(predmeti);
+		setModel(listModel);
+	
+		
+		setCellRenderer(new PredmetRenderer());
+		
+		setVisible(true);
 		
 	}
 	
-
-
 }

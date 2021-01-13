@@ -22,16 +22,16 @@ public class Student implements Serializable {
 	private	enumStatus status;
 	private	float prosecna_ocena;
 	private	ArrayList<Ocena> polozeni = new ArrayList<Ocena>();
-	private	ArrayList<Ocena> nepolozeni = new ArrayList<Ocena>();
+	private	ArrayList<Predmet> nepolozeni = new ArrayList<Predmet>();
 	
 	public Student() {
 		polozeni = new ArrayList<Ocena>();
-		nepolozeni = new ArrayList<Ocena>();
+		nepolozeni = new ArrayList<Predmet>();
 	}
 
 	public Student(String prezime, String ime, String datum_rodjenja, String adresa_stanovanja, String telefon,
 			String email, String broj_indeksa, int godina_upisa, int godina_studija, enumStatus status,
-			float prosecna_ocena, ArrayList<Ocena> polozeni, ArrayList<Ocena> nepolozeni) {
+			float prosecna_ocena, ArrayList<Ocena> polozeni, ArrayList<Predmet> nepolozeni) {
 		super();
 		this.prezime = prezime;
 		this.ime = ime;
@@ -165,11 +165,11 @@ public class Student implements Serializable {
 		this.polozeni = polozeni;
 	}
 
-	public ArrayList<Ocena> getNepolozeni() {
+	public ArrayList<Predmet> getNepolozeni() {
 		return nepolozeni;
 	}
 
-	public void setNepolozeni(ArrayList<Ocena> nepolozeni) {
+	public void setNepolozeni(ArrayList<Predmet> nepolozeni) {
 		this.nepolozeni = nepolozeni;
 	}
 

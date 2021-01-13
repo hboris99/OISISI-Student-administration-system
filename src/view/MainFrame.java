@@ -73,13 +73,11 @@ public class MainFrame extends JFrame {
 		this.azurirajPrikaz(null, -1);
 
 	}
+	
 	public void prikaziTabeluStudenata() {
 		tabelaStudenata = new StudentiJTable();
-
 		TabbedPane tab = TabbedPane.getInstance();
 		add(tab);
-
-
 		this.azurirajPrikaz(null, -1);
 	}
 	

@@ -3,9 +3,12 @@ package controller;
 import java.util.ArrayList;
 
 import model.BazaProfesora;
+import model.BazaStudenata;
 import model.Predmet;
+import model.Profesor;
 import model.Profesor.Titula;
 import model.Profesor.Zvanje;
+import view.MainFrame;
 
 public class ProfesoriController {
 	
@@ -31,9 +34,10 @@ public class ProfesoriController {
 		BazaProfesora.getInstance().updateProfesra(prezime, ime, datum_rodjenja,adresa_stanovanja, telefon,email,adresa_kancelarije,
 													broj_lk,titula, zvanje,predmeti_radi);
 	}
-	public void obrisiProf(int rowSelectedIndex) {
-		//Profesor prof = BazaProfesora.getInstance().getRow(rowSelectedIndex);
-		//BazaProfesora.getInstance().izbrisiProfesora(prof.getBroj_lk());
+	public void obrisiProf(Profesor profesor) {
+		BazaProfesora.getInstance().getProfesori().remove(profesor);
+
+		MainFrame.getInstance().prikaziTabeluProfesora();
 	}
 	
 	

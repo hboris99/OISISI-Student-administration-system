@@ -11,10 +11,6 @@ import abstractTableModel.AbstractTableModelProfesori;
 
 public class ProfesoriJTable extends JTable {
 
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public ProfesoriJTable() {

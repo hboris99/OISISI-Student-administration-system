@@ -50,6 +50,18 @@ public class DeleteEntityListener implements ActionListener {
 			
 			break;
 		case 1:
+			reply = -1;
+			if (!MainFrame.isEmpty(tab.getProfesori())) {
+				reply = JOptionPane.showConfirmDialog(parent, "Da li ste sigurni da zelite da obrisete profesora?", "Potvrda", JOptionPane.YES_NO_OPTION);
+			}
+			if(reply == JOptionPane.YES_OPTION) {
+				for (Profesor p : BazaProfesora.getInstance().getProfesori()) {
+					if (p.getBroj_lk().equals(tab.getProfesori().getModel().getValueAt(tab.getProfesori().getSelectedRow(), 4))) {
+						ProfesoriController.getInstance().obrisiProf(p);
+						break;
+					}
+				}
+			}
 			
 			break;
 			
