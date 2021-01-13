@@ -30,6 +30,7 @@ import abstractTableModel.AbstractTableModelPolozeni;
 import controller.StudentController;
 import model.BazaPredmeta;
 import model.BazaStudenata;
+import model.Ocena;
 import model.Predmet;
 import model.Student;
 import validationListeners.StudentValidationActionListener;
@@ -234,7 +235,6 @@ public class EditStudentDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-
 				student.setIme(tfIme.getText());
 				student.setPrezime(tfPrezime.getText());
 				student.setDatum_rodjenja(tfDatRodj.getText());
@@ -253,6 +253,7 @@ public class EditStudentDialog extends JDialog {
 				student.setGodina_upisa(Integer.parseInt(tfGodUpisa.getText()));
 				student.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				student.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
+				
 
 				MainFrame.getInstance().prikaziTabeluStudenata();
 			}

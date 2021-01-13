@@ -58,7 +58,7 @@ public class Serijalizacija {
 //		for(Predmet pred: BazaPredmeta.getInstance().getPredmeti()) {
 //			pred.setStudentip(new ArrayList<Student>());
 //			pred.setStudentinp(new ArrayList<Student>());
-//		}
+		//}
 
 	}
 
