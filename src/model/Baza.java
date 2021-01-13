@@ -30,6 +30,7 @@ public class Baza implements Serializable{
 			pred.setStudentip(new ArrayList<Student>());
 			pred.setStudentinp(new ArrayList<Student>());
 		}
+
 	}
 	
 	public static Baza getInstance() {

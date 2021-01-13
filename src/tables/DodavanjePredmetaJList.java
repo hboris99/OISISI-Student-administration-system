@@ -30,19 +30,23 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 			if(student.getGodina_studija() < p.getGodina_studija()) 
 				continue;
 			found = false;
-			for(Predmet p2: student.getNepolozeni()) {
-				if(p2 == p) {
-					found = true;
-					break;
-				}
-			}
-			for(Ocena o: student.getPolozeni()) {
-				if(o.getPredmet() == p) {
-					found = true;
-					break;
+			if(student.getNepolozeni() != null) {
+				for(Predmet p2: student.getNepolozeni()) {
+					if(p2 == p) {
+						found = true;
+						break;
+					}
 				}
 			}
 			
+			if(student.getPolozeni() != null) {
+				for(Ocena o: student.getPolozeni()) {
+					if(o.getPredmet() == p) {
+						found = true;
+						break;
+					}
+				}
+			}
 			
 			if(found == false) predmeti.add(p);
 		}
