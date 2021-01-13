@@ -2,7 +2,6 @@ package view;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -18,7 +17,6 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -26,14 +24,9 @@ import javax.swing.SwingConstants;
 
 import abstractTableModel.AbstractTableModelNepolozeni;
 import abstractTableModel.AbstractTableModelPolozeni;
-import abstractTableModel.AbstractTableModelPredaje;
-import model.BazaStudenata;
 import model.Ocena;
 import model.Predmet;
-import model.Profesor;
 import model.Student;
-import validationListeners.ProfesorValidationKeyListener;
-import validationListeners.StudentValidationKeyListener;
 import validationListeners.UnosOceneKeyListener;
 
 public class UnosOceneDijalog extends JDialog {

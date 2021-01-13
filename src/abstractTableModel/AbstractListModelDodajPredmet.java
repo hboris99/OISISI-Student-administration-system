@@ -1,8 +1,10 @@
-package model;
+package abstractTableModel;
 
 import java.util.ArrayList;
 
 import javax.swing.AbstractListModel;
+
+import model.Predmet;
 
 public class AbstractListModelDodajPredmet extends AbstractListModel <Predmet>{
 

@@ -30,6 +30,7 @@ import abstractTableModel.AbstractTableModelPolozeni;
 import controller.StudentController;
 import model.BazaPredmeta;
 import model.BazaStudenata;
+import model.Ocena;
 import model.Predmet;
 import model.Student;
 import validationListeners.StudentValidationActionListener;
@@ -287,14 +288,7 @@ public class EditStudentDialog extends JDialog {
 		
 		JPanel panelButton = new JPanel();
 		JButton btnPonisti = new JButton("Poništi ocenu");
-		btnPonisti.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int reply = JOptionPane.showConfirmDialog(panelPolozeni, "Da li ste sigurni da zelite da ponistite ocenu", "Potvrda", JOptionPane.YES_NO_OPTION);
-			}
-			
-		});
 		panelButton.add(btnPonisti);
 		
 		PredmetiJTable tablePolozeni = new PredmetiJTable();
@@ -307,6 +301,29 @@ public class EditStudentDialog extends JDialog {
 		panelPolozeni.add(polscp);
 		
 		tabbedPane.addTab("Položeni", panelPolozeni);
+		
+		btnPonisti.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int reply = JOptionPane.showConfirmDialog(panelPolozeni, "Da li ste sigurni da zelite da ponistite ocenu", "Potvrda", JOptionPane.YES_NO_OPTION);
+				if(reply == JOptionPane.YES_OPTION) {
+					for(Student sIterator: BazaStudenata.getInstance().getStudenti()) {
+						if(sIterator == student) {
+							for(Ocena oIterator: student.getPolozeni()) {
+								if(oIterator.getPredmet().getSifra().equals(tablePolozeni.getValueAt(tablePolozeni.getSelectedRow(), 0)))
+									sIterator.getPolozeni().remove(oIterator);
+									break;
+							}
+							//student.getPolozeni().remove(tablePolozeni.getValueAt(tablePolozeni.getSelectedRow(), reply))
+						}
+					}
+					
+				}
+				tablePolozeni.setModel(new AbstractTableModelPolozeni(student));
+			}
+			
+		});
 		
 ////////////////////////N	E	P	O	L	O	Z	E	N	I//////////////////////////////		
 		JPanel panelNepolozeni = new JPanel();
