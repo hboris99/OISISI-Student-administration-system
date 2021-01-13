@@ -44,23 +44,22 @@ public class AbstractTableModelNepolozeni extends AbstractTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		switch(columnIndex) {
-		
-		case 0:
-			return student.getNepolozeni().get(rowIndex).getSifra();
-		case 1:
-			return student.getNepolozeni().get(rowIndex).getNaziv();
-		case 2: 
-			return student.getNepolozeni().get(rowIndex).getEspb();
-		case 3: 
-			return student.getNepolozeni().get(rowIndex).getGodina_studija();
-		case 4:
-			return student.getNepolozeni().get(rowIndex).getSemestar();
+			switch(columnIndex) {
 			
-		default: 
-			return null;
-		}
-		
+			case 0:
+				return student.getNepolozeni().get(rowIndex).getSifra();
+			case 1:
+				return student.getNepolozeni().get(rowIndex).getNaziv();
+			case 2: 
+				return student.getNepolozeni().get(rowIndex).getEspb();
+			case 3: 
+				return student.getNepolozeni().get(rowIndex).getGodina_studija();
+			case 4:
+				return student.getNepolozeni().get(rowIndex).getSemestar();
+				
+			default: 
+				return null;
+			}
 
 	}
 

@@ -1,6 +1,9 @@
-package model;
+package abstractTableModel;
 
 import javax.swing.AbstractListModel;
+
+import model.BazaProfesora;
+import model.Profesor;
 
 public class AbstractListModelDodajProfesoraNaPredmet extends AbstractListModel<Profesor> {
 

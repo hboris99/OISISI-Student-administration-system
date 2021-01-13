@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JList;
 
-import model.AbstractListModelDodajPredmet;
+import abstractTableModel.AbstractListModelDodajPredmet;
 import model.BazaPredmeta;
 import model.Predmet;
 import model.Profesor;

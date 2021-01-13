@@ -3,7 +3,7 @@ package tables;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JList;
 
-import model.AbstractListModelDodajProfesoraNaPredmet;
+import abstractTableModel.AbstractListModelDodajProfesoraNaPredmet;
 import model.Profesor;
 import renderers.ProfesorRenderer;
 
