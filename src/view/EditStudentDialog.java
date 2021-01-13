@@ -253,8 +253,6 @@ public class EditStudentDialog extends JDialog {
 				student.setGodina_upisa(Integer.parseInt(tfGodUpisa.getText()));
 				student.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				student.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
-				
-
 				MainFrame.getInstance().prikaziTabeluStudenata();
 			}
 		});
