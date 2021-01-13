@@ -35,6 +35,12 @@ public class AbstractTableModelPredmeti extends AbstractTableModel {
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		return BazaPredmeta.getInstance().getValueAt(rowIndex, columnIndex);
 	}
-
 	
+	@Override
+    public Class getColumnClass(int column) {
+		if(column == 2) {
+			return Integer.class;
+		}
+		else return String.class;
+    }
 }
