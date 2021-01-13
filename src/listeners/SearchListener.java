@@ -72,8 +72,8 @@ public class SearchListener implements ActionListener {
 			  }else {
 				  if(delovi.length == 2) {
 				  List<RowFilter<Object, Object>> filteri = new ArrayList<RowFilter<Object, Object>>(2);
-				  filteri.add(RowFilter.regexFilter(delovi[0]));
-				  filteri.add(RowFilter.regexFilter(delovi[1]));
+				  filteri.add(RowFilter.regexFilter(delovi[0], 0));
+				  filteri.add(RowFilter.regexFilter(delovi[1], 1));
 				  RowFilter<Object, Object> profesorFilter = RowFilter.andFilter(filteri);
 				  profSorter.setRowFilter(profesorFilter);
 				  }else {

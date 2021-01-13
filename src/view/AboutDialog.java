@@ -97,7 +97,7 @@ public class AboutDialog extends JDialog {
 		add(borisBioImpl,gbc);
 		
 		
-		JLabel appVer = new JLabel("Verzija aplikacije: BETA 1.0.0");
+		JLabel appVer = new JLabel("Verzija aplikacije: 1.0.0");
 
 		gbc.gridx = 1;
         gbc.gridy = 4;
