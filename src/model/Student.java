@@ -150,7 +150,17 @@ public class Student implements Serializable {
 
 
 	public float getProsecna_ocena() {
-		return prosecna_ocena;
+		float suma = 0;
+		float broj = polozeni.size();
+		for(Ocena o: polozeni) {
+			suma += o.getOcena();
+		}
+		prosecna_ocena = (suma/broj);	
+		
+		if(broj == 0)
+			return 0;
+		else
+			return prosecna_ocena;
 	}
 
 
@@ -181,6 +191,14 @@ public class Student implements Serializable {
 				+ ", broj_indeksa=" + broj_indeksa + ", godina_upisa=" + godina_upisa + ", godina_studija="
 				+ godina_studija + ", status=" + status + ", prosecna_ocena=" + prosecna_ocena + ", polozeni="
 				+ polozeni + ", nepolozeni=" + nepolozeni + "]";
+	}
+
+	public int izracunajESPB() {
+			int espb = 0;
+			for(Ocena o: polozeni) {
+				espb += o.getPredmet().getEspb();
+			}
+		return espb;
 	}
 	
 	

@@ -1,17 +1,21 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.Box;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -235,6 +239,7 @@ public class EditStudentDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+
 				student.setIme(tfIme.getText());
 				student.setPrezime(tfPrezime.getText());
 				student.setDatum_rodjenja(tfDatRodj.getText());
@@ -253,6 +258,7 @@ public class EditStudentDialog extends JDialog {
 				student.setGodina_upisa(Integer.parseInt(tfGodUpisa.getText()));
 				student.setGodina_studija((int) comboGodStudija.getSelectedItem());
 				student.setStatus((Student.enumStatus) comboNacinFin.getSelectedItem());
+
 				MainFrame.getInstance().prikaziTabeluStudenata();
 			}
 		});
@@ -282,24 +288,38 @@ public class EditStudentDialog extends JDialog {
 		tabbedPane.addTab("Informacije", panelInfo);
 		
 ////////////////////////////P	O	L	O	Z	E	N	I//////////////////////////////
-		JPanel panelPolozeni = new JPanel();
+		JLabel labProsek = new JLabel();
+		JLabel labEspb = new JLabel();
+		float prosek = BazaStudenata.getInstance().getStudentByIndex(student.getBroj_indeksa()).getProsecna_ocena();
+		int ESPB = BazaStudenata.getInstance().getStudentByIndex(student.getBroj_indeksa()).izracunajESPB();
 		
-		JPanel panelButton = new JPanel();
+		JPanel panelPolozeni = new JPanel(new BorderLayout());
+		
 		JButton btnPonisti = new JButton("Poništi ocenu");
-
-		panelButton.add(btnPonisti);
+		JPanel panelTopFlow = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		
+		panelTopFlow.add(btnPonisti);
+		
 		
 		PredmetiJTable tablePolozeni = new PredmetiJTable();
 		tablePolozeni.setModel(new AbstractTableModelPolozeni(student));
 		
-		
-		panelPolozeni.add(panelButton);
+		panelPolozeni.add(panelTopFlow, BorderLayout.NORTH);
 		JScrollPane polscp = new JScrollPane(tablePolozeni);
 		polscp.setPreferredSize(new Dimension(425,360));
-		panelPolozeni.add(polscp);
+		panelPolozeni.add(polscp, BorderLayout.CENTER);
 		
 		tabbedPane.addTab("Položeni", panelPolozeni);
+		JPanel prosekPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		Box prosekBox = Box.createVerticalBox();
 		
+		DecimalFormat df = new DecimalFormat("0.00");
+		
+		labProsek.setText("Prosecna ocena: " + df.format(prosek));
+		labEspb.setText("Ukupno ESPB: " + ESPB);
+		prosekBox.add(labProsek);
+		prosekBox.add(labEspb);
+		prosekPanel.add(prosekBox);
 		btnPonisti.addActionListener(new ActionListener() {
 
 			@Override
@@ -309,19 +329,28 @@ public class EditStudentDialog extends JDialog {
 					for(Student sIterator: BazaStudenata.getInstance().getStudenti()) {
 						if(sIterator == student) {
 							for(Ocena oIterator: student.getPolozeni()) {
-								if(oIterator.getPredmet().getSifra().equals(tablePolozeni.getValueAt(tablePolozeni.getSelectedRow(), 0)))
+								if(oIterator.getPredmet().getSifra().equals(tablePolozeni.getValueAt(tablePolozeni.getSelectedRow(), 0))) {
 									sIterator.getPolozeni().remove(oIterator);
+									float prosek = BazaStudenata.getInstance().getStudentByIndex(student.getBroj_indeksa()).getProsecna_ocena();
+									int ESPB = BazaStudenata.getInstance().getStudentByIndex(student.getBroj_indeksa()).izracunajESPB();
+									labProsek.setText("Prosecna ocena: " + df.format(prosek));
+									labEspb.setText("Ukupno ESPB: " + ESPB);
+									labProsek.paintImmediately(labProsek.getVisibleRect());
+									labEspb.paintImmediately(labEspb.getVisibleRect());
 									break;
+								}
 							}
-							//student.getPolozeni().remove(tablePolozeni.getValueAt(tablePolozeni.getSelectedRow(), reply))
+							
 						}
 					}
 					
 				}
-				tablePolozeni.setModel(new AbstractTableModelPolozeni(student));
+				tablePolozeni.setModel(new AbstractTableModelPolozeni(student));	
 			}
 			
 		});
+		
+		panelPolozeni.add(prosekPanel, BorderLayout.SOUTH);
 		
 ////////////////////////N	E	P	O	L	O	Z	E	N	I//////////////////////////////		
 		JPanel panelNepolozeni = new JPanel();
@@ -335,6 +364,7 @@ public class EditStudentDialog extends JDialog {
 		panelButtons.add(btnDodaj);
 		panelButtons.add(btnObrisi);
 		panelButtons.add(btnPolaganje);
+		
 		PredmetiJTable tableNepolozeni = new PredmetiJTable();	
 		tableNepolozeni.setModel(new AbstractTableModelNepolozeni(s));
 		
@@ -348,7 +378,7 @@ public class EditStudentDialog extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DodavanjePredmetaStudentuDialog dialog = new DodavanjePredmetaStudentuDialog(thisDialog, "Dodavanje predmeta", true, s, tableNepolozeni);
+				DodavanjePredmetaStudentuDialog dialog = new DodavanjePredmetaStudentuDialog(thisDialog, "Dodavanje predmeta", true, s, tableNepolozeni, labProsek, labEspb);
 				dialog.setVisible(true);
 			}
 			
@@ -390,7 +420,7 @@ public class EditStudentDialog extends JDialog {
 				
 				
 				
-				UnosOceneDijalog oceni = new UnosOceneDijalog(thisDialog, "Upis ocene", true,tableNepolozeni, tablePolozeni ,tmp, student);
+				UnosOceneDijalog oceni = new UnosOceneDijalog(thisDialog, "Upis ocene", true,tableNepolozeni, tablePolozeni ,tmp, student, labProsek, labEspb);
 				oceni.setVisible(true);
 			}
 		});

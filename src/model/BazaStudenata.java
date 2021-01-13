@@ -73,7 +73,7 @@ public final class BazaStudenata {
 //		}
 //	}
 	
-	public String getValueAt(int row, int column) {
+	public Object getValueAt(int row, int column) {
 		Student student = this.studenti.get(row);
 		switch (column) {
 		case 0:
@@ -91,7 +91,8 @@ public final class BazaStudenata {
 				return "Samofinansiranje";
 			}
 		case 5:
-			return "0";
+			
+			return	Math.round(student.getProsecna_ocena() * 100.0) / 100.0 ;
 
 		default:
 			return null;

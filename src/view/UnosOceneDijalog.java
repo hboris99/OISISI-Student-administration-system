@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,6 +25,7 @@ import javax.swing.SwingConstants;
 
 import abstractTableModel.AbstractTableModelNepolozeni;
 import abstractTableModel.AbstractTableModelPolozeni;
+import model.BazaStudenata;
 import model.Ocena;
 import model.Predmet;
 import model.Student;
@@ -39,8 +41,10 @@ public class UnosOceneDijalog extends JDialog {
 	Predmet p;
 	JTable tableOne;
 	JTable tableTwo;
+	JLabel labProsek;
+	JLabel labEspb;
 		
-	public UnosOceneDijalog(EditStudentDialog parent, String title, boolean modal, JTable table1, JTable table2, Predmet p, Student s) {
+	public UnosOceneDijalog(EditStudentDialog parent, String title, boolean modal, JTable table1, JTable table2, Predmet p, Student s, JLabel labProsek, JLabel labEspb) {
 		super(parent, title, modal);
 		this.parent = parent;
 		this.title = title;
@@ -49,6 +53,8 @@ public class UnosOceneDijalog extends JDialog {
 		this.tableTwo = table2;
 		this.p = p;
 		this.s = s;
+		this.labProsek = labProsek;
+		this.labEspb = labEspb;
 		inicijalizuj();
 	}
 	void inicijalizuj() {
@@ -153,6 +159,13 @@ public class UnosOceneDijalog extends JDialog {
 				s.getPolozeni().add(o);
 				s.getNepolozeni().remove(p);
 				//s.getOcene().add(o);
+				float prosek = BazaStudenata.getInstance().getStudentByIndex(s.getBroj_indeksa()).getProsecna_ocena();
+				int ESPB = BazaStudenata.getInstance().getStudentByIndex(s.getBroj_indeksa()).izracunajESPB();
+				DecimalFormat df = new DecimalFormat("0.00");
+				labProsek.setText("Prosecna ocena: " + df.format(prosek));
+				labEspb.setText("Ukupno ESPB: " + ESPB);
+				labProsek.paintImmediately(labProsek.getVisibleRect());
+				labEspb.paintImmediately(labEspb.getVisibleRect());
 				tableOne.setModel(new AbstractTableModelNepolozeni(s));
 				tableTwo.setModel(new AbstractTableModelPolozeni(s));
 				dispose();

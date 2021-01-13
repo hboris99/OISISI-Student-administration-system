@@ -8,11 +8,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import abstractTableModel.AbstractTableModelNepolozeni;
+import model.BazaStudenata;
 import model.Student;
 import tables.DodavanjePredmetaJList;
 
@@ -24,14 +26,18 @@ public class DodavanjePredmetaStudentuDialog extends JDialog{
 	boolean modal;
 	Student s;
 	JTable table;
+	JLabel labProsek;
+	JLabel labEspb;
 	
-	public DodavanjePredmetaStudentuDialog(JDialog parent, String title, boolean modal, Student s, JTable table) {
+	public DodavanjePredmetaStudentuDialog(JDialog parent, String title, boolean modal, Student s, JTable table, JLabel labProsek, JLabel labEspb) {
 		super(parent, title, modal);
 		this.s = s;
 		this.parent = parent;
 		this.title = title;
 		this.modal = modal;
 		this.table = table;
+		this.labProsek = labProsek;
+		this.labEspb = labEspb;
 		inicijalizuj();
 	}
 
@@ -69,6 +75,7 @@ public class DodavanjePredmetaStudentuDialog extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				s.getNepolozeni().add(lista.getSelectedValue());
+
 				table.setModel(new AbstractTableModelNepolozeni(s));
 			}
 		});
@@ -77,8 +84,10 @@ public class DodavanjePredmetaStudentuDialog extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				dispose();
 			}
 		});
+		
 	}
 }
