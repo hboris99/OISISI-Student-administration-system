@@ -65,7 +65,7 @@ public class UnosOceneDijalog extends JDialog {
 		panel.add(tfSifra, new GridBagConstraints(1, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 20, -25, 37), 0, 0));
 		tfSifra.setText(p.getSifra());
-		
+		tfSifra.setEditable(false);
 		JLabel labNaziv = new JLabel("Naziv*", JLabel.TRAILING);
 		panel.add(labNaziv, new GridBagConstraints(0, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, -25, -30), 0, 0));
@@ -78,10 +78,16 @@ public class UnosOceneDijalog extends JDialog {
 		panel.add(tfNaziv, new GridBagConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 20, -25, 37), 0, 0));
 		tfNaziv.setText(p.getNaziv());
-		Integer niz[] = { 6, 7, 7, 9, 10 };
+		tfNaziv.setEditable(false);
+		JLabel labOcena = new JLabel("Ocena*", JLabel.TRAILING);
+		panel.add(labOcena, new GridBagConstraints(0, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 25, -25, -30), 0, 0));
+		labOcena.setPreferredSize(new Dimension(170, 18));
+		labOcena.setHorizontalAlignment(SwingConstants.LEFT);
+		Integer niz[] = { 6, 7, 8, 9, 10 };
 		JComboBox<Integer> comboOcena = new JComboBox<Integer>(niz);
 		comboOcena.setPreferredSize(tfSifra.getPreferredSize());
-		panel.add(comboOcena, new GridBagConstraints(1, 8, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+		panel.add(comboOcena, new GridBagConstraints(1, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, -25, 42), 0, 0));
 		comboOcena.setRenderer(new DefaultListCellRenderer() { // https://docs.oracle.com/javase/7/docs/api/javax/swing/DefaultListCellRenderer.html
 			@Override // https://tips4java.wordpress.com/2013/11/17/combo-box-with-custom-renderer/
