@@ -1,5 +1,7 @@
 package abstractTableModel;
 
+import java.util.ArrayList;
+
 import javax.swing.table.AbstractTableModel;
 
 import model.Predmet;
@@ -9,11 +11,17 @@ import model.Student;
 public class AbstractTableModelPredaje extends AbstractTableModel{
 
 	private static final long serialVersionUID = 1L;
-Profesor p;
-	
+	Profesor p;
+	ArrayList<String> kolone;
+
 	public AbstractTableModelPredaje(Profesor prof) {
 		super();
 		p = prof;
+		kolone = new ArrayList<String>();
+		kolone.add("Sifra");
+		kolone.add("Naziv");
+		kolone.add("Godina Studija");
+		kolone.add("Semestar");
 	}
 
 	public int getRowCount() {
@@ -23,7 +31,10 @@ Profesor p;
 	public int getColumnCount() {
 		return 4;
 	}
-
+	@Override
+	public String getColumnName(int column) {
+		return this.kolone.get(column);
+	}
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		switch(columnIndex) {
 		

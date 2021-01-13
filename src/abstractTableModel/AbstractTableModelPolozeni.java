@@ -1,5 +1,7 @@
 package abstractTableModel;
 
+import java.util.ArrayList;
+
 import javax.swing.table.AbstractTableModel;
 
 import model.Student;
@@ -7,10 +9,17 @@ import model.Student;
 public class AbstractTableModelPolozeni extends AbstractTableModel {
 
 	Student student;
-	
+	ArrayList<String> kolone;
+
 	public AbstractTableModelPolozeni(Student s) {
 		super();
 		student = s;
+		kolone = new ArrayList<String>();
+		kolone.add("Sifra");
+		kolone.add("Naziv");
+		kolone.add("ESPB");
+		kolone.add("Godina");
+		kolone.add("Semestar");
 	}
 
 	@Override
@@ -22,21 +31,25 @@ public class AbstractTableModelPolozeni extends AbstractTableModel {
 	public int getColumnCount() {
 		return 5;
 	}
-
+	@Override
+	public String getColumnName(int column) {
+		return this.kolone.get(column);
+	}
+	
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		switch(columnIndex) {
 		
 		case 0:
-			return student.getPolozeni().get(rowIndex).getPredmet().getSifra();
+			return student.getPolozeni().get(rowIndex).getSifra();
 		case 1:
-			return student.getPolozeni().get(rowIndex).getPredmet().getNaziv();
+			return student.getPolozeni().get(rowIndex).getNaziv();
 		case 2: 
-			return student.getPolozeni().get(rowIndex).getPredmet().getEspb();
+			return student.getPolozeni().get(rowIndex).getEspb();
 		case 3: 
-			return student.getPolozeni().get(rowIndex).getOcena();
+			return student.getPolozeni().get(rowIndex).getGodina_studija();
 		case 4:
-			return student.getPolozeni().get(rowIndex).getDatum_polaganja();
+			return student.getPolozeni().get(rowIndex).getSemestar();
 			
 		default: 
 			return null;

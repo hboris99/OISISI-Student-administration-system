@@ -19,7 +19,7 @@ public class Baza implements Serializable{
 		
 		for(Student s: studenti) {
 			s.setNepolozeni(new ArrayList<Predmet>());
-			s.setPolozeni(new ArrayList<Ocena>());
+			s.setPolozeni(new ArrayList<Predmet>());
 		}
 		
 		for(Profesor prof: profesori) {

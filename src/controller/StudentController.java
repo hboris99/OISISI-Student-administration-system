@@ -36,7 +36,7 @@ public class StudentController {
 			if(s == student) {
 				for(Predmet p: s.getNepolozeni()) {
 					if(p == predmet) {
-						s.getNepolozeni().remove(p);
+						s.getNepolozeni().remove(p);	
 						break;
 					}
 				}

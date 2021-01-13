@@ -26,6 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import abstractTableModel.AbstractTableModelNepolozeni;
+import abstractTableModel.AbstractTableModelPolozeni;
 import controller.StudentController;
 import model.BazaPredmeta;
 import model.BazaStudenata;
@@ -306,10 +307,14 @@ public class EditStudentDialog extends JDialog {
 		});
 		panelButton.add(btnPonisti);
 		
-		//PolozeniJTable tablePolozeni = new PolozeniJTable(student);
+		PredmetiJTable tablePolozeni = new PredmetiJTable();
+		tablePolozeni.setModel(new AbstractTableModelPolozeni(student));
+		
 		
 		panelPolozeni.add(panelButton);
-		//panelPolozeni.add(tablePolozeni);
+		JScrollPane polscp = new JScrollPane(tablePolozeni);
+		polscp.setPreferredSize(new Dimension(425,360));
+		panelPolozeni.add(polscp);
 		
 		tabbedPane.addTab("Položeni", panelPolozeni);
 		

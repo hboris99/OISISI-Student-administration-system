@@ -18,13 +18,18 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import abstractTableModel.AbstractTableModelPredaje;
 import controller.ProfesoriController;
+import model.BazaPredmeta;
 import model.BazaProfesora;
+import model.Predmet;
 import model.Profesor;
 import tables.PredajeJTable;
 import validationListeners.ProfesorValidationKeyListener;
@@ -231,6 +236,7 @@ public class IzmeniProfesoraDialog extends JDialog{
 				return rendererComponent;
 			}
 		});
+		IzmeniProfesoraDialog thisDialog = this;
 
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setEnabled(false);
@@ -284,11 +290,25 @@ public class IzmeniProfesoraDialog extends JDialog{
 		panelButton.add(btnDodaj);
 		panelButton.add(btnUkloni);
 		
-		PredajeJTable predajeNaPredmetima = new PredajeJTable(p);
+		PredmetiJTable predajeNaPredmetima = new PredmetiJTable();
+		predajeNaPredmetima.setModel(new AbstractTableModelPredaje(p));
+		JScrollPane sp = new JScrollPane(predajeNaPredmetima);
 		tp.addTab("Predmeti", panelPredmeti);
 		panelPredmeti.add(panelButton);
-		panelPredmeti.add(predajeNaPredmetima);
+		sp.setPreferredSize(new Dimension(425,360));
+		panelPredmeti.add(sp);
+		btnDodaj.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DodavanjePredmetaProfesoruDialog dialog = new DodavanjePredmetaProfesoruDialog(thisDialog, "Dodavanje Predmeta", true, p, predajeNaPredmetima);
+				dialog.setVisible(true);
+			}
+				
+			
+		});
+		
+		
 		}
 	
 }

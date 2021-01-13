@@ -27,6 +27,8 @@ public class Profesor implements Serializable{
 				String broj_lk,Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti_radi)
 		{
 			super();
+			ArrayList<Predmet> tmp = new ArrayList<Predmet>();
+			tmp  = predmeti_radi;
 			this.prezime = prezime;
 			this.ime = ime;
 			this.datum_rodjenja = datum_rodjenja;
@@ -37,7 +39,7 @@ public class Profesor implements Serializable{
 			this.broj_lk = broj_lk;
 			this.titula = titula;
 			this.zvanje = zvanje;
-			this.predmeti_radi = predmeti_radi;
+			this.predmeti_radi = tmp;
 			
 			
 			

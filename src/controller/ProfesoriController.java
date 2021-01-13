@@ -6,6 +6,7 @@ import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Predmet;
 import model.Profesor;
+import model.Student;
 import model.Profesor.Titula;
 import model.Profesor.Zvanje;
 import view.MainFrame;
@@ -39,6 +40,8 @@ public class ProfesoriController {
 
 		MainFrame.getInstance().prikaziTabeluProfesora();
 	}
+
+	
 	
 	
 	
