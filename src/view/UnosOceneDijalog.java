@@ -25,23 +25,43 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import abstractTableModel.AbstractTableModelNepolozeni;
+import abstractTableModel.AbstractTableModelPolozeni;
 import abstractTableModel.AbstractTableModelPredaje;
 import model.BazaStudenata;
 import model.Ocena;
 import model.Predmet;
+import model.Profesor;
 import model.Student;
+import validationListeners.ProfesorValidationKeyListener;
 import validationListeners.StudentValidationKeyListener;
+import validationListeners.UnosOceneKeyListener;
 
 public class UnosOceneDijalog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-
-	public UnosOceneDijalog(EditStudentDialog parent, String title, boolean modal, JTable table, Predmet p, Student s) {
+	JDialog parent;
+	String title;
+	boolean modal;
+	Student s;
+	Predmet p;
+	JTable tableOne;
+	JTable tableTwo;
+		
+	public UnosOceneDijalog(EditStudentDialog parent, String title, boolean modal, JTable table1, JTable table2, Predmet p, Student s) {
 		super(parent, title, modal);
-
+		this.parent = parent;
+		this.title = title;
+		this.modal = modal;
+		this.tableOne = table1;
+		this.tableTwo = table2;
+		this.p = p;
+		this.s = s;
+		inicijalizuj();
+	}
+	void inicijalizuj() {
 		boolean[] nizBool = new boolean[4];
 		Arrays.fill(nizBool, Boolean.FALSE);
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 3; i++) {
 			System.out.println(nizBool[i]);
 		}
 		List<JTextField> listTxt = new ArrayList<JTextField>();
@@ -127,11 +147,6 @@ public class UnosOceneDijalog extends JDialog {
 		// tfAdresa.setPreferredSize(new Dimension(700, 20));
 		panel.add(txtDatum, new GridBagConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 20, -25, 37), 0, 0));
-
-		
-
-		UnosOceneDijalog thisDialog = this;
-
 		
 		
 		JButton btnPotvrdi = new JButton("Potvrdi");
@@ -145,25 +160,19 @@ public class UnosOceneDijalog extends JDialog {
 
 				System.out.println("Potvrdi btn pritisnut");
 				Ocena o = new Ocena(s, p,(int) comboOcena.getSelectedItem() , txtDatum.getText());
+				s.getPolozeni().add(o);
+				s.getNepolozeni().remove(p);
+				//s.getOcene().add(o);
+				tableOne.setModel(new AbstractTableModelNepolozeni(s));
+				tableTwo.setModel(new AbstractTableModelPolozeni(s));
+				dispose();
 				
-
-				if(!BazaStudenata.exists(s.getBroj_indeksa())){
-					BazaStudenata.getInstance().getStudenti().add(s);
-				}else {
-					JOptionPane.showMessageDialog(thisDialog,
-						    "Student sa tim indeksom vec postoji.",
-						    "Greska",
-						    JOptionPane.ERROR_MESSAGE);
-				}
-
-				for (Student stud : BazaStudenata.getInstance().getStudenti()) {
-					System.out.println(stud);
-				}
-				
-				MainFrame.getInstance().prikaziTabeluStudenata();
 			}
 		});
+			for(int i = 0; i<3;i++) {
+				listTxt.get(i).addKeyListener(new UnosOceneKeyListener(btnPotvrdi, (ArrayList<JTextField>) listTxt, nizBool));
 
+			}
 		JButton btnOdustani = new JButton("Odustani");
 		panel.add(btnOdustani, new GridBagConstraints(1, 10, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 25, 0, 75), 0, 0));
@@ -178,3 +187,4 @@ public class UnosOceneDijalog extends JDialog {
 		});
 	}
 }
+

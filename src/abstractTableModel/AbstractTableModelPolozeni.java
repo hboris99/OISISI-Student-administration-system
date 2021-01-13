@@ -41,15 +41,15 @@ public class AbstractTableModelPolozeni extends AbstractTableModel {
 		switch(columnIndex) {
 		
 		case 0:
-			return student.getPolozeni().get(rowIndex).getSifra();
+			return student.getPolozeni().get(rowIndex).getPredmet().getSifra();
 		case 1:
-			return student.getPolozeni().get(rowIndex).getNaziv();
+			return student.getPolozeni().get(rowIndex).getPredmet().getNaziv();
 		case 2: 
-			return student.getPolozeni().get(rowIndex).getEspb();
+			return student.getPolozeni().get(rowIndex).getPredmet().getEspb();
 		case 3: 
-			return student.getPolozeni().get(rowIndex).getGodina_studija();
+			return student.getPolozeni().get(rowIndex).getPredmet().getGodina_studija();
 		case 4:
-			return student.getPolozeni().get(rowIndex).getSemestar();
+			return student.getPolozeni().get(rowIndex).getPredmet().getSemestar();
 			
 		default: 
 			return null;

@@ -385,7 +385,7 @@ public class EditStudentDialog extends JDialog {
 				
 				
 				
-				UnosOceneDijalog oceni = new UnosOceneDijalog(thisDialog, "Upis ocene", true,tableNepolozeni ,tmp, student);
+				UnosOceneDijalog oceni = new UnosOceneDijalog(thisDialog, "Upis ocene", true,tableNepolozeni, tablePolozeni ,tmp, student);
 				oceni.setVisible(true);
 			}
 		});

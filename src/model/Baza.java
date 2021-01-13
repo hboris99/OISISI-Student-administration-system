@@ -1,7 +1,11 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Baza implements Serializable{
 	
@@ -10,7 +14,6 @@ public class Baza implements Serializable{
 	ArrayList<Profesor> profesori;
 	ArrayList<Student> studenti;
 	ArrayList<Predmet> predmeti;
-	
 	private Baza() {
 		super();
 		studenti = new ArrayList<Student>();
@@ -19,7 +22,7 @@ public class Baza implements Serializable{
 		
 		for(Student s: studenti) {
 			s.setNepolozeni(new ArrayList<Predmet>());
-			s.setPolozeni(new ArrayList<Predmet>());
+			s.setPolozeni(new ArrayList<Ocena>());
 		}
 		
 		for(Profesor prof: profesori) {

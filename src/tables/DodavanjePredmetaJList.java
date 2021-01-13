@@ -36,8 +36,8 @@ public class DodavanjePredmetaJList extends JList<Predmet>{
 						found = true;
 						break;
 					}
-				}for(Predmet p3 : student.getPolozeni()) {
-					if(p3 == p) {
+				}for(Ocena p3 : student.getPolozeni()) {
+					if(p3.getPredmet() == p ) {
 						found = true;
 						break;
 					}
