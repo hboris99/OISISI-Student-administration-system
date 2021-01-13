@@ -44,6 +44,7 @@ public class DeleteEntityListener implements ActionListener {
 					for (Student s : BazaStudenata.getInstance().getStudenti()) {
 						if (s.getBroj_indeksa().equals(tab.getStudenti().getValueAt(tab.getStudenti().getSelectedRow(), 0))) {
 							StudentController.getInstance().obrisiStudenta(s);
+							tab.getStudenti().setRowSorter(null);
 							break;
 						}
 					}
