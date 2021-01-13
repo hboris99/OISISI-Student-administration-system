@@ -28,10 +28,8 @@ import javax.swing.SwingConstants;
 import abstractTableModel.AbstractTableModelPredaje;
 import controller.ProfesoriController;
 import model.BazaPredmeta;
-import model.BazaProfesora;
 import model.Predmet;
 import model.Profesor;
-import tables.PredajeJTable;
 import validationListeners.ProfesorValidationKeyListener;
 
 public class IzmeniProfesoraDialog extends JDialog{
@@ -287,8 +285,11 @@ public class IzmeniProfesoraDialog extends JDialog{
 		JPanel panelPredmeti = new JPanel();
 		JButton btnDodaj = new JButton("Dodaj predmet");
 		JButton btnUkloni = new JButton("Ukloni predmet");
+		
+		
 		panelButton.add(btnDodaj);
 		panelButton.add(btnUkloni);
+		
 		
 		PredmetiJTable predajeNaPredmetima = new PredmetiJTable();
 		predajeNaPredmetima.setModel(new AbstractTableModelPredaje(p));
@@ -308,6 +309,28 @@ public class IzmeniProfesoraDialog extends JDialog{
 			
 		});
 		
+		btnUkloni.addActionListener(new ActionListener() {
+			 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(predajeNaPredmetima.getSelectedRow() >= 0) {
+					int reply = JOptionPane.showConfirmDialog(panelPredmeti, "Da li ste sigurni da zelite da uklinite predmet", "Potvrda", JOptionPane.YES_NO_OPTION);
+					Predmet tmp = null;
+					if(reply == JOptionPane.YES_OPTION) {
+						for(Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+							if(p.getSifra().equals(predajeNaPredmetima.getValueAt(predajeNaPredmetima.getSelectedRow(),0))) {
+								tmp = p;
+								break;
+							}
+						}
+						ProfesoriController.getInstance().ukloniPredmet(p, tmp);
+						predajeNaPredmetima.setModel(new AbstractTableModelPredaje(p));
+					}else {
+						dispose();
+					}
+				}
+			}
+		});
 		
 		}
 	

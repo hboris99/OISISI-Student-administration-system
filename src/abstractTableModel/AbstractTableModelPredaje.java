@@ -36,24 +36,29 @@ public class AbstractTableModelPredaje extends AbstractTableModel{
 		return this.kolone.get(column);
 	}
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		switch(columnIndex) {
 		
-		case 0:
-			return p.getPredmeti_radi().get(rowIndex).getSifra();
-		case 1:
-			return p.getPredmeti_radi().get(rowIndex).getNaziv();
-		case 2: 
-			return p.getPredmeti_radi().get(rowIndex).getGodina_studija();
-		case 3: 
-			if(p.getPredmeti_radi().get(rowIndex).getSemestar() == Predmet.enumSemestar.LETNJI) {
-				return "Letnji";
-			}else {
-				return "Zimski";
+		if(p.getPredmeti_radi().get(rowIndex) != null) {
+		
+			switch(columnIndex) {
+			
+			case 0:
+				return p.getPredmeti_radi().get(rowIndex).getSifra();
+			case 1:
+				return p.getPredmeti_radi().get(rowIndex).getNaziv();
+			case 2: 
+				return p.getPredmeti_radi().get(rowIndex).getGodina_studija();
+			case 3: 
+				if(p.getPredmeti_radi().get(rowIndex).getSemestar() == Predmet.enumSemestar.LETNJI) {
+					return "Letnji";
+				}else {
+					return "Zimski";
+				}
+			default: 
+				return null;
 			}
-		default: 
-			return null;
-		}
 		
+		}
+		return null;
 
 }}
 
