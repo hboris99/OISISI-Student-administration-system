@@ -38,9 +38,19 @@ public class AbstractTableModelPredmeti extends AbstractTableModel {
 	
 	@Override
     public Class getColumnClass(int column) {
-		if(column == 2) {
-			return Integer.class;
-		}
-		else return String.class;
+        switch (column) {
+        case 0:
+            return String.class;
+        case 1:
+            return String.class;
+        case 2:
+            return Integer.class;
+        case 3:
+            return Integer.class;
+        case 4:
+        	return String.class;
+        default: 
+        	return String.class;
+    }
     }
 }
